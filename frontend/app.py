@@ -211,8 +211,10 @@ def section_candidates(record: dict) -> None:
         vetoed = candidate["smiles"] in record["decision"]["vetoed"]
         rows.append(
             {
-                "": "✗ VETOED" if vetoed
-                else ("✓ CHOSEN" if candidate["smiles"] == record["decision"]["chosen"]
+                # Short markers: the column is narrow and "VETOED"/"CHOSEN"
+                # were rendering truncated mid-word.
+                "": "✗" if vetoed
+                else ("✓" if candidate["smiles"] == record["decision"]["chosen"]
                       else ""),
                 "edit": candidate.get("transform", ""),
                 **{AXIS_LABELS[a]: round(norm[a], 2) for a in AXES},
