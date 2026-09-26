@@ -14,7 +14,18 @@ import os
 import re
 
 DEFAULT_MODEL = os.environ.get("AGENT_MODEL", "claude-sonnet-5")
-DEFAULT_MAX_TOKENS = 1200
+# Sonnet 5 and the Opus family run adaptive thinking by DEFAULT, with
+# thinking.display "omitted" -- the reasoning is billed and consumes max_tokens
+# but comes back as empty text. At 1200 a call could spend the whole budget
+# thinking and return a zero-character response, which complete_json then
+# reported as unparseable. Measured: 1 call in 5 died this way on the first
+# real run. Give the text room, and cap thinking with effort instead.
+DEFAULT_MAX_TOKENS = 4096
+
+# These are short structured judgements over a table that is already computed,
+# not hard reasoning problems. Low effort keeps the arguments sharp, the
+# latency down and the bill small.
+DEFAULT_EFFORT = os.environ.get("AGENT_EFFORT", "low")
 DEFAULT_TIMEOUT = float(os.environ.get("AGENT_TIMEOUT", "30"))
 
 _JSON_BLOCK = re.compile(r"\{.*\}", re.DOTALL)
@@ -46,6 +57,7 @@ def complete_json(system: str, user: str, model: str | None = None,
         response = _client().messages.create(
             model=model or DEFAULT_MODEL,
             max_tokens=max_tokens,
+            output_config={"effort": DEFAULT_EFFORT},
             system=system,
             messages=[{"role": "user", "content": user}],
         )

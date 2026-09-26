@@ -128,7 +128,13 @@ class Probe:
         if failures:
             print(f"\n{len(failures)} call(s) fell back to the deterministic path:")
             for event in failures[:6]:
-                print(f"  [{event['outcome']}] {event.get('error', '')}")
+                stop = event.get("stop_reason")
+                print(
+                    f"  [{event['outcome']}] {event.get('error', '')}"
+                    + (f"  stop_reason={stop}" if stop else "")
+                    + (f"  out_tokens={event['output_tokens']}"
+                       if event.get("output_tokens") else "")
+                )
                 if event.get("sample"):
                     print(f"      model said: {event['sample']!r}")
 

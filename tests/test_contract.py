@@ -291,3 +291,21 @@ def test_relative_veto_still_blocks_deepening_a_known_liability(monkeypatch):
     review = agents.SAFETY_AGENT.review(parent, candidates, candidates[0])
     assert review["verdict"] == "veto"
     assert set(review["vetoed"]) == {"CCC", "CCCC"}
+
+
+def test_safety_reason_always_states_the_actual_ruling(monkeypatch):
+    """The transcript must not claim a veto the mechanism did not perform."""
+    monkeypatch.setenv("AGENT_LLM", "off")
+    parent = _candidate("CCO", herg=0.135)
+    candidates = [_candidate("CCC", herg=0.25), _candidate("CCCC", herg=0.11)]
+    review = agents.SAFETY_AGENT.review(parent, candidates, candidates[0])
+    assert review["vetoed"] == ["CCCC"]
+    assert "Ruling: 1 of 2 vetoed" in review["reason"]
+    assert review["rule"] == "relative"
+
+    clean = _candidate("CCO", herg=0.90)
+    safe = [_candidate("CCC", herg=0.95), _candidate("CCCC", herg=0.92)]
+    review = agents.SAFETY_AGENT.review(clean, safe, safe[0])
+    assert review["vetoed"] == []
+    assert "Ruling: nothing vetoed" in review["reason"]
+    assert review["rule"] == "absolute"

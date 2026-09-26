@@ -274,8 +274,24 @@ class SafetyAgent:
             if isinstance(reason_text, str) and reason_text.strip():
                 reason = reason_text.strip()
 
+        # The prose can overreach. On the first real run the model wrote "this
+        # chemotype is not salvageable ... I cannot advance any of these" while
+        # the mechanism had vetoed exactly one candidate and the orchestrator
+        # went on to advance another. A transcript that claims something the
+        # system did not do is worse than a dull one, so the ruling is stated
+        # from the veto set itself and appended after whatever was argued.
+        ruling = (
+            f"Ruling: {len(vetoed)} of {len(candidates)} vetoed"
+            f" ({rule} line at herg-safety {_fmt(line)})."
+            if vetoed
+            else f"Ruling: nothing vetoed ({rule} line at herg-safety {_fmt(line)})."
+        )
+        reason = f"{reason} {ruling}"
+
         return {
             "agent": self.label,
+            "line": line,
+            "rule": rule,
             "verdict": verdict,
             "reason": reason,
             "preferred": best["smiles"],
