@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Haloperidol",
+    "smiles": "C1CN(CCC1(C2=CC=C(C=C2)Cl)O)CCCC(=O)C3=CC=C(C=C3)F",
+    "scores": {
+      "affinity": 0.9999994,
+      "solubility": -4.4772,
+      "bbb": 0.9837,
+      "herg": 0.8653,
+      "sa": 2.1227
+    }
+  },
+  {
+    "name": "Droperidol",
+    "smiles": "C1CN(CC=C1N2C3=CC=CC=C3NC2=O)CCCC(=O)C4=CC=C(C=C4)F",
+    "scores": {
+      "affinity": 0.9744,
+      "solubility": -3.3753,
+      "bbb": 0.9973,
+      "herg": 0.9004,
+      "sa": 2.5154
+    }
+  },
+  {
+    "name": "Sulpiride",
+    "smiles": "CCN1CCCC1CNC(=O)C2=C(C=CC(=C2)S(=O)(=O)N)OC",
+    "scores": {
+      "affinity": 0.9848,
+      "solubility": -2.4255,
+      "bbb": 0.7409,
+      "herg": 0.3715,
+      "sa": 2.5667
+    }
+  },
+  {
+    "name": "Clozapine-like control",
+    "smiles": "CN1CCN(CC1)C2=NC3=CC=CC=C3NC4=C2C=C(C=C4)Cl",
+    "scores": {
+      "affinity": 0.91,
+      "solubility": -3.1,
+      "bbb": 0.88,
+      "herg": 0.62,
+      "sa": 2.9
+    }
+  },
+  {
+    "name": "Metoclopramide",
+    "smiles": "CCN(CC)CCNC(=O)C1=CC(=C(C=C1)OC)N",
+    "scores": {
+      "affinity": 0.72,
+      "solubility": -2.0,
+      "bbb": 0.58,
+      "herg": 0.24,
+      "sa": 2.4
+    }
+  }
+]

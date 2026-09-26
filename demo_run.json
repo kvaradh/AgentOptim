@@ -1,0 +1,898 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-09-26T20:02:26.583231+00:00",
+  "target": "DRD2",
+  "execution_mode": "cached",
+  "proposal_contract": "deterministic_v1",
+  "seed": {
+    "name": "Haloperidol",
+    "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+    "raw": {
+      "affinity": 0.9999993745656254,
+      "solubility": -4.477168560028076,
+      "bbb": 0.9837419986724854,
+      "herg": 0.8652780055999756,
+      "sa": 2.1227326079667783
+    },
+    "normalized": {
+      "affinity": 0.9999993745656254,
+      "solubility": 0.2538052399953206,
+      "bbb": 0.9837419986724854,
+      "herg": 0.13472199440002441,
+      "sa": 0.8752519324481357
+    }
+  },
+  "score_keys": [
+    "affinity",
+    "solubility",
+    "bbb",
+    "herg",
+    "sa"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "parent": {
+        "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+        "raw": {
+          "affinity": 0.9999993745656254,
+          "solubility": -4.477168560028076,
+          "bbb": 0.9837419986724854,
+          "herg": 0.8652780055999756,
+          "sa": 2.1227326079667783
+        },
+        "normalized": {
+          "affinity": 0.9999993745656254,
+          "solubility": 0.2538052399953206,
+          "bbb": 0.9837419986724854,
+          "herg": 0.13472199440002441,
+          "sa": 0.8752519324481357
+        }
+      },
+      "candidates": [
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+          "raw": {
+            "affinity": 0.9999993745656254,
+            "solubility": -4.477168560028076,
+            "bbb": 0.9837419986724854,
+            "herg": 0.8652780055999756,
+            "sa": 2.1227326079667783
+          },
+          "normalized": {
+            "affinity": 0.9999993745656254,
+            "solubility": 0.2538052399953206,
+            "bbb": 0.9837419986724854,
+            "herg": 0.13472199440002441,
+            "sa": 0.8752519324481357
+          },
+          "incumbent": true
+        },
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2F)CC1)c1ccc(F)cc1",
+          "raw": {
+            "affinity": 0.997353292181306,
+            "solubility": -4.453711032867432,
+            "bbb": 0.9969624876976013,
+            "herg": 0.900635302066803,
+            "sa": 2.27281745981373
+          },
+          "normalized": {
+            "affinity": 0.997353292181306,
+            "solubility": 0.25771482785542804,
+            "bbb": 0.9969624876976013,
+            "herg": 0.09936469793319702,
+            "sa": 0.8585758377984745
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2O)CC1)c1ccc(F)cc1",
+          "raw": {
+            "affinity": 0.9999906377622539,
+            "solubility": -4.127984046936035,
+            "bbb": 0.9972249269485474,
+            "herg": 0.8299732208251953,
+            "sa": 2.3415599699351883
+          },
+          "normalized": {
+            "affinity": 0.9999906377622539,
+            "solubility": 0.31200265884399414,
+            "bbb": 0.9972249269485474,
+            "herg": 0.1700267791748047,
+            "sa": 0.8509377811183124
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccc(F)cc1",
+          "raw": {
+            "affinity": 0.9888271209657954,
+            "solubility": -3.9251744747161865,
+            "bbb": 0.9943406581878662,
+            "herg": 0.8715789318084717,
+            "sa": 2.3498544374886094
+          },
+          "normalized": {
+            "affinity": 0.9888271209657954,
+            "solubility": 0.34580425421396893,
+            "bbb": 0.9943406581878662,
+            "herg": 0.12842106819152832,
+            "sa": 0.8500161736123767
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.9847607362179243,
+            "solubility": -2.4254958629608154,
+            "bbb": 0.7409031391143799,
+            "herg": 0.3714985251426697,
+            "sa": 2.5667065801569287
+          },
+          "normalized": {
+            "affinity": 0.9847607362179243,
+            "solubility": 0.5957506895065308,
+            "bbb": 0.7409031391143799,
+            "herg": 0.6285014748573303,
+            "sa": 0.8259214910936746
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CN1CCN(C2=Nc3ccccc3Nc3ccc(Cl)cc32)CC1",
+          "raw": {
+            "affinity": 0.7728327449840879,
+            "solubility": -4.691857814788818,
+            "bbb": 0.9963443875312805,
+            "herg": 0.8096607327461243,
+            "sa": 2.3303103814698147
+          },
+          "normalized": {
+            "affinity": 0.7728327449840879,
+            "solubility": 0.21802369753519693,
+            "bbb": 0.9963443875312805,
+            "herg": 0.19033926725387573,
+            "sa": 0.8521877353922428
+          },
+          "incumbent": false
+        }
+      ],
+      "agents": {
+        "mode": "deterministic offline agents",
+        "specialists": {
+          "affinity": {
+            "verdict": "support",
+            "reason": "Highest predicted DRD2 affinity in this round (1.000).",
+            "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1"
+          },
+          "adme": {
+            "verdict": "object",
+            "reason": "Prefers the strongest combined predicted solubility and BBB profile, even when that conflicts with affinity.",
+            "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccc(F)cc1"
+          },
+          "safety": {
+            "verdict": "veto",
+            "reason": "Vetoes 5 candidate(s) at or above the 50% predicted hERG-blockade policy threshold.",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC"
+          }
+        },
+        "orchestrator": {
+          "chosen": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "rationale": "The affinity specialist's first choice was vetoed, so the orchestrator selected the strongest surviving trade-off."
+        }
+      },
+      "winner": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+        "raw": {
+          "affinity": 0.9847607362179243,
+          "solubility": -2.4254958629608154,
+          "bbb": 0.7409031391143799,
+          "herg": 0.3714985251426697,
+          "sa": 2.5667065801569287
+        },
+        "normalized": {
+          "affinity": 0.9847607362179243,
+          "solubility": 0.5957506895065308,
+          "bbb": 0.7409031391143799,
+          "herg": 0.6285014748573303,
+          "sa": 0.8259214910936746
+        },
+        "incumbent": false
+      }
+    },
+    {
+      "round": 2,
+      "parent": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+        "raw": {
+          "affinity": 0.9847607362179243,
+          "solubility": -2.4254958629608154,
+          "bbb": 0.7409031391143799,
+          "herg": 0.3714985251426697,
+          "sa": 2.5667065801569287
+        },
+        "normalized": {
+          "affinity": 0.9847607362179243,
+          "solubility": 0.5957506895065308,
+          "bbb": 0.7409031391143799,
+          "herg": 0.6285014748573303,
+          "sa": 0.8259214910936746
+        },
+        "incumbent": false
+      },
+      "candidates": [
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.9847607362179243,
+            "solubility": -2.4254958629608154,
+            "bbb": 0.7409031391143799,
+            "herg": 0.3714985251426697,
+            "sa": 2.5667065801569287
+          },
+          "normalized": {
+            "affinity": 0.9847607362179243,
+            "solubility": 0.5957506895065308,
+            "bbb": 0.7409031391143799,
+            "herg": 0.6285014748573303,
+            "sa": 0.8259214910936746
+          },
+          "incumbent": true
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)c(F)cc1OC",
+          "raw": {
+            "affinity": 0.9972430614850684,
+            "solubility": -2.4441077709198,
+            "bbb": 0.7746062278747559,
+            "herg": 0.5218746662139893,
+            "sa": 2.786422502128312
+          },
+          "normalized": {
+            "affinity": 0.9972430614850684,
+            "solubility": 0.5926487048467001,
+            "bbb": 0.7746062278747559,
+            "herg": 0.47812533378601074,
+            "sa": 0.801508610874632
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)c(O)cc1OC",
+          "raw": {
+            "affinity": 0.9956369921016615,
+            "solubility": -2.4778263568878174,
+            "bbb": 0.3708219826221466,
+            "herg": 0.3816557824611664,
+            "sa": 2.889625342364999
+          },
+          "normalized": {
+            "affinity": 0.9956369921016615,
+            "solubility": 0.5870289405186971,
+            "bbb": 0.3708219826221466,
+            "herg": 0.6183442175388336,
+            "sa": 0.7900416286261112
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC",
+          "raw": {
+            "affinity": 0.9354084730083108,
+            "solubility": -2.5795223712921143,
+            "bbb": 0.6606530547142029,
+            "herg": 0.3515239953994751,
+            "sa": 3.0662472394975886
+          },
+          "normalized": {
+            "affinity": 0.9354084730083108,
+            "solubility": 0.5700796047846476,
+            "bbb": 0.6606530547142029,
+            "herg": 0.6484760046005249,
+            "sa": 0.7704169733891568
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CN1CCN(C2=Nc3ccccc3Nc3ccc(Cl)cc32)CC1",
+          "raw": {
+            "affinity": 0.7728327449840879,
+            "solubility": -4.691857814788818,
+            "bbb": 0.9963443875312805,
+            "herg": 0.8096607327461243,
+            "sa": 2.3303103814698147
+          },
+          "normalized": {
+            "affinity": 0.7728327449840879,
+            "solubility": 0.21802369753519693,
+            "bbb": 0.9963443875312805,
+            "herg": 0.19033926725387573,
+            "sa": 0.8521877353922428
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "COC1CCN(CCn2c(C)nc3ccccc32)CC1",
+          "raw": {
+            "affinity": 0.04073788697725002,
+            "solubility": -3.3308053016662598,
+            "bbb": 0.9916585087776184,
+            "herg": 0.8290999531745911,
+            "sa": 2.085715530139449
+          },
+          "normalized": {
+            "affinity": 0.04073788697725002,
+            "solubility": 0.44486578305562335,
+            "bbb": 0.9916585087776184,
+            "herg": 0.17090004682540894,
+            "sa": 0.8793649410956168
+          },
+          "incumbent": false
+        }
+      ],
+      "agents": {
+        "mode": "deterministic offline agents",
+        "specialists": {
+          "affinity": {
+            "verdict": "support",
+            "reason": "Highest predicted DRD2 affinity in this round (0.997).",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)c(F)cc1OC"
+          },
+          "adme": {
+            "verdict": "object",
+            "reason": "Prefers the strongest combined predicted solubility and BBB profile, even when that conflicts with affinity.",
+            "preferred": "COC1CCN(CCn2c(C)nc3ccccc32)CC1"
+          },
+          "safety": {
+            "verdict": "veto",
+            "reason": "Vetoes 3 candidate(s) at or above the 50% predicted hERG-blockade policy threshold.",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC"
+          }
+        },
+        "orchestrator": {
+          "chosen": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC",
+          "rationale": "The affinity specialist's first choice was vetoed, so the orchestrator selected the strongest surviving trade-off."
+        }
+      },
+      "winner": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC",
+        "raw": {
+          "affinity": 0.9354084730083108,
+          "solubility": -2.5795223712921143,
+          "bbb": 0.6606530547142029,
+          "herg": 0.3515239953994751,
+          "sa": 3.0662472394975886
+        },
+        "normalized": {
+          "affinity": 0.9354084730083108,
+          "solubility": 0.5700796047846476,
+          "bbb": 0.6606530547142029,
+          "herg": 0.6484760046005249,
+          "sa": 0.7704169733891568
+        },
+        "incumbent": false
+      }
+    },
+    {
+      "round": 3,
+      "parent": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC",
+        "raw": {
+          "affinity": 0.9354084730083108,
+          "solubility": -2.5795223712921143,
+          "bbb": 0.6606530547142029,
+          "herg": 0.3515239953994751,
+          "sa": 3.0662472394975886
+        },
+        "normalized": {
+          "affinity": 0.9354084730083108,
+          "solubility": 0.5700796047846476,
+          "bbb": 0.6606530547142029,
+          "herg": 0.6484760046005249,
+          "sa": 0.7704169733891568
+        },
+        "incumbent": false
+      },
+      "candidates": [
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ncc1OC",
+          "raw": {
+            "affinity": 0.9354084730083108,
+            "solubility": -2.5795223712921143,
+            "bbb": 0.6606530547142029,
+            "herg": 0.3515239953994751,
+            "sa": 3.0662472394975886
+          },
+          "normalized": {
+            "affinity": 0.9354084730083108,
+            "solubility": 0.5700796047846476,
+            "bbb": 0.6606530547142029,
+            "herg": 0.6484760046005249,
+            "sa": 0.7704169733891568
+          },
+          "incumbent": true
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)cnc(S(N)(=O)=O)c1F",
+          "raw": {
+            "affinity": 0.9592947173464174,
+            "solubility": -2.6103055477142334,
+            "bbb": 0.6433172225952148,
+            "herg": 0.40096020698547363,
+            "sa": 3.2361306678087853
+          },
+          "normalized": {
+            "affinity": 0.9592947173464174,
+            "solubility": 0.5649490753809611,
+            "bbb": 0.6433172225952148,
+            "herg": 0.5990397930145264,
+            "sa": 0.751541036910135
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)cnc(S(N)(=O)=O)c1O",
+          "raw": {
+            "affinity": 0.9419089876713476,
+            "solubility": -2.4723405838012695,
+            "bbb": 0.2259526550769806,
+            "herg": 0.3454815149307251,
+            "sa": 3.231503922246657
+          },
+          "normalized": {
+            "affinity": 0.9419089876713476,
+            "solubility": 0.5879432360331217,
+            "bbb": 0.2259526550769806,
+            "herg": 0.6545184850692749,
+            "sa": 0.7520551197503714
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1nc(S(N)(=O)=O)ncc1OC",
+          "raw": {
+            "affinity": 0.23369963209675643,
+            "solubility": -2.7090718746185303,
+            "bbb": 0.4194502532482147,
+            "herg": 0.3505074083805084,
+            "sa": 3.1549791076294564
+          },
+          "normalized": {
+            "affinity": 0.23369963209675643,
+            "solubility": 0.5484880208969116,
+            "bbb": 0.4194502532482147,
+            "herg": 0.6494925916194916,
+            "sa": 0.7605578769300604
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.9847607362179243,
+            "solubility": -2.4254958629608154,
+            "bbb": 0.7409031391143799,
+            "herg": 0.3714985251426697,
+            "sa": 2.5667065801569287
+          },
+          "normalized": {
+            "affinity": 0.9847607362179243,
+            "solubility": 0.5957506895065308,
+            "bbb": 0.7409031391143799,
+            "herg": 0.6285014748573303,
+            "sa": 0.8259214910936746
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CN1CCN(C2=Nc3ccccc3Nc3ccc(Cl)cc32)CC1",
+          "raw": {
+            "affinity": 0.7728327449840879,
+            "solubility": -4.691857814788818,
+            "bbb": 0.9963443875312805,
+            "herg": 0.8096607327461243,
+            "sa": 2.3303103814698147
+          },
+          "normalized": {
+            "affinity": 0.7728327449840879,
+            "solubility": 0.21802369753519693,
+            "bbb": 0.9963443875312805,
+            "herg": 0.19033926725387573,
+            "sa": 0.8521877353922428
+          },
+          "incumbent": false
+        }
+      ],
+      "agents": {
+        "mode": "deterministic offline agents",
+        "specialists": {
+          "affinity": {
+            "verdict": "support",
+            "reason": "Highest predicted DRD2 affinity in this round (0.985).",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC"
+          },
+          "adme": {
+            "verdict": "support",
+            "reason": "Prefers the strongest combined predicted solubility and BBB profile, even when that conflicts with affinity.",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC"
+          },
+          "safety": {
+            "verdict": "veto",
+            "reason": "Vetoes 1 candidate(s) at or above the 50% predicted hERG-blockade policy threshold.",
+            "preferred": "CCN1CCCC1CNC(=O)c1c(OC)cnc(S(N)(=O)=O)c1O"
+          }
+        },
+        "orchestrator": {
+          "chosen": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "rationale": "The affinity preference survived the safety veto and offered the strongest overall trade-off."
+        }
+      },
+      "winner": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+        "raw": {
+          "affinity": 0.9847607362179243,
+          "solubility": -2.4254958629608154,
+          "bbb": 0.7409031391143799,
+          "herg": 0.3714985251426697,
+          "sa": 2.5667065801569287
+        },
+        "normalized": {
+          "affinity": 0.9847607362179243,
+          "solubility": 0.5957506895065308,
+          "bbb": 0.7409031391143799,
+          "herg": 0.6285014748573303,
+          "sa": 0.8259214910936746
+        },
+        "incumbent": false
+      }
+    },
+    {
+      "round": 4,
+      "parent": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+        "raw": {
+          "affinity": 0.9847607362179243,
+          "solubility": -2.4254958629608154,
+          "bbb": 0.7409031391143799,
+          "herg": 0.3714985251426697,
+          "sa": 2.5667065801569287
+        },
+        "normalized": {
+          "affinity": 0.9847607362179243,
+          "solubility": 0.5957506895065308,
+          "bbb": 0.7409031391143799,
+          "herg": 0.6285014748573303,
+          "sa": 0.8259214910936746
+        },
+        "incumbent": false
+      },
+      "candidates": [
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.9847607362179243,
+            "solubility": -2.4254958629608154,
+            "bbb": 0.7409031391143799,
+            "herg": 0.3714985251426697,
+            "sa": 2.5667065801569287
+          },
+          "normalized": {
+            "affinity": 0.9847607362179243,
+            "solubility": 0.5957506895065308,
+            "bbb": 0.7409031391143799,
+            "herg": 0.6285014748573303,
+            "sa": 0.8259214910936746
+          },
+          "incumbent": true
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1F",
+          "raw": {
+            "affinity": 0.9999979528706872,
+            "solubility": -2.486976385116577,
+            "bbb": 0.6786370873451233,
+            "herg": 0.6233787536621094,
+            "sa": 2.8778433305306788
+          },
+          "normalized": {
+            "affinity": 0.9999979528706872,
+            "solubility": 0.5855039358139038,
+            "bbb": 0.6786370873451233,
+            "herg": 0.3766212463378906,
+            "sa": 0.7913507410521468
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1O",
+          "raw": {
+            "affinity": 0.9898249475570547,
+            "solubility": -2.4678890705108643,
+            "bbb": 0.22531478106975555,
+            "herg": 0.37733909487724304,
+            "sa": 2.9372731530158873
+          },
+          "normalized": {
+            "affinity": 0.9898249475570547,
+            "solubility": 0.588685154914856,
+            "bbb": 0.22531478106975555,
+            "herg": 0.622660905122757,
+            "sa": 0.7847474274426792
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1nc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.27217334970124374,
+            "solubility": -2.86177921295166,
+            "bbb": 0.5443319082260132,
+            "herg": 0.3891533315181732,
+            "sa": 3.0292252614756103
+          },
+          "normalized": {
+            "affinity": 0.27217334970124374,
+            "solubility": 0.52303679784139,
+            "bbb": 0.5443319082260132,
+            "herg": 0.6108466684818268,
+            "sa": 0.7745305265027099
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CN1CCN(C2=Nc3ccccc3Nc3ccc(Cl)cc32)CC1",
+          "raw": {
+            "affinity": 0.7728327449840879,
+            "solubility": -4.691857814788818,
+            "bbb": 0.9963443875312805,
+            "herg": 0.8096607327461243,
+            "sa": 2.3303103814698147
+          },
+          "normalized": {
+            "affinity": 0.7728327449840879,
+            "solubility": 0.21802369753519693,
+            "bbb": 0.9963443875312805,
+            "herg": 0.19033926725387573,
+            "sa": 0.8521877353922428
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "COC1CCN(CCn2c(C)nc3ccccc32)CC1",
+          "raw": {
+            "affinity": 0.04073788697725002,
+            "solubility": -3.3308053016662598,
+            "bbb": 0.9916585087776184,
+            "herg": 0.8290999531745911,
+            "sa": 2.085715530139449
+          },
+          "normalized": {
+            "affinity": 0.04073788697725002,
+            "solubility": 0.44486578305562335,
+            "bbb": 0.9916585087776184,
+            "herg": 0.17090004682540894,
+            "sa": 0.8793649410956168
+          },
+          "incumbent": false
+        }
+      ],
+      "agents": {
+        "mode": "deterministic offline agents",
+        "specialists": {
+          "affinity": {
+            "verdict": "support",
+            "reason": "Highest predicted DRD2 affinity in this round (1.000).",
+            "preferred": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1F"
+          },
+          "adme": {
+            "verdict": "object",
+            "reason": "Prefers the strongest combined predicted solubility and BBB profile, even when that conflicts with affinity.",
+            "preferred": "COC1CCN(CCn2c(C)nc3ccccc32)CC1"
+          },
+          "safety": {
+            "verdict": "veto",
+            "reason": "Vetoes 3 candidate(s) at or above the 50% predicted hERG-blockade policy threshold.",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC"
+          }
+        },
+        "orchestrator": {
+          "chosen": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1O",
+          "rationale": "The affinity specialist's first choice was vetoed, so the orchestrator selected the strongest surviving trade-off."
+        }
+      },
+      "winner": {
+        "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1O",
+        "raw": {
+          "affinity": 0.9898249475570547,
+          "solubility": -2.4678890705108643,
+          "bbb": 0.22531478106975555,
+          "herg": 0.37733909487724304,
+          "sa": 2.9372731530158873
+        },
+        "normalized": {
+          "affinity": 0.9898249475570547,
+          "solubility": 0.588685154914856,
+          "bbb": 0.22531478106975555,
+          "herg": 0.622660905122757,
+          "sa": 0.7847474274426792
+        },
+        "incumbent": false
+      }
+    },
+    {
+      "round": 5,
+      "parent": {
+        "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1O",
+        "raw": {
+          "affinity": 0.9898249475570547,
+          "solubility": -2.4678890705108643,
+          "bbb": 0.22531478106975555,
+          "herg": 0.37733909487724304,
+          "sa": 2.9372731530158873
+        },
+        "normalized": {
+          "affinity": 0.9898249475570547,
+          "solubility": 0.588685154914856,
+          "bbb": 0.22531478106975555,
+          "herg": 0.622660905122757,
+          "sa": 0.7847474274426792
+        },
+        "incumbent": false
+      },
+      "candidates": [
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ccc(S(N)(=O)=O)c1O",
+          "raw": {
+            "affinity": 0.9898249475570547,
+            "solubility": -2.4678890705108643,
+            "bbb": 0.22531478106975555,
+            "herg": 0.37733909487724304,
+            "sa": 2.9372731530158873
+          },
+          "normalized": {
+            "affinity": 0.9898249475570547,
+            "solubility": 0.588685154914856,
+            "bbb": 0.22531478106975555,
+            "herg": 0.622660905122757,
+            "sa": 0.7847474274426792
+          },
+          "incumbent": true
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(O)c(S(N)(=O)=O)cc(F)c1OC",
+          "raw": {
+            "affinity": 0.9964344440282071,
+            "solubility": -2.2331249713897705,
+            "bbb": 0.23018649220466614,
+            "herg": 0.4842907786369324,
+            "sa": 3.142619749116667
+          },
+          "normalized": {
+            "affinity": 0.9964344440282071,
+            "solubility": 0.6278125047683716,
+            "bbb": 0.23018649220466614,
+            "herg": 0.5157092213630676,
+            "sa": 0.761931138987037
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(O)c(S(N)(=O)=O)cc(O)c1OC",
+          "raw": {
+            "affinity": 0.9912683085087802,
+            "solubility": -2.158000946044922,
+            "bbb": 0.04286070540547371,
+            "herg": 0.36347079277038574,
+            "sa": 3.1810645252360708
+          },
+          "normalized": {
+            "affinity": 0.9912683085087802,
+            "solubility": 0.6403331756591797,
+            "bbb": 0.04286070540547371,
+            "herg": 0.6365292072296143,
+            "sa": 0.7576594971959921
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1c(OC)ncc(S(N)(=O)=O)c1O",
+          "raw": {
+            "affinity": 0.8801946660163886,
+            "solubility": -2.481987237930298,
+            "bbb": 0.1230604276061058,
+            "herg": 0.3023104667663574,
+            "sa": 3.2122066441401467
+          },
+          "normalized": {
+            "affinity": 0.8801946660163886,
+            "solubility": 0.5863354603449503,
+            "bbb": 0.1230604276061058,
+            "herg": 0.6976895332336426,
+            "sa": 0.754199261762206
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "raw": {
+            "affinity": 0.9847607362179243,
+            "solubility": -2.4254958629608154,
+            "bbb": 0.7409031391143799,
+            "herg": 0.3714985251426697,
+            "sa": 2.5667065801569287
+          },
+          "normalized": {
+            "affinity": 0.9847607362179243,
+            "solubility": 0.5957506895065308,
+            "bbb": 0.7409031391143799,
+            "herg": 0.6285014748573303,
+            "sa": 0.8259214910936746
+          },
+          "incumbent": false
+        },
+        {
+          "smiles": "CN1CCN(C2=Nc3ccccc3Nc3ccc(Cl)cc32)CC1",
+          "raw": {
+            "affinity": 0.7728327449840879,
+            "solubility": -4.691857814788818,
+            "bbb": 0.9963443875312805,
+            "herg": 0.8096607327461243,
+            "sa": 2.3303103814698147
+          },
+          "normalized": {
+            "affinity": 0.7728327449840879,
+            "solubility": 0.21802369753519693,
+            "bbb": 0.9963443875312805,
+            "herg": 0.19033926725387573,
+            "sa": 0.8521877353922428
+          },
+          "incumbent": false
+        }
+      ],
+      "agents": {
+        "mode": "deterministic offline agents",
+        "specialists": {
+          "affinity": {
+            "verdict": "support",
+            "reason": "Highest predicted DRD2 affinity in this round (0.996).",
+            "preferred": "CCN1CCCC1CNC(=O)c1c(O)c(S(N)(=O)=O)cc(F)c1OC"
+          },
+          "adme": {
+            "verdict": "object",
+            "reason": "Prefers the strongest combined predicted solubility and BBB profile, even when that conflicts with affinity.",
+            "preferred": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC"
+          },
+          "safety": {
+            "verdict": "veto",
+            "reason": "Vetoes 1 candidate(s) at or above the 50% predicted hERG-blockade policy threshold.",
+            "preferred": "CCN1CCCC1CNC(=O)c1c(OC)ncc(S(N)(=O)=O)c1O"
+          }
+        },
+        "orchestrator": {
+          "chosen": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+          "rationale": "The affinity preference survived the safety veto and offered the strongest overall trade-off."
+        }
+      },
+      "winner": {
+        "smiles": "CCN1CCCC1CNC(=O)c1cc(S(N)(=O)=O)ccc1OC",
+        "raw": {
+          "affinity": 0.9847607362179243,
+          "solubility": -2.4254958629608154,
+          "bbb": 0.7409031391143799,
+          "herg": 0.3714985251426697,
+          "sa": 2.5667065801569287
+        },
+        "normalized": {
+          "affinity": 0.9847607362179243,
+          "solubility": 0.5957506895065308,
+          "bbb": 0.7409031391143799,
+          "herg": 0.6285014748573303,
+          "sa": 0.8259214910936746
+        },
+        "incumbent": false
+      }
+    }
+  ]
+}

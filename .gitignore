@@ -1,0 +1,39 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+
+# Data / large artifacts
+data/
+*.csv
+*.parquet
+*.pkl
+*.pt
+*.pth
+*.h5
+
+# Week 5: trained models the Streamlit app loads at runtime (needed in the repo
+# for deployment, unlike other .pkl artifacts above)
+!models/*.pkl
+
+# Environment / secrets
+.env
+
+# Personal planning doc, kept local only
+admet-prediction-project-plan.md
+DEMO_GUIDE.md
+
+# VS Code (keep shared settings, ignore user-specific)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

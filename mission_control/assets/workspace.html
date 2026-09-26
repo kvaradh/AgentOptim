@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4f0e7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src blob: data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Agent Perry · Molecular decision lab</title>
+  <style>
+/*__WORKSPACE_STYLES__*/
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#workspace-main">Skip to workspace</a>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#mission" data-nav-target="mission" aria-label="Agent Perry home">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="brand-copy">
+        <strong>Agent Perry</strong>
+        <small>Molecular decision lab</small>
+      </span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Workspace views">
+      <button type="button" data-view="mission" data-testid="nav-mission">Mission</button>
+      <button type="button" data-view="agents" data-testid="nav-agents">Agents</button>
+      <button type="button" data-view="optimize" data-testid="nav-optimize">Optimize</button>
+      <button type="button" data-view="decisions" data-testid="nav-decisions">Decisions</button>
+      <button type="button" data-view="body-map" data-testid="nav-body-map">Body Map</button>
+      <button type="button" data-view="validate" data-testid="nav-validate">Validate</button>
+      <button type="button" data-view="evidence" data-testid="nav-evidence">Evidence</button>
+    </nav>
+
+    <label class="view-menu">
+      <span class="sr-only">Choose workspace view</span>
+      <select id="view-select" aria-label="Choose workspace view">
+        <option value="mission">Mission</option>
+        <option value="agents">Agents</option>
+        <option value="optimize">Optimize</option>
+        <option value="decisions">Decisions</option>
+        <option value="body-map">Body Map</option>
+        <option value="validate">Validate</option>
+        <option value="evidence">Evidence</option>
+      </select>
+    </label>
+
+    <div class="topbar-status" aria-label="Mission status">
+      <span class="status-dot"></span>
+      <span id="top-mode">Cached replay</span>
+      <small id="top-digest">Loading mission</small>
+    </div>
+  </header>
+
+  <main id="workspace-main" tabindex="-1">
+    <noscript>
+      <p class="noscript">JavaScript is required to read this offline mission package.</p>
+    </noscript>
+
+    <section id="view-mission" class="view" data-view-panel="mission" aria-labelledby="mission-title">
+      <div class="mission-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Mission 01 · <span id="mission-target-code">Target</span> optimization</p>
+          <h1 id="mission-title">Advance a safer <span id="mission-target-title">target</span> lead without losing the signal.</h1>
+          <p id="mission-intent" class="hero-lede">Therapeutic intent</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-nav-target="optimize">Enter optimization</button>
+            <button class="button button-secondary" type="button" data-replay-action="play" data-testid="replay-mission">Play narrative replay</button>
+          </div>
+          <p class="microcopy">Guided 25-second tour of recorded rounds · no models are rerun</p>
+        </div>
+        <aside class="hero-orbit" aria-label="Mission overview">
+          <div class="orbit-visual" aria-hidden="true">
+            <span class="orbit orbit-a"></span>
+            <span class="orbit orbit-b"></span>
+            <span id="orbit-target-code" class="orbit-core">Target</span>
+            <span class="orbit-node node-a">BBB</span>
+            <span class="orbit-node node-b">hERG</span>
+            <span class="orbit-node node-c">LogS</span>
+          </div>
+          <div class="orbit-caption">
+            <span id="mission-candidate-count">30 candidate states</span>
+            <strong id="mission-final-id">Final selection</strong>
+          </div>
+        </aside>
+      </div>
+
+      <div class="mission-grid">
+        <article class="card rationale-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">01 · Why <span id="target-rationale-code">this target</span></p>
+              <h2>Target rationale</h2>
+            </div>
+            <span id="target-rationale-status" class="pill pill-sage">Status</span>
+          </div>
+          <p id="target-rationale">Loading target rationale.</p>
+          <div id="target-sources" class="source-chips" aria-label="Target rationale sources"></div>
+          <dl class="fact-list">
+            <div><dt>Installed capability</dt><dd id="target-capability"></dd></div>
+            <div><dt>Therapeutic intent</dt><dd id="target-intent"></dd></div>
+          </dl>
+        </article>
+
+        <article class="card seed-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">02 · Why this seed</p>
+              <h2 id="seed-name">Resolved identity</h2>
+            </div>
+            <span id="seed-source" class="pill">Catalog</span>
+          </div>
+          <p id="seed-rationale">Loading seed rationale.</p>
+          <dl class="identity-grid">
+            <div><dt>Resolved identity</dt><dd id="seed-resolved-name"></dd></div>
+            <div><dt>Formula</dt><dd id="seed-formula"></dd></div>
+            <div><dt>Molecular weight</dt><dd id="seed-weight"></dd></div>
+            <div><dt>Structure ID</dt><dd id="seed-molecule-id" class="mono"></dd></div>
+          </dl>
+        </article>
+
+        <article class="card hypothesis-card">
+          <p class="eyebrow">03 · Optimization hypothesis</p>
+          <h2>A declared trade-off, not a black box</h2>
+          <blockquote id="optimization-hypothesis"></blockquote>
+          <div id="mission-axis-chips" class="chip-row" aria-label="Five optimization axes"></div>
+        </article>
+
+        <article class="card provenance-card">
+          <p class="eyebrow">04 · Provenance & launch</p>
+          <h2 id="launch-state">Recorded mission ready</h2>
+          <div class="provenance-line">
+            <span class="status-dot"></span>
+            <div><strong id="provenance-mode"></strong><small id="provenance-detail"></small></div>
+          </div>
+          <div class="launch-meter" aria-hidden="true"><span></span></div>
+          <div class="launch-meta">
+            <span id="generated-at"></span>
+            <span id="mission-digest"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="view-agents" class="view" data-view-panel="agents" aria-labelledby="agents-title" hidden>
+      <header class="section-header agents-header">
+        <div>
+          <p class="eyebrow">Meet the decision team</p>
+          <h1 id="agents-title">Four roles. One inspectable decision.</h1>
+          <p>Each agent sees the same six-candidate slate through a different scientific objective. Perry exposes where they agree, where they conflict, and which rule owns the final call.</p>
+        </div>
+        <span class="pill pill-blue">3 specialists + Perry</span>
+      </header>
+
+      <div class="agent-principle-grid">
+        <article class="card perry-principle">
+          <div class="perry-sigil" aria-hidden="true">
+            <span>P</span>
+            <i></i><i></i><i></i>
+          </div>
+          <div>
+            <p class="eyebrow">How the system thinks</p>
+            <h2>Structured disagreement, not a black box.</h2>
+            <p>The activity adapter is selected per mission target, while ADME and safety roles remain reusable. This build ships with DRD2; another receptor requires its own validated activity scorer. Confidence is a reproducible within-slate margin, not a probability. Cora can block a candidate at the fixed hERG gate, and Perry records why every option advanced or failed.</p>
+          </div>
+        </article>
+        <aside class="card authority-map">
+          <p class="eyebrow">Decision authority</p>
+          <div><span>Target model</span><strong>Selected per mission</strong></div>
+          <div><span>Recommend</span><strong>Ari · Maya · Cora</strong></div>
+          <div><span>Veto</span><strong>Cora · cardiac safety</strong></div>
+          <div><span>Decide</span><strong>Perry · deterministic policy</strong></div>
+          <div><span>Verify</span><strong>Scientist · wet lab</strong></div>
+        </aside>
+      </div>
+
+      <div class="roster-heading">
+        <div>
+          <p class="eyebrow">Agent roster</p>
+          <h2>Different lenses on the same evidence.</h2>
+        </div>
+        <p>Open Decisions to inspect each live ranking, confidence basis, evidence, veto, and rejection.</p>
+      </div>
+
+      <div class="agent-roster" data-testid="agent-roster">
+        <article class="card persona-card persona-affinity">
+          <div class="persona-top">
+            <span class="persona-avatar">AR</span>
+            <span class="pill">Target signal</span>
+          </div>
+          <p class="persona-index">Agent 01</p>
+          <h2>Ari</h2>
+          <h3>Target Activity Specialist</h3>
+          <p>Ranks candidates by modeled activity for the active target and challenges edits that lose the target objective.</p>
+          <dl>
+            <div><dt>Optimizes</dt><dd>Modeled target activity</dd></div>
+            <div><dt>Confidence</dt><dd>Activity-score separation</dd></div>
+            <div><dt>Authority</dt><dd>Recommendation</dd></div>
+          </dl>
+        </article>
+
+        <article class="card persona-card persona-adme">
+          <div class="persona-top">
+            <span class="persona-avatar">MY</span>
+            <span class="pill pill-sage">Exposure</span>
+          </div>
+          <p class="persona-index">Agent 02</p>
+          <h2>Maya</h2>
+          <h3>ADME Specialist</h3>
+          <p>Balances predicted solubility and BBB permeability, then surfaces developability trade-offs.</p>
+          <dl>
+            <div><dt>Optimizes</dt><dd>Solubility + BBB</dd></div>
+            <div><dt>Confidence</dt><dd>ADME-score separation</dd></div>
+            <div><dt>Authority</dt><dd>Recommendation</dd></div>
+          </dl>
+        </article>
+
+        <article class="card persona-card persona-safety">
+          <div class="persona-top">
+            <span class="persona-avatar">CO</span>
+            <span class="pill pill-coral">Safety gate</span>
+          </div>
+          <p class="persona-index">Agent 03</p>
+          <h2>Cora</h2>
+          <h3>Cardiac Safety Specialist</h3>
+          <p>Ranks modeled hERG safety and removes any candidate that crosses the inclusive blockade threshold.</p>
+          <dl>
+            <div><dt>Optimizes</dt><dd>Predicted hERG safety</dd></div>
+            <div><dt>Confidence</dt><dd>Safety-score separation</dd></div>
+            <div><dt>Authority</dt><dd>Recommendation + veto</dd></div>
+          </dl>
+        </article>
+
+        <article class="card persona-card persona-perry">
+          <div class="persona-top">
+            <span class="persona-avatar">PE</span>
+            <span class="pill pill-lime">Orchestrator</span>
+          </div>
+          <p class="persona-index">Agent 04</p>
+          <h2>Perry</h2>
+          <h3>Decision Orchestrator</h3>
+          <p>Reconciles the surviving evidence, documents the trade-off, and writes the next-round design brief.</p>
+          <dl>
+            <div><dt>Optimizes</dt><dd>Declared weighted utility</dd></div>
+            <div><dt>Confidence</dt><dd>Eligible-utility separation</dd></div>
+            <div><dt>Authority</dt><dd>Official decision</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <article class="card agent-workflow" data-testid="agent-workflow">
+        <div class="workflow-heading">
+          <div>
+            <p class="eyebrow">The Agent Perry loop</p>
+            <h2>From molecule to the next useful experiment.</h2>
+          </div>
+          <p>Every round leaves a replayable decision receipt.</p>
+        </div>
+        <ol class="workflow-steps">
+          <li><span>01</span><strong>Input</strong><p>Resolve a known drug to a validated molecular structure.</p></li>
+          <li><span>02</span><strong>Design</strong><p>Generate nearby molecular edits rather than arbitrary structures.</p></li>
+          <li><span>03</span><strong>Predict</strong><p>Evaluate several ADMET objectives on a common display scale.</p></li>
+          <li><span>04</span><strong>Debate</strong><p>Specialists independently rank options, then challenge one another’s evidence.</p></li>
+          <li><span>05</span><strong>Gate</strong><p>Cardiac-safety and reliability rules can veto an option regardless of its average score.</p></li>
+          <li><span>06</span><strong>Decide</strong><p>Perry documents the trade-off and creates the next-round brief.</p></li>
+          <li><span>07</span><strong>Learn</strong><p>Value-of-information reasoning proposes the experiment most likely to change the decision.</p></li>
+        </ol>
+      </article>
+
+      <article class="audit-benefit">
+        <div class="audit-mark" aria-hidden="true">✓</div>
+        <div>
+          <p class="eyebrow">Why agents earn their place</p>
+          <h2>The benefit is auditability.</h2>
+          <p>A scientist can inspect each candidate, see exactly why an option was blocked, review disagreement, override assumptions, and identify the next piece of laboratory evidence.</p>
+        </div>
+        <button class="button button-primary" type="button" data-nav-target="decisions">Inspect their decisions</button>
+      </article>
+    </section>
+
+    <section id="view-optimize" class="view" data-view-panel="optimize" aria-labelledby="optimize-title" hidden>
+      <header class="section-header">
+        <div>
+          <p class="eyebrow">Recorded optimization</p>
+          <h1 id="optimize-title">Five rounds. One auditable lead.</h1>
+          <p>Inspect every proposal, exact score axis, safety state, and target-specific edit rationale.</p>
+        </div>
+        <div class="playback-card" data-testid="replay-controls">
+          <div class="playback-copy">
+            <span id="playback-kicker">Guided replay · ~25 seconds · recorded results</span>
+            <strong id="playback-status">Paused at round 5</strong>
+          </div>
+          <div class="playback-actions">
+            <button class="icon-button replay-toggle-button" id="replay-toggle" type="button" data-replay-action="play" data-testid="replay-play" aria-label="Play narrative replay">▶ Play</button>
+            <button class="icon-button" id="replay-skip" type="button" data-replay-action="skip" data-testid="replay-skip" aria-label="Skip to next round">↦</button>
+          </div>
+          <div class="playback-track"><span id="playback-progress"></span></div>
+        </div>
+      </header>
+
+      <div class="round-rail-wrap">
+        <div id="round-rail" class="round-rail" role="list" aria-label="Optimization rounds" data-testid="round-rail"></div>
+      </div>
+
+      <div class="optimize-layout">
+        <div>
+          <div class="subheading-row">
+            <div>
+              <p id="round-context" class="eyebrow">Round 5 slate</p>
+              <h2>Six scored proposals</h2>
+            </div>
+            <div class="legend" aria-label="Candidate state legend">
+              <span><i class="legend-official"></i>Official</span>
+              <span><i class="legend-frontier"></i>Safe frontier</span>
+              <span><i class="legend-veto"></i>Veto</span>
+            </div>
+          </div>
+          <div id="candidate-grid" class="candidate-grid" aria-live="polite"></div>
+        </div>
+
+        <aside class="selection-panel card" aria-labelledby="selection-title">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Selected proposal</p>
+              <h2 id="selection-title">Candidate detail</h2>
+            </div>
+            <span id="selection-state" class="pill"></span>
+          </div>
+          <div class="depiction-frame">
+            <img id="candidate-depiction" alt="RDKit 2D molecular depiction">
+          </div>
+          <p id="selection-edit" class="edit-rationale"></p>
+          <p id="selection-hypothesis" class="edit-hypothesis"></p>
+          <p id="selection-reason"></p>
+          <dl id="selection-details" class="fact-list compact"></dl>
+          <p id="selection-smiles" class="smiles mono"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="view-decisions" class="view" data-view-panel="decisions" aria-labelledby="decisions-title" hidden>
+      <header class="section-header">
+        <div>
+          <p class="eyebrow">Decision intelligence</p>
+          <h1 id="decisions-title">Evidence, verdicts, and reversible choices.</h1>
+          <p>Recorded decision artifacts only. Heuristic confidence is not a probability, and no hidden chain-of-thought is claimed.</p>
+        </div>
+        <label class="round-select">
+          <span>Inspect round</span>
+          <select id="decision-round-select" aria-label="Decision round"></select>
+        </label>
+      </header>
+
+      <div id="agent-grid" class="agent-grid" aria-live="polite"></div>
+
+      <div class="decision-grid">
+        <article class="card safety-gate-card">
+          <p class="eyebrow">Non-negotiable gate</p>
+          <h2>Predicted hERG safety gate</h2>
+          <div class="gate-number"><strong id="gate-threshold"></strong><span>inclusive veto threshold</span></div>
+          <div id="gate-outcome" class="gate-outcome"></div>
+        </article>
+        <article class="card policy-card">
+          <p class="eyebrow">Policy comparison</p>
+          <h2>What each policy would choose</h2>
+          <div id="policy-comparison" class="policy-list"></div>
+        </article>
+        <article class="card lineage-card">
+          <p class="eyebrow">Lineage & rollback</p>
+          <h2>Exploration stayed reversible</h2>
+          <p id="lineage-story"></p>
+          <div id="lineage-path" class="lineage-path"></div>
+        </article>
+      </div>
+
+      <article class="card ledger-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">Complete round ledger</p>
+            <h2>Five recorded decisions</h2>
+          </div>
+          <span class="pill pill-sage">Validated contract</span>
+        </div>
+        <div id="complete-ledger" class="complete-ledger"></div>
+      </article>
+    </section>
+
+    <section id="view-body-map" class="view" data-view-panel="body-map" aria-labelledby="body-title" hidden>
+      <header class="section-header">
+        <div>
+          <p class="eyebrow">System hypothesis map</p>
+          <h1 id="body-title">From seed to selected candidate.</h1>
+          <p>Model-derived directional hypotheses in human-system context—never a clinical, exposure, or efficacy claim.</p>
+        </div>
+        <span class="pill pill-blue">Seed vs selected</span>
+      </header>
+
+      <div class="body-map-layout" data-testid="body-map">
+        <article class="card body-comparison">
+          <div class="body-column">
+            <div class="body-label"><span>Seed</span><strong id="body-seed-name"></strong></div>
+            <svg class="human-map seed-map" viewBox="0 0 240 500" role="img" aria-label="Seed human body system map">
+              <defs>
+                <linearGradient id="seedBody" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#d8e2dc"/><stop offset="1" stop-color="#f3e6d2"/>
+                </linearGradient>
+              </defs>
+              <circle class="silhouette" cx="120" cy="55" r="39"/>
+              <path class="silhouette" d="M78 104C91 93 149 93 162 104l24 105-23 7-4 94-13 170h-40l-6-135-6 135H74L61 310l-4-94-23-7 24-105z"/>
+              <circle class="body-node brain-node" cx="120" cy="52" r="23"/>
+              <path class="body-node heart-node" d="M120 177c-22-22-45 11 0 42 45-31 22-64 0-42z"/>
+              <path class="body-node gut-node" d="M92 248c14-14 42-14 56 0v45c-14 14-42 14-56 0z"/>
+              <text id="body-seed-target" x="120" y="57">Target · BBB</text>
+              <text x="120" y="200">hERG</text>
+              <text x="120" y="275">LogS</text>
+            </svg>
+          </div>
+          <div class="delta-spine" aria-hidden="true"><span>Δ</span></div>
+          <div class="body-column">
+            <div class="body-label"><span>Selected</span><strong id="body-selected-name"></strong></div>
+            <svg class="human-map selected-map" viewBox="0 0 240 500" role="img" aria-label="Selected candidate human body system map">
+              <defs>
+                <linearGradient id="selectedBody" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#b8ccff"/><stop offset="1" stop-color="#d9e9b8"/>
+                </linearGradient>
+              </defs>
+              <circle class="silhouette" cx="120" cy="55" r="39"/>
+              <path class="silhouette" d="M78 104C91 93 149 93 162 104l24 105-23 7-4 94-13 170h-40l-6-135-6 135H74L61 310l-4-94-23-7 24-105z"/>
+              <circle class="body-node brain-node" cx="120" cy="52" r="23"/>
+              <path class="body-node heart-node" d="M120 177c-22-22-45 11 0 42 45-31 22-64 0-42z"/>
+              <path class="body-node gut-node" d="M92 248c14-14 42-14 56 0v45c-14 14-42 14-56 0z"/>
+              <text id="body-selected-target" x="120" y="57">Target · BBB</text>
+              <text x="120" y="200">hERG</text>
+              <text x="120" y="275">LogS</text>
+            </svg>
+          </div>
+        </article>
+
+        <div>
+          <div id="body-system-cards" class="body-system-cards"></div>
+          <article class="card sa-callout">
+            <div class="sa-icon" aria-hidden="true">SA</div>
+            <div>
+              <p class="eyebrow">Outside the body</p>
+              <h2>Synthetic accessibility</h2>
+              <p id="sa-comparison"></p>
+              <button type="button" class="text-button" data-wet-lab-link="WL-8">Open route review →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <article class="card conformer-card">
+        <div class="conformer-copy">
+          <p class="eyebrow">RDKit geometry</p>
+          <h2>Visual conformer—not docking</h2>
+          <p>This draggable view uses the recorded RDKit conformer. It is not a binding pose, measured structure, or docking result.</p>
+          <dl class="fact-list compact">
+            <div><dt>Method</dt><dd id="conformer-method"></dd></div>
+            <div><dt>Status</dt><dd id="conformer-status"></dd></div>
+            <div><dt>Controls</dt><dd>Drag to rotate · wheel or pinch to zoom</dd></div>
+          </dl>
+          <button id="conformer-reset" type="button" class="button button-secondary">Reset view</button>
+        </div>
+        <div class="canvas-frame" data-testid="conformer-canvas">
+          <canvas id="conformer-canvas" aria-label="Interactive RDKit visual conformer"></canvas>
+          <span class="canvas-badge">Visual conformer</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="view-validate" class="view" data-view-panel="validate" aria-labelledby="validate-title" hidden>
+      <header class="section-header">
+        <div>
+          <p class="eyebrow">Wet-lab runway</p>
+          <h1 id="validate-title">Turn each prediction into a decision.</h1>
+          <p>Every step is unperformed. Priorities order risk reduction; expected readouts do not imply results.</p>
+        </div>
+        <div class="validation-status"><span>0</span><small id="validation-candidate">assays performed</small></div>
+      </header>
+      <div id="wet-lab-grid" class="wet-lab-grid"></div>
+    </section>
+
+    <section id="view-evidence" class="view" data-view-panel="evidence" aria-labelledby="evidence-title" hidden>
+      <header class="section-header">
+        <div>
+          <p class="eyebrow">Evidence & exports</p>
+          <h1 id="evidence-title">Trace the interpretation. Keep the limits.</h1>
+          <p>Sources guide product behavior and assay selection; they did not test any candidate in this mission.</p>
+        </div>
+        <div class="export-cluster" aria-label="Mission exports">
+          <button class="button button-secondary" type="button" data-export="json" data-testid="export-json">JSON</button>
+          <button class="button button-secondary" type="button" data-export="csv" data-testid="export-csv">CSV</button>
+          <button class="button button-primary" type="button" data-export="receipt" data-testid="export-receipt">Decision receipt</button>
+        </div>
+      </header>
+      <div class="evidence-layout">
+        <div id="evidence-list" class="evidence-list"></div>
+        <aside class="card knowledge-card">
+          <p class="eyebrow">Knowledge limits</p>
+          <h2>What this mission cannot establish</h2>
+          <ul id="knowledge-limits"></ul>
+          <div class="digest-stamp">
+            <span>Mission digest</span>
+            <strong id="evidence-digest" class="mono"></strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script id="mission-payload" type="application/octet-stream">__MISSION_PAYLOAD_BASE64__</script>
+  <script id="export-json-payload" type="application/octet-stream">__MISSION_JSON_BASE64__</script>
+  <script id="export-csv-payload" type="application/octet-stream">__CANDIDATE_CSV_BASE64__</script>
+  <script id="export-receipt-payload" type="application/octet-stream">__DECISION_RECEIPT_BASE64__</script>
+  <script>
+/*__WORKSPACE_APPLICATION__*/
+  </script>
+</body>
+</html>
