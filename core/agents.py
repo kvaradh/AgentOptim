@@ -304,11 +304,20 @@ SPECIALISTS = (AFFINITY_AGENT, ADME_AGENT, SAFETY_AGENT)
 
 ORCHESTRATOR_SYSTEM = (
     "You are the orchestrator of a DRD2 lead optimisation team. Three specialists "
-    "have reported: affinity, ADME, and safety. Safety holds a veto and its vetoes "
-    "are already applied -- vetoed molecules are gone and you may not choose one. "
-    "Your job is to pick one molecule from what remains and explain the trade-off "
-    "you accepted in doing so. Name what you gave up. If you are taking a weaker "
-    "binder because the stronger one was vetoed, say that in plain words."
+    "have reported: affinity, ADME, and safety.\n\n"
+    "Read the VERDICT field, not the rhetoric. A specialist's prose often argues "
+    "harder than its verdict: safety in particular will describe a whole series as "
+    "unacceptable while formally vetoing one molecule. An OBJECTION IS NOT A VETO. "
+    "Only molecules in the vetoed list are unavailable to you. Every other "
+    "candidate is a legitimate choice however strongly someone argued against it, "
+    "and you must not treat a molecule as 'off the table in spirit'.\n\n"
+    "Your rationale will be checked against the numbers in the table. Do not claim "
+    "a property your pick does not have -- if you choose a molecule with weaker "
+    "hERG safety than another available one, do not say you prioritised hERG "
+    "safety. Say what you actually traded and why.\n\n"
+    "Pick one molecule from what remains and explain the trade-off you accepted. "
+    "If you are taking a weaker binder because the stronger one was vetoed, say so "
+    "plainly."
 )
 
 
@@ -426,7 +435,11 @@ def orchestrate(parent, candidates, reviews, allow_parent: bool = True,
             f"Vetoed and unavailable: {sorted(vetoed) or 'none'}\n\n"
             "Specialist reports:\n"
             + "\n".join(
-                f"- {r['agent']} [{r['verdict']}] wants {r['preferred']}: {r['reason']}"
+                f"- {r['agent']} | VERDICT={r['verdict'].upper()}"
+                + (f" | formally vetoed: {r['vetoed']}" if r.get("vetoed") else "")
+                + (" | this is an argument, not a veto"
+                   if r["verdict"] == "object" else "")
+                + f"\n  prefers {r['preferred']}\n  argues: {r['reason']}"
                 for r in reviews
             )
             + f"\n\nThe weighted objective ranks {chosen['smiles']} first among "
@@ -442,4 +455,45 @@ def orchestrate(parent, candidates, reviews, allow_parent: bool = True,
         pick = payload.get("chosen")
         if isinstance(pick, str) and any(c["smiles"] == pick for c in survivors):
             result["chosen"] = pick
+
+    # The orchestrator can now reason, which means it can be fluently wrong. On
+    # the first real run it picked a molecule at herg-safety 0.18 over one at
+    # 0.49 while writing "I'd rather bank on the one with the largest safety
+    # buffer". The rationale is the thing read aloud at a demo, so the record
+    # states where the pick actually ranks and flags any contradiction.
+    picked = next(c for c in survivors if c["smiles"] == result["chosen"])
+    safest = max(survivors, key=lambda c: c["normalised"]["herg"])
+    strongest = max(survivors, key=lambda c: c["normalised"]["affinity"])
+    result["audit"] = {
+        "chosen_herg": picked["normalised"]["herg"],
+        "best_available_herg": safest["normalised"]["herg"],
+        "chosen_affinity": picked["normalised"]["affinity"],
+        "best_available_affinity": strongest["normalised"]["affinity"],
+        "is_safest_available": picked["smiles"] == safest["smiles"],
+        "is_most_potent_available": picked["smiles"] == strongest["smiles"],
+    }
+    # Only a positive CLAIM counts. The first version fired on any mention of
+    # safety and flagged a rationale that had explicitly said "I am not claiming
+    # a safety win here" -- a false positive that would make the audit noise the
+    # room learns to ignore. A disclaimer is the opposite of a contradiction.
+    lowered = result["rationale"].lower()
+    claims_safety = any(
+        phrase in lowered
+        for phrase in ("largest safety buffer", "safest available", "best herg",
+                       "best-in-field herg", "prioritised herg", "prioritized herg",
+                       "maximis- herg", "safety win")
+    )
+    disclaims = any(
+        phrase in lowered
+        for phrase in ("not claiming", "not a safety win", "explicitly not",
+                       "trading herg", "trading hERG margin".lower(),
+                       "giving up herg", "below candidate")
+    )
+    if claims_safety and not disclaims and not result["audit"]["is_safest_available"]:
+        result["rationale"] += (
+            f" [AUDIT: this rationale claims a hERG advantage, but the chosen "
+            f"molecule sits at {_fmt(picked['normalised']['herg'])} while "
+            f"{_fmt(safest['normalised']['herg'])} was available and not vetoed.]"
+        )
+        result["audit"]["contradiction"] = True
     return result

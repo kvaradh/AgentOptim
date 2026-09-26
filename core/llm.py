@@ -13,7 +13,11 @@ import json
 import os
 import re
 
-DEFAULT_MODEL = os.environ.get("AGENT_MODEL", "claude-sonnet-5")
+# Opus for the agents: their output IS the product, and the arguments are what
+# a judge reads. Roughly 2.5x Sonnet's rate -- fine for demo runs, but set
+# AGENT_MODEL=claude-sonnet-5 for bulk ablation sweeps where only the numbers
+# matter and there are hundreds of calls.
+DEFAULT_MODEL = os.environ.get("AGENT_MODEL", "claude-opus-5")
 # Sonnet 5 and the Opus family run adaptive thinking by DEFAULT, with
 # thinking.display "omitted" -- the reasoning is billed and consumes max_tokens
 # but comes back as empty text. At 1200 a call could spend the whole budget
@@ -26,7 +30,9 @@ DEFAULT_MAX_TOKENS = 4096
 # not hard reasoning problems. Low effort keeps the arguments sharp, the
 # latency down and the bill small.
 DEFAULT_EFFORT = os.environ.get("AGENT_EFFORT", "low")
-DEFAULT_TIMEOUT = float(os.environ.get("AGENT_TIMEOUT", "30"))
+# Opus thinks longer than Sonnet: the slowest observed call was 91s against a
+# 30s timeout, which surfaced as an APITimeoutError and a silent fallback.
+DEFAULT_TIMEOUT = float(os.environ.get("AGENT_TIMEOUT", "120"))
 
 _JSON_BLOCK = re.compile(r"\{.*\}", re.DOTALL)
 

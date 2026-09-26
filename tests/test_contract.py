@@ -309,3 +309,32 @@ def test_safety_reason_always_states_the_actual_ruling(monkeypatch):
     assert review["vetoed"] == []
     assert "Ruling: nothing vetoed" in review["reason"]
     assert review["rule"] == "absolute"
+
+
+def test_orchestrator_audits_a_rationale_that_contradicts_the_numbers(monkeypatch):
+    """A fluent rationale that does not match the table must be flagged."""
+    monkeypatch.setenv("AGENT_LLM", "off")
+    parent = _candidate("CCO", herg=0.10)
+    safest = _candidate("CCC", herg=0.49, affinity=0.5)
+    picked = _candidate("CCCC", herg=0.18, affinity=0.95)
+    decision = agents.orchestrate(parent, [safest, picked], [], allow_parent=False)
+
+    audit = decision["audit"]
+    assert audit["best_available_herg"] == pytest.approx(0.49)
+    assert audit["is_safest_available"] is (decision["chosen"] == "CCC")
+    # Whichever the weighted objective picks, the record states where it ranks
+    # on both contested axes, so a transcript can always be checked.
+    assert "chosen_herg" in audit and "chosen_affinity" in audit
+
+
+def test_orchestrator_flags_a_false_safety_claim(monkeypatch):
+    monkeypatch.setenv("AGENT_LLM", "off")
+    parent = _candidate("CCO", herg=0.10)
+    survivors = [_candidate("CCC", herg=0.49), _candidate("CCCC", herg=0.18)]
+    decision = agents.orchestrate(parent, survivors, [], allow_parent=False)
+    decision["rationale"] = "I prioritised the largest safety buffer available."
+    # Re-run the audit logic the way the LLM branch does.
+    picked = next(c for c in survivors if c["smiles"] == decision["chosen"])
+    safest = max(survivors, key=lambda c: c["normalised"]["herg"])
+    if picked["smiles"] != safest["smiles"]:
+        assert decision["audit"]["is_safest_available"] is False

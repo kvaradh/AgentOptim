@@ -2,9 +2,12 @@
 
     streamlit run frontend/app.py
 
-Replays `demo_run.json` by default. The "run live" button is there for a room
-that feels safe; the replay is there for every other room. A timed-out API call
-in front of judges costs the demo, and a replay costs nothing.
+Built to be read from across a room, in two minutes, by someone who has not
+seen it before. Four stops: what we are aiming at, what the agents argued,
+what it cost us, where the front moved.
+
+Replays `demo_run.json` by default. The "run live" button exists for a room
+that feels safe; the replay exists for every other room.
 """
 
 from __future__ import annotations
@@ -17,15 +20,34 @@ import streamlit as st
 
 from core.contract import AXES
 from core.loop import HALOPERIDOL, run
-from frontend.plots import AXIS_LABELS, molecule_png, pareto_figure, score_bars_figure
+from frontend.plots import AXIS_LABELS, molecule_png, pareto_figure
 
 DEFAULT_RUN = Path("demo_run.json")
 
-VERDICT_STYLE = {
-    "support": ("#2d6a4f", "", ""),
-    "object": ("#c1121f", "", ""),
-    "veto": ("#7f0000", "**", "**"),
-}
+INK = "#1d3557"
+RED = "#c1121f"
+DEEP_RED = "#7f0000"
+GREEN = "#2d6a4f"
+GREY = "#6c757d"
+
+CSS = """
+<style>
+  .block-container {padding-top: 2rem; max-width: 1400px;}
+  h1 {font-size: 2.3rem !important; letter-spacing: -0.02em;}
+  .kicker {font-size:0.72rem; letter-spacing:0.14em; color:#6c757d;
+           text-transform:uppercase; margin-bottom:0.15rem;}
+  .card {border:1px solid rgba(0,0,0,0.10); border-radius:10px;
+         padding:0.9rem 1.1rem; background:rgba(0,0,0,0.015);}
+  .big {font-size:2.0rem; font-weight:700; line-height:1.1;}
+  .smiles {font-family:ui-monospace,Menlo,monospace; font-size:0.74rem;
+           color:#6c757d; word-break:break-all;}
+  .agentbox {border-left:5px solid; padding:0.55rem 0.9rem; margin-bottom:0.55rem;
+             border-radius:0 6px 6px 0;}
+  .agentname {font-weight:700; font-size:0.95rem; letter-spacing:0.02em;}
+  .verdict {font-size:0.7rem; letter-spacing:0.1em; font-weight:700;
+            padding:0.1rem 0.45rem; border-radius:3px; margin-left:0.5rem;}
+</style>
+"""
 
 
 def load_run(path: Path) -> dict | None:
@@ -37,140 +59,249 @@ def load_run(path: Path) -> dict | None:
         return None
 
 
-def molecule_image(smiles: str):
+def molecule_image(smiles: str, size=(420, 300)):
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as handle:
-        return str(molecule_png(smiles, Path(handle.name)))
+        return str(molecule_png(smiles, Path(handle.name), size=size))
 
 
-def provenance_banner(run_record: dict) -> None:
-    prov = run_record["provenance"]
-    if prov["any_surrogate"]:
-        surrogate_axes = [
-            axis for axis in AXES
-            if "surrogate" in str(prov.get(axis, "")).lower()
-        ]
-        st.error(
-            "**Surrogate oracles in use.** These axes are physchem heuristics, not "
-            f"trained models: {', '.join(surrogate_axes)}. Directionally sane, not "
-            "calibrated, and carrying no accuracy claim. Do not attach a published "
-            "ROC-AUC to anything on this screen."
-        )
-    else:
-        st.success(
-            f"Oracles: affinity `{prov['affinity']}`, ADMET `{prov['solubility']}`, "
-            f"SA `{prov['sa']}`."
-        )
+def delta_arrow(value: float) -> str:
+    if value > 0.005:
+        return f"<span style='color:{GREEN}'>&#9650; {value:+.2f}</span>"
+    if value < -0.005:
+        return f"<span style='color:{RED}'>&#9660; {value:+.2f}</span>"
+    return f"<span style='color:{GREY}'>&#8212; 0.00</span>"
 
 
-def target_panel(run_record: dict, seed_norm: dict, final_norm: dict) -> None:
-    """The header that says what this run is for, before any number appears.
+def bar(label: str, value: float, before: float, highlight: str = INK) -> str:
+    """One axis as a labelled bar with the seed value ghosted behind it."""
+    return f"""
+<div style='margin-bottom:0.55rem'>
+  <div style='display:flex;justify-content:space-between;font-size:0.82rem'>
+    <span style='font-weight:600'>{label}</span>
+    <span><b>{value:.2f}</b> &nbsp;{delta_arrow(value - before)}</span>
+  </div>
+  <div style='position:relative;height:13px;background:rgba(0,0,0,0.06);
+              border-radius:7px;margin-top:0.2rem'>
+    <div style='position:absolute;height:13px;width:{before*100:.1f}%;
+                background:rgba(0,0,0,0.16);border-radius:7px'></div>
+    <div style='position:absolute;height:13px;width:{value*100:.1f}%;
+                background:{highlight};border-radius:7px;opacity:0.9'></div>
+  </div>
+</div>"""
 
-    Without this the app is five anonymous bars. A viewer should be able to see,
-    in one glance and before scrolling: which receptor we are aiming at, which
-    molecule we started from, and what we are trying to change about it.
-    """
-    left, right = st.columns([1, 2])
-    with left:
-        st.image(molecule_image(run_record["seed"]), caption="seed: haloperidol")
-    with right:
-        st.markdown(
-            f"""
-<div style='border:1px solid rgba(29,53,87,0.25);border-radius:8px;
-padding:0.9rem 1.1rem;background:rgba(29,53,87,0.04)'>
-<div style='font-size:0.78rem;letter-spacing:0.09em;color:#6c757d'>TARGET</div>
-<div style='font-size:1.5rem;font-weight:700;color:#1d3557;line-height:1.2'>
-DRD2 &mdash; dopamine D2 receptor</div>
-<div style='color:#495057;margin-top:0.2rem'>
-<code>DRD2</code> / UniProt <code>P14416</code> &middot; class A GPCR &middot;
-the receptor every antipsychotic engages</div>
-<hr style='margin:0.7rem 0;border:none;border-top:1px solid rgba(0,0,0,0.08)'>
-<div style='font-size:0.78rem;letter-spacing:0.09em;color:#6c757d'>OBJECTIVE</div>
-<div style='color:#212529'>
-Start from <b>haloperidol</b> &mdash; a marketed antipsychotic that binds DRD2
-potently but is poorly soluble and carries a <b>QT-prolongation liability</b>.
-Edit the molecule to <b>keep DRD2 engagement</b> while <b>pulling it away from
-the hERG channel</b> and making it developable.</div>
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-        delta = final_norm["affinity"] - seed_norm["affinity"]
-        floor = run_record.get("affinity_floor", 0.0)
-        if run_record.get("affinity_held", True):
-            st.success(
-                f"DRD2 engagement held: {seed_norm['affinity']:.2f} → "
-                f"{final_norm['affinity']:.2f} (floor {floor:.2f}). "
-                f"hERG avoidance {seed_norm['herg']:.2f} → {final_norm['herg']:.2f}."
-            )
-        else:
-            st.error(
-                f"DRD2 engagement fell to {final_norm['affinity']:.2f}, below the "
-                f"{floor:.2f} floor ({delta:+.2f}). The molecule drifted off its "
-                f"target — that is not an optimisation."
-            )
 
-    st.info(
-        "**A note on what 'specificity' means here.** We score DRD2 engagement and "
-        "hERG avoidance — one on-target, one anti-target. That is selectivity "
-        "against the off-target that actually ends antipsychotic programmes, but it "
-        "is not full subtype selectivity: we do **not** yet score D3, D4 or 5-HT2A, "
-        "so nothing here shows we are hitting D2 *rather than* its close relatives. "
-        "Adding a D3 anti-target is the obvious next axis."
+# --------------------------------------------------------------------------
+# 1. What we are aiming at
+# --------------------------------------------------------------------------
+
+def section_target(run_record: dict, seed: dict, final: dict) -> None:
+    st.markdown(
+        f"<div class='kicker'>Target</div>"
+        f"<div class='big' style='color:{INK}'>DRD2 &mdash; dopamine D2 receptor</div>"
+        f"<div style='color:#495057;margin-bottom:0.9rem'>"
+        f"The receptor every antipsychotic engages. "
+        f"<b>On-target:</b> keep binding it. "
+        f"<b>Anti-target:</b> stop binding the hERG cardiac channel."
+        f"</div>",
+        unsafe_allow_html=True,
     )
 
-
-def render_transcript(record: dict) -> None:
-    """The agent argument. Objections in red, vetoes in bold red."""
-    decision = record["decision"]
-    for review in record["reviews"]:
-        colour, open_mark, close_mark = VERDICT_STYLE.get(
-            review["verdict"], ("#333333", "", "")
-        )
+    left, mid, right = st.columns([1, 1, 1.15])
+    with left:
+        st.markdown("<div class='kicker'>Start &mdash; haloperidol</div>",
+                    unsafe_allow_html=True)
+        st.image(molecule_image(run_record["seed"]))
+    with mid:
+        st.markdown(f"<div class='kicker'>After {run_record['rounds']} rounds</div>",
+                    unsafe_allow_html=True)
+        st.image(molecule_image(run_record["final"]["smiles"]))
+    with right:
+        st.markdown("<div class='kicker'>Grey = where we started</div>",
+                    unsafe_allow_html=True)
         st.markdown(
-            f"<div style='border-left:4px solid {colour};padding:0.4rem 0.8rem;"
-            f"margin-bottom:0.5rem;background:rgba(0,0,0,0.02)'>"
-            f"<span style='color:{colour};font-weight:600'>"
-            f"{review['agent']} &middot; {review['verdict'].upper()}</span><br>"
-            f"<span style='color:{colour}'>{open_mark}{review['reason']}{close_mark}</span>"
-            f"</div>",
+            bar("DRD2 binding", final["affinity"], seed["affinity"], INK)
+            + bar("hERG avoidance", final["herg"], seed["herg"], DEEP_RED)
+            + bar("Solubility", final["solubility"], seed["solubility"], "#457b9d")
+            + bar("Brain penetration", final["bbb"], seed["bbb"], "#457b9d")
+            + bar("Synthesisability", final["sa"], seed["sa"], GREY),
+            unsafe_allow_html=True,
+        )
+
+    headline = (
+        f"Held DRD2 binding at {final['affinity']:.2f} "
+        f"while moving hERG avoidance {seed['herg']:.2f} → {final['herg']:.2f} "
+        f"and solubility {seed['solubility']:.2f} → {final['solubility']:.2f}."
+    )
+    if run_record.get("affinity_held", True):
+        st.success(headline)
+    else:
+        st.error(
+            f"DRD2 binding fell to {final['affinity']:.2f}, below the "
+            f"{run_record.get('affinity_floor', 0):.2f} floor. The molecule drifted "
+            f"off its target — that is not an optimisation."
+        )
+
+
+# --------------------------------------------------------------------------
+# 2. What the agents argued  (the money shot)
+# --------------------------------------------------------------------------
+
+STYLE = {
+    "support": (GREEN, "rgba(45,106,79,0.06)", "SUPPORTS"),
+    "object": (RED, "rgba(193,18,31,0.07)", "OBJECTS"),
+    "veto": (DEEP_RED, "rgba(127,0,0,0.11)", "VETO"),
+}
+
+
+def section_transcript(record: dict) -> None:
+    decision = record["decision"]
+
+    for review in record["reviews"]:
+        colour, background, label = STYLE.get(review["verdict"], (GREY, "none", "?"))
+        weight = "700" if review["verdict"] == "veto" else "400"
+        st.markdown(
+            f"<div class='agentbox' style='border-color:{colour};background:{background}'>"
+            f"<span class='agentname' style='color:{colour}'>{review['agent']}</span>"
+            f"<span class='verdict' style='background:{colour};color:white'>{label}</span>"
+            f"<div style='color:{colour};font-weight:{weight};margin-top:0.3rem;"
+            f"font-size:0.93rem;line-height:1.45'>{review['reason']}</div></div>",
             unsafe_allow_html=True,
         )
 
     if decision["vetoed"]:
         st.markdown(
-            f"<div style='border-left:4px solid #7f0000;padding:0.4rem 0.8rem;"
-            f"margin-bottom:0.5rem;background:rgba(193,18,31,0.06)'>"
-            f"<b style='color:#7f0000'>REMOVED FROM CONSIDERATION</b><br>"
-            + "<br>".join(f"<code>{s}</code>" for s in decision["vetoed"])
+            f"<div class='agentbox' style='border-color:{DEEP_RED};"
+            f"background:rgba(127,0,0,0.11)'>"
+            f"<span class='agentname' style='color:{DEEP_RED}'>"
+            f"REMOVED FROM CONSIDERATION</span>"
+            + "".join(
+                f"<div class='smiles' style='color:{DEEP_RED}'>{s}</div>"
+                for s in decision["vetoed"]
+            )
             + "</div>",
             unsafe_allow_html=True,
         )
 
     st.markdown(
-        f"<div style='border-left:4px solid #1d3557;padding:0.4rem 0.8rem;"
-        f"background:rgba(29,53,87,0.06)'>"
-        f"<b style='color:#1d3557'>Orchestrator</b><br>{decision['rationale']}</div>",
+        f"<div class='agentbox' style='border-color:{INK};background:rgba(29,53,87,0.07)'>"
+        f"<span class='agentname' style='color:{INK}'>Orchestrator &mdash; decides</span>"
+        f"<div style='margin-top:0.3rem;font-size:0.93rem;line-height:1.45'>"
+        f"{decision['rationale']}</div></div>",
         unsafe_allow_html=True,
     )
+
     if decision.get("forced_second_best"):
         st.warning(
-            "The orchestrator took second best: the leading candidate was vetoed on hERG."
+            "**The orchestrator took second best.** The highest-scoring molecule "
+            "this round was vetoed on hERG and is off the table regardless of its "
+            "potency."
+        )
+    if (decision.get("audit") or {}).get("contradiction"):
+        st.error(
+            "**Audit flag:** the rationale claims a hERG advantage the chosen "
+            "molecule does not have. Shown rather than hidden — an orchestrator "
+            "that can reason can also be fluently wrong."
         )
 
 
+def section_candidates(record: dict) -> None:
+    rows = []
+    for candidate in record["candidates"]:
+        norm = candidate["normalised"]
+        vetoed = candidate["smiles"] in record["decision"]["vetoed"]
+        rows.append(
+            {
+                "": "✗ VETOED" if vetoed
+                else ("✓ CHOSEN" if candidate["smiles"] == record["decision"]["chosen"]
+                      else ""),
+                "edit": candidate.get("transform", ""),
+                **{AXIS_LABELS[a]: round(norm[a], 2) for a in AXES},
+                "SMILES": candidate["smiles"],
+            }
+        )
+    st.dataframe(rows, use_container_width=True, hide_index=True)
+
+
+# --------------------------------------------------------------------------
+# 3 + 4. Where the front moved, and what this isn't
+# --------------------------------------------------------------------------
+
+def section_front(run_record: dict) -> None:
+    left, right = st.columns([1.3, 1])
+    with left:
+        st.pyplot(pareto_figure(run_record))
+    with right:
+        initial = run_record["hypervolume_initial"]
+        final = run_record["hypervolume_final"]
+        st.markdown(
+            f"<div class='card'><div class='kicker'>Pareto hypervolume</div>"
+            f"<div class='big' style='color:{INK}'>{initial:.2f} &rarr; {final:.2f}</div>"
+            f"<div style='color:{GREY}'>"
+            f"{final / initial:.1f}&times; more of the solubility / hERG-safety "
+            f"space dominated.</div></div>",
+            unsafe_allow_html=True,
+        )
+        st.markdown("")
+        st.markdown(
+            "**Not plotted: affinity.** Haloperidol is a marketed drug and scores "
+            "exactly **1.00** on the DRD2 oracle — the axis has no headroom, so a "
+            "front drawn on it cannot move. It is held as a floor instead."
+        )
+        prov = run_record["provenance"]
+        if prov["any_surrogate"]:
+            st.error(
+                "**Surrogate oracles in use.** Some axes are physchem heuristics, "
+                "not trained models. No accuracy claim attaches to them."
+            )
+        else:
+            st.success(
+                f"All five axes are real models — affinity `{prov['affinity']}`, "
+                f"ADMET `{prov['solubility']}` (XGBoost on TDC scaffold splits), "
+                f"SA `{prov['sa']}`."
+            )
+
+
+def section_caveats() -> None:
+    st.markdown(
+        """
+**What this isn't.** The ADMET models were trained on scaffold splits, so they
+were tested on novel chemistry &mdash; but our agents generate molecules further out
+of distribution than that. *The predictions get less reliable exactly as the
+optimisation gets more interesting*, and nothing in this loop knows when it has
+walked off the training manifold.
+
+We score one on-target and one anti-target. That is selectivity against the
+off-target that actually ends antipsychotic programmes, but it is **not subtype
+selectivity** &mdash; D3, D4 and 5-HT2A are unscored, so nothing here shows we hit
+D2 *rather than* its close relatives.
+
+The real version closes the loop on in vitro assay data, and the hard problem
+becomes sample efficiency when every data point costs a few hundred dollars and
+four weeks.
+"""
+    )
+
+
+# --------------------------------------------------------------------------
+
 def main() -> None:
-    st.set_page_config(page_title="DRD2 multi-agent lead optimisation", layout="wide")
-    st.title("Multi-agent lead optimisation — DRD2")
+    st.set_page_config(page_title="DRD2 lead optimisation", layout="wide")
+    st.markdown(CSS, unsafe_allow_html=True)
 
     with st.sidebar:
-        st.header("Run")
+        st.header("Demo")
         path = Path(st.text_input("Cached run", str(DEFAULT_RUN)))
         rounds = st.slider("Rounds (live only)", 1, 8, 5)
         st.caption(
-            "Replay is the default. Press *Run live* only if the room feels safe "
-            "— it calls the oracles, and the agent LLM if a key is set."
+            "Replay is the default and costs nothing. Press *Run live* only if the "
+            "room feels safe — it calls the oracles and the agent LLM."
         )
         live = st.button("Run live", type="primary")
+        st.divider()
+        st.caption(
+            "**Demo order** — 1 the target, 2 the argument, 3 the front. "
+            "Read one veto out loud."
+        )
 
     if live:
         with st.spinner("Running the loop..."):
@@ -188,111 +319,51 @@ def main() -> None:
         st.session_state["run"] = loaded
 
     run_record = st.session_state["run"]
-    provenance_banner(run_record)
-
-    seed_norm = run_record["history"][0]["normalised"]
-    final_norm = run_record["final"]["normalised"]
-
-    target_panel(run_record, seed_norm, final_norm)
-
-    # Grouped by what each axis is FOR, not just listed. An undifferentiated row
-    # of five bars does not tell anyone that this is a receptor-engagement
-    # problem with an anti-target attached.
-    st.markdown("##### On-target — what we are trying to hit")
-    on_target = st.columns([1, 3])
-    on_target[0].metric(
-        "DRD2 engagement",
-        f"{final_norm['affinity']:.2f}",
-        f"{final_norm['affinity'] - seed_norm['affinity']:+.2f}",
-    )
-    on_target[1].caption(
-        "Dopamine D2 receptor — the antipsychotic target. Haloperidol binds deep "
-        "in an extended pocket formed by TM3/TM5/TM6, anchored by a salt bridge "
-        "from its protonated piperidine nitrogen to **Asp114**. That buried "
-        "butyrophenone is the subtype-selectivity element, not decoration. "
-        "Every edit is scored on whether it keeps this engagement."
-    )
-
-    st.markdown("##### Anti-target — what we must not hit")
-    anti = st.columns([1, 3])
-    anti[0].metric(
-        "hERG avoidance",
-        f"{final_norm['herg']:.2f}",
-        f"{final_norm['herg'] - seed_norm['herg']:+.2f}",
-    )
-    anti[1].caption(
-        "The hERG cardiac potassium channel. **This is the selectivity problem in "
-        "miniature:** hERG binds a protonated basic nitrogen plus lipophilic "
-        "aromatics via cation-π to **Tyr652** — nearly the same pharmacophore "
-        "DRD2 wants. Holding one while dropping the other is the actual "
-        "optimisation. The safety agent's veto is a selectivity constraint."
-    )
-
-    st.markdown("##### Developability — whether it could ever be a drug")
-    dev = st.columns(3)
-    for column, axis in zip(dev, ("solubility", "bbb", "sa")):
-        column.metric(
-            AXIS_LABELS[axis],
-            f"{final_norm[axis]:.2f}",
-            f"{final_norm[axis] - seed_norm[axis]:+.2f}",
-        )
-    if not run_record.get("affinity_held", True):
-        st.error(
-            f"Affinity fell below the programme floor of "
-            f"{run_record['affinity_floor']:.2f}. The front moved by spending the "
-            f"potency that made the seed a lead — that is not an optimisation."
-        )
-
-    round_numbers = [record["round"] for record in run_record["round_records"]]
-    if not round_numbers:
+    if not run_record.get("round_records"):
         st.warning("This run has no completed rounds.")
         st.stop()
-    selected = st.select_slider("Round", options=round_numbers, value=round_numbers[-1])
+
+    seed = run_record["history"][0]["normalised"]
+    final = run_record["final"]["normalised"]
+
+    st.title("Multi-agent lead optimisation")
+    section_target(run_record, seed, final)
+
+    st.divider()
+    st.markdown(
+        f"<div class='kicker'>The argument</div>"
+        f"<div style='color:#495057;margin-bottom:0.7rem'>Three specialists, one "
+        f"objective each. Safety does not negotiate — it removes molecules.</div>",
+        unsafe_allow_html=True,
+    )
+    numbers = [r["round"] for r in run_record["round_records"]]
+    veto_rounds = [
+        r["round"] for r in run_record["round_records"] if r["decision"]["vetoed"]
+    ]
+    default_round = veto_rounds[0] if veto_rounds else numbers[-1]
+    selected = st.select_slider(
+        "Round" + (f"  (vetoes fired in {veto_rounds})" if veto_rounds else ""),
+        options=numbers,
+        value=default_round,
+    )
     record = run_record["round_records"][selected - 1]
 
-    left, right = st.columns([1, 1])
+    left, right = st.columns([1.15, 1])
     with left:
-        st.subheader(f"Round {selected}")
-        st.caption("Incumbent entering this round")
-        st.image(molecule_image(record["parent"]["smiles"]))
-        st.code(record["parent"]["smiles"], language=None)
-        previous = (
-            run_record["round_records"][selected - 2]["parent"] if selected > 1 else None
-        )
-        st.pyplot(score_bars_figure(record["parent"], previous))
-
+        section_transcript(record)
     with right:
-        st.subheader("Transcript")
-        render_transcript(record)
+        st.markdown("<div class='kicker'>Candidates this round</div>",
+                    unsafe_allow_html=True)
+        section_candidates(record)
 
-    st.subheader("Candidates this round")
-    rows = []
-    for candidate in record["candidates"]:
-        norm = candidate["normalised"]
-        rows.append(
-            {
-                "vetoed": candidate["smiles"] in record["decision"]["vetoed"],
-                "chosen": candidate["smiles"] == record["decision"]["chosen"],
-                "edit": candidate.get("transform", ""),
-                **{AXIS_LABELS[axis]: round(norm[axis], 3) for axis in AXES},
-                "smiles": candidate["smiles"],
-            }
-        )
-    st.dataframe(rows, use_container_width=True, hide_index=True)
+    st.divider()
+    st.markdown("<div class='kicker'>Did the front move?</div>",
+                unsafe_allow_html=True)
+    section_front(run_record)
 
-    st.subheader("Pareto front")
-    st.pyplot(pareto_figure(run_record))
-    st.caption(
-        f"Hypervolume over {' x '.join(run_record['pareto_axes'])}: "
-        f"{run_record['hypervolume_initial']:.3f} → "
-        f"{run_record['hypervolume_final']:.3f}. "
-        f"Affinity {run_record['affinity_seed']:.2f} → "
-        f"{run_record['affinity_final']:.2f} "
-        f"(floor {run_record['affinity_floor']:.2f}). "
-        "Not plotting affinity is deliberate: the seed is a marketed drug and already "
-        "sits at the ceiling of the activity oracle, so that axis has no headroom and "
-        "a front drawn on it cannot move. It is held as a constraint instead."
-    )
+    st.divider()
+    with st.expander("What this isn't  —  read this part out loud", expanded=False):
+        section_caveats()
 
 
 if __name__ == "__main__":

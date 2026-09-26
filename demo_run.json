@@ -4,16 +4,16 @@
   "mode": "specialists",
   "rounds": 5,
   "provenance": {
-    "affinity": "surrogate-similarity",
+    "affinity": "tdc-drd2",
     "solubility": "xgboost",
     "bbb": "xgboost",
     "herg": "xgboost",
     "sa": "rdkit-sascorer",
-    "any_surrogate": true
+    "any_surrogate": false
   },
   "affinity_floor": 0.6,
-  "affinity_seed": 1.0,
-  "affinity_final": 0.676056338028169,
+  "affinity_seed": 0.9999993745656254,
+  "affinity_final": 0.8441828439668133,
   "affinity_held": true,
   "weights": {
     "affinity": 0.38,
@@ -30,14 +30,14 @@
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
       "raw": {
-        "affinity": 1.0,
+        "affinity": 0.9999993745656254,
         "solubility": -4.477168560028076,
         "bbb": 0.9837419986724854,
         "herg": 0.8652780055999756,
         "sa": 2.1227326079667783
       },
       "normalised": {
-        "affinity": 1.0,
+        "affinity": 0.9999993745656254,
         "solubility": 0.4403539299964905,
         "bbb": 0.9837419986724854,
         "herg": 0.13472199440002441,
@@ -49,14 +49,14 @@
     {
       "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
       "raw": {
-        "affinity": 0.6363636363636364,
+        "affinity": 0.9999916174003249,
         "solubility": -4.866168975830078,
         "bbb": 0.9003748893737793,
         "herg": 0.7540425658226013,
         "sa": 2.4163049156461103
       },
       "normalised": {
-        "affinity": 0.6363636363636364,
+        "affinity": 0.9999916174003249,
         "solubility": 0.39172887802124023,
         "bbb": 0.9003748893737793,
         "herg": 0.24595743417739868,
@@ -70,14 +70,14 @@
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1",
       "raw": {
-        "affinity": 0.5764705882352941,
+        "affinity": 0.988420369822763,
         "solubility": -4.498271465301514,
         "bbb": 0.9955831170082092,
         "herg": 0.8350985050201416,
         "sa": 2.481978799252124
       },
       "normalised": {
-        "affinity": 0.5764705882352941,
+        "affinity": 0.988420369822763,
         "solubility": 0.4377160668373108,
         "bbb": 0.9955831170082092,
         "herg": 0.1649014949798584,
@@ -91,14 +91,14 @@
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
       "raw": {
-        "affinity": 0.6351351351351351,
+        "affinity": 0.9883843203477035,
         "solubility": -3.8109793663024902,
         "bbb": 0.9880384802818298,
         "herg": 0.8886770009994507,
         "sa": 2.4052409239750947
       },
       "normalised": {
-        "affinity": 0.6351351351351351,
+        "affinity": 0.9883843203477035,
         "solubility": 0.5236275792121887,
         "bbb": 0.9880384802818298,
         "herg": 0.11132299900054932,
@@ -112,14 +112,14 @@
     {
       "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
       "raw": {
-        "affinity": 0.5540540540540541,
+        "affinity": 0.9971044420210597,
         "solubility": -3.9869320392608643,
         "bbb": 0.9743865728378296,
         "herg": 0.8557303547859192,
         "sa": 2.666233807784266
       },
       "normalised": {
-        "affinity": 0.5540540540540541,
+        "affinity": 0.9971044420210597,
         "solubility": 0.501633495092392,
         "bbb": 0.9743865728378296,
         "herg": 0.1442696452140808,
@@ -133,14 +133,14 @@
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
       "raw": {
-        "affinity": 0.7384615384615385,
+        "affinity": 0.999995134322574,
         "solubility": -4.2563629150390625,
         "bbb": 0.9238886833190918,
         "herg": 0.8321940302848816,
         "sa": 2.060130082330488
       },
       "normalised": {
-        "affinity": 0.7384615384615385,
+        "affinity": 0.999995134322574,
         "solubility": 0.4679546356201172,
         "bbb": 0.9238886833190918,
         "herg": 0.1678059697151184,
@@ -154,14 +154,14 @@
     {
       "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
       "raw": {
-        "affinity": 0.6363636363636364,
+        "affinity": 0.9954648637120451,
         "solubility": -3.825695037841797,
         "bbb": 0.9830300211906433,
         "herg": 0.760623574256897,
         "sa": 2.3454751779314815
       },
       "normalised": {
-        "affinity": 0.6363636363636364,
+        "affinity": 0.9954648637120451,
         "solubility": 0.5217881202697754,
         "bbb": 0.9830300211906433,
         "herg": 0.23937642574310303,
@@ -173,485 +173,464 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(C(=O)O)c2)CC1)c1ccccc1",
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
       "raw": {
-        "affinity": 0.49382716049382713,
-        "solubility": -3.7005274295806885,
-        "bbb": 0.787887692451477,
-        "herg": 0.6528183817863464,
-        "sa": 2.2598486352176774
+        "affinity": 0.9657888454300944,
+        "solubility": -3.6471190452575684,
+        "bbb": 0.9759558439254761,
+        "herg": 0.7257193326950073,
+        "sa": 3.1029613483285416
       },
       "normalised": {
-        "affinity": 0.49382716049382713,
-        "solubility": 0.5374340713024139,
-        "bbb": 0.787887692451477,
-        "herg": 0.34718161821365356,
-        "sa": 0.860016818309147
+        "affinity": 0.9657888454300944,
+        "solubility": 0.544110119342804,
+        "bbb": 0.9759558439254761,
+        "herg": 0.2742806673049927,
+        "sa": 0.7663376279634954
       },
-      "transform": "aryl_carboxylic_acid",
-      "intent": "acid: large solubility gain, usually kills BBB",
+      "transform": "llm_edit",
+      "intent": "Beta-fluorine on the linker lowers piperidine pKa by ~1 unit, attenuating the cationic hERG pharmacophore while keeping the butyrophenone geometry and affinity contacts.",
       "round": 2,
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CCC(=O)Nc3ccc(F)cc3)CC2)ccc1Cl",
       "raw": {
-        "affinity": 0.5657894736842105,
-        "solubility": -3.4298338890075684,
-        "bbb": 0.8889974355697632,
-        "herg": 0.6959893107414246,
-        "sa": 2.2962026761134915
+        "affinity": 0.14916205212848724,
+        "solubility": -3.4444541931152344,
+        "bbb": 0.9899827837944031,
+        "herg": 0.7589502334594727,
+        "sa": 2.278581160837465
       },
       "normalised": {
-        "affinity": 0.5657894736842105,
-        "solubility": 0.571270763874054,
-        "bbb": 0.8889974355697632,
-        "herg": 0.30401068925857544,
-        "sa": 0.8559774804318343
+        "affinity": 0.14916205212848724,
+        "solubility": 0.5694432258605957,
+        "bbb": 0.9899827837944031,
+        "herg": 0.24104976654052734,
+        "sa": 0.857935426573615
       },
-      "transform": "aryl_carboxamide",
-      "intent": "primary amide: strong solubility gain, BBB cost",
+      "transform": "llm_edit",
+      "intent": "Ketone-to-anilide swap removes a lipophilic carbonyl-aryl hydrophobe, adding an H-bond donor to boost solubility and cut hERG binding.",
       "round": 2,
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(O)c3ccc(F)cc3)CC2)ccc1Cl",
       "raw": {
-        "affinity": 0.6865671641791045,
-        "solubility": -3.761070966720581,
-        "bbb": 0.9866661429405212,
-        "herg": 0.8751372694969177,
-        "sa": 2.0650954669458734
+        "affinity": 0.9829683048576399,
+        "solubility": -2.9806580543518066,
+        "bbb": 0.895846962928772,
+        "herg": 0.7687705159187317,
+        "sa": 2.878027821500414
       },
       "normalised": {
-        "affinity": 0.6865671641791045,
-        "solubility": 0.5298661291599274,
-        "bbb": 0.9866661429405212,
-        "herg": 0.12486273050308228,
-        "sa": 0.8816560592282363
+        "affinity": 0.9829683048576399,
+        "solubility": 0.6274177432060242,
+        "bbb": 0.895846962928772,
+        "herg": 0.2312294840812683,
+        "sa": 0.7913302420555096
       },
-      "transform": "halide_to_fluoride",
-      "intent": "downsize the halogen to cut logP and hERG risk",
+      "transform": "llm_edit",
+      "intent": "Ketone reduction to the secondary carbinol lowers logP and adds a donor; reduced planar aryl-ketone stacking should de-risk hERG with minimal affinity loss.",
       "round": 2,
       "origin": "vetoed"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc(F)c1Cl",
       "raw": {
-        "affinity": 0.5443037974683544,
-        "solubility": -3.2599260807037354,
-        "bbb": 0.9124245047569275,
-        "herg": 0.6473764181137085,
-        "sa": 2.4019093659656683
+        "affinity": 0.9948361155128532,
+        "solubility": -4.171926975250244,
+        "bbb": 0.9796313643455505,
+        "herg": 0.7491320371627808,
+        "sa": 2.5950128649902755
       },
       "normalised": {
-        "affinity": 0.5443037974683544,
-        "solubility": 0.5925092399120331,
-        "bbb": 0.9124245047569275,
-        "herg": 0.3526235818862915,
-        "sa": 0.8442322926704813
+        "affinity": 0.9948361155128532,
+        "solubility": 0.4785091280937195,
+        "bbb": 0.9796313643455505,
+        "herg": 0.25086796283721924,
+        "sa": 0.8227763483344138
       },
-      "transform": "aryl_sulfonamide",
-      "intent": "polar acceptor, lowers hERG risk",
+      "transform": "llm_edit",
+      "intent": "Ring fluorine ortho to the carbinol aryl tunes electronics and blocks a metabolic soft spot without adding bulk; modest polarity gain.",
       "round": 2,
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4367816091954023,
-        "solubility": -4.743358135223389,
-        "bbb": 0.9567022323608398,
-        "herg": 0.7466257810592651,
-        "sa": 2.397698789010848
+        "affinity": 0.9794120046573792,
+        "solubility": -3.9718737602233887,
+        "bbb": 0.9783805012702942,
+        "herg": 0.6762256026268005,
+        "sa": 2.534910845925003
       },
       "normalised": {
-        "affinity": 0.4367816091954023,
-        "solubility": 0.4070802330970764,
-        "bbb": 0.9567022323608398,
-        "herg": 0.25337421894073486,
-        "sa": 0.8447001345543502
+        "affinity": 0.9794120046573792,
+        "solubility": 0.5035157799720764,
+        "bbb": 0.9783805012702942,
+        "herg": 0.32377439737319946,
+        "sa": 0.8294543504527775
       },
-      "transform": "aryl_nitrile",
-      "intent": "polar, small, metabolically robust acceptor",
+      "transform": "llm_edit",
+      "intent": "Chloride-to-nitrile isostere lowers lipophilicity at the key para position, targeting the chlorophenyl-carbinol hERG hotspot while retaining electron-withdrawing character.",
       "round": 2,
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccccc1",
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CC(=O)N3CCC(c4ccc(F)cc4)CC3)CC2)ccc1Cl",
       "raw": {
-        "affinity": 0.4691358024691358,
-        "solubility": -3.9795172214508057,
-        "bbb": 0.9748319387435913,
-        "herg": 0.813647985458374,
-        "sa": 2.293560851561258
+        "affinity": 0.8814209719843756,
+        "solubility": -3.630671739578247,
+        "bbb": 0.9734776616096497,
+        "herg": 0.8589264154434204,
+        "sa": 2.484120449864621
       },
       "normalised": {
-        "affinity": 0.4691358024691358,
-        "solubility": 0.5025603473186493,
-        "bbb": 0.9748319387435913,
-        "herg": 0.18635201454162598,
-        "sa": 0.8562710164931935
+        "affinity": 0.8814209719843756,
+        "solubility": 0.5461660325527191,
+        "bbb": 0.9734776616096497,
+        "herg": 0.1410735845565796,
+        "sa": 0.8350977277928199
       },
-      "transform": "phenyl_to_pyridyl",
-      "intent": "swap CH for N: cuts logP and hERG liability",
+      "transform": "llm_edit",
+      "intent": "Double edit: glycinamide linker shortens the flexible basic chain and inserts an amide, strongly reducing amine basicity/logP for hERG relief plus solubility gain.",
       "round": 2,
-      "origin": "candidate"
+      "origin": "vetoed"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.7246376811594203,
-        "solubility": -3.0693607330322266,
-        "bbb": 0.9414632320404053,
-        "herg": 0.48072120547294617,
-        "sa": 2.2758256052819092
+        "affinity": 0.8731610261108544,
+        "solubility": -4.11127233505249,
+        "bbb": 0.9404330253601074,
+        "herg": 0.6510546803474426,
+        "sa": 3.278126631409056
       },
       "normalised": {
-        "affinity": 0.7246376811594203,
-        "solubility": 0.6163299083709717,
-        "bbb": 0.9414632320404053,
-        "herg": 0.5192787945270538,
-        "sa": 0.8582415994131212
+        "affinity": 0.8731610261108544,
+        "solubility": 0.4860909581184387,
+        "bbb": 0.9404330253601074,
+        "herg": 0.3489453196525574,
+        "sa": 0.7468748187323271
       },
-      "transform": "aryl_sulfonamide",
-      "intent": "polar acceptor, lowers hERG risk",
+      "transform": "llm_edit",
+      "intent": "beta-fluorine on the linker drops piperidine pKa by ~1 unit, reducing cationic hERG binding while keeping the butyrophenone pharmacophore and affinity.",
       "round": 3,
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+      "smiles": "N#Cc1ccc(C2(O)CN(CCCC(=O)c3ccc(F)cc3)CC(F)(F)C2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4418604651162791,
-        "solubility": -3.44244647026062,
-        "bbb": 0.9935460686683655,
-        "herg": 0.6805481314659119,
-        "sa": 2.3554852467074525
+        "affinity": 0.8317535677284045,
+        "solubility": -3.8850109577178955,
+        "bbb": 0.9766859412193298,
+        "herg": 0.7089691162109375,
+        "sa": 3.4104487293992127
       },
       "normalised": {
-        "affinity": 0.4418604651162791,
-        "solubility": 0.5696941912174225,
-        "bbb": 0.9935460686683655,
-        "herg": 0.31945186853408813,
-        "sa": 0.8493905281436164
+        "affinity": 0.8317535677284045,
+        "solubility": 0.5143736302852631,
+        "bbb": 0.9766859412193298,
+        "herg": 0.2910308837890625,
+        "sa": 0.7321723634000874
       },
-      "transform": "aryl_carboxamide",
-      "intent": "primary amide: strong solubility gain, BBB cost",
+      "transform": "llm_edit",
+      "intent": "3,3-difluoropiperidine lowers amine basicity for hERG relief with minimal steric perturbation of the tertiary-carbinol pharmacophore.",
+      "round": 3,
+      "origin": "vetoed"
+    },
+    {
+      "smiles": "N#Cc1ccc(C2(O)CCN(CCCS(=O)(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+      "raw": {
+        "affinity": 0.7021431468390722,
+        "solubility": -3.0196549892425537,
+        "bbb": 0.8580302000045776,
+        "herg": 0.5795623660087585,
+        "sa": 2.638484562278604
+      },
+      "normalised": {
+        "affinity": 0.7021431468390722,
+        "solubility": 0.6225431263446808,
+        "bbb": 0.8580302000045776,
+        "herg": 0.42043763399124146,
+        "sa": 0.8179461597468217
+      },
+      "transform": "llm_edit",
+      "intent": "Ketone-to-sulfone isostere: removes the metabolically labile/lipophilic butyrophenone, adds strong polarity for solubility without a reducible carbonyl.",
       "round": 3,
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)c1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CCC(=O)Nc3ccc(F)cc3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.5822784810126582,
-        "solubility": -4.694645404815674,
-        "bbb": 0.9292627573013306,
-        "herg": 0.751421332359314,
-        "sa": 2.304933154645214
+        "affinity": 0.08113589650410645,
+        "solubility": -4.26273775100708,
+        "bbb": 0.9239547252655029,
+        "herg": 0.6428610682487488,
+        "sa": 2.470405900870059
       },
       "normalised": {
-        "affinity": 0.5822784810126582,
-        "solubility": 0.41316932439804077,
-        "bbb": 0.9292627573013306,
-        "herg": 0.24857866764068604,
-        "sa": 0.8550074272616429
+        "affinity": 0.08113589650410645,
+        "solubility": 0.467157781124115,
+        "bbb": 0.9239547252655029,
+        "herg": 0.3571389317512512,
+        "sa": 0.8366215665699934
       },
-      "transform": "aryl_nitrile",
-      "intent": "polar, small, metabolically robust acceptor",
+      "transform": "llm_edit",
+      "intent": "Anilide replaces the ketone, shortening/polarising the linker; lower logP and reduced planar lipophilic hERG contact while retaining the aryl-F cap.",
       "round": 3,
       "origin": "candidate"
     },
     {
-      "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC3(CO)COC3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.44871794871794873,
-        "solubility": -3.950503349304199,
-        "bbb": 0.8783082365989685,
-        "herg": 0.7659508585929871,
-        "sa": 2.5927158455575405
+        "affinity": 0.03575818557305207,
+        "solubility": -2.5604543685913086,
+        "bbb": 0.1549416333436966,
+        "herg": 0.26139670610427856,
+        "sa": 3.0232512361766437
       },
       "normalised": {
-        "affinity": 0.44871794871794873,
-        "solubility": 0.5061870813369751,
-        "bbb": 0.8783082365989685,
-        "herg": 0.23404914140701294,
-        "sa": 0.8230315727158288
+        "affinity": 0.03575818557305207,
+        "solubility": 0.6799432039260864,
+        "bbb": 0.1549416333436966,
+        "herg": 0.7386032938957214,
+        "sa": 0.7751943070914841
       },
-      "transform": "ketone_to_alcohol",
-      "intent": "reduce the carbonyl: more polar, more flexible",
+      "transform": "llm_edit",
+      "intent": "Oxetane-methanol cap removes the aryl ketone entirely, sharply cutting lipophilicity (solubility) and the hydrophobic aryl motif driving hERG block.",
       "round": 3,
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccncc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.7058823529411765,
-        "solubility": -4.0146589279174805,
-        "bbb": 0.9451987743377686,
-        "herg": 0.7784594297409058,
-        "sa": 2.254216620792027
+        "affinity": 0.8441828439668133,
+        "solubility": -4.001100063323975,
+        "bbb": 0.7541766166687012,
+        "herg": 0.6537858843803406,
+        "sa": 3.6118969972571717
       },
       "normalised": {
-        "affinity": 0.7058823529411765,
-        "solubility": 0.49816763401031494,
-        "bbb": 0.9451987743377686,
-        "herg": 0.22154057025909424,
-        "sa": 0.8606425976897748
+        "affinity": 0.8441828439668133,
+        "solubility": 0.4998624920845032,
+        "bbb": 0.7541766166687012,
+        "herg": 0.3462141156196594,
+        "sa": 0.7097892225269808
       },
-      "transform": "phenyl_to_pyridyl",
-      "intent": "swap CH for N: cuts logP and hERG liability",
+      "transform": "llm_edit",
+      "intent": "Double edit: ketone reduced to carbinol for the solubility gain seen previously, combined with a beta-F to offset the hERG penalty by lowering amine basicity.",
       "round": 3,
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+      "smiles": "CS(=O)(=O)c1ccc(C(=O)CC(F)CN2CCC(O)(c3ccc(C#N)c(C(N)=O)c3)CC2)cc1",
       "raw": {
-        "affinity": 0.42857142857142855,
-        "solubility": -2.8740789890289307,
-        "bbb": 0.748741626739502,
-        "herg": 0.49513283371925354,
-        "sa": 2.8083782488508398
+        "affinity": 0.06592320480840727,
+        "solubility": -2.9725801944732666,
+        "bbb": 0.23953627049922943,
+        "herg": 0.5218517184257507,
+        "sa": 3.365922376741878
       },
       "normalised": {
-        "affinity": 0.42857142857142855,
-        "solubility": 0.6407401263713837,
-        "bbb": 0.748741626739502,
-        "herg": 0.5048671662807465,
-        "sa": 0.7990690834610178
+        "affinity": 0.06592320480840727,
+        "solubility": 0.6284274756908417,
+        "bbb": 0.23953627049922943,
+        "herg": 0.47814828157424927,
+        "sa": 0.7371197359175692
       },
-      "transform": "ketone_to_alcohol",
-      "intent": "reduce the carbonyl: more polar, more flexible",
+      "transform": "llm_edit",
+      "intent": "Methylsulfone replaces aryl-F: adds polarity/solubility and lowers lipophilic hERG binding while retaining the ketone pharmacophore.",
       "round": 4,
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cc(S(N)(=O)=O)ccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3F)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4942528735632184,
-        "solubility": -3.589149236679077,
-        "bbb": 0.7029848098754883,
-        "herg": 0.6034449934959412,
-        "sa": 2.5976110381283366
+        "affinity": 0.8452431208139433,
+        "solubility": -3.932647705078125,
+        "bbb": 0.9612594842910767,
+        "herg": 0.7206125259399414,
+        "sa": 3.406708694434178
       },
       "normalised": {
-        "affinity": 0.4942528735632184,
-        "solubility": 0.5513563454151154,
-        "bbb": 0.7029848098754883,
-        "herg": 0.39655500650405884,
-        "sa": 0.8224876624301848
+        "affinity": 0.8452431208139433,
+        "solubility": 0.5084190368652344,
+        "bbb": 0.9612594842910767,
+        "herg": 0.2793874740600586,
+        "sa": 0.7325879228406469
       },
-      "transform": "aryl_nitrile",
-      "intent": "polar, small, metabolically robust acceptor",
+      "transform": "llm_edit",
+      "intent": "Extra ortho-fluorine twists the aryl ketone, reducing hERG-prone flat lipophilic surface with minimal affinity cost.",
+      "round": 4,
+      "origin": "vetoed"
+    },
+    {
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O",
+      "raw": {
+        "affinity": 0.4150463824145249,
+        "solubility": -3.839684009552002,
+        "bbb": 0.8066242337226868,
+        "herg": 0.7792068123817444,
+        "sa": 3.523084413162186
+      },
+      "normalised": {
+        "affinity": 0.4150463824145249,
+        "solubility": 0.5200394988059998,
+        "bbb": 0.8066242337226868,
+        "herg": 0.22079318761825562,
+        "sa": 0.7196572874264238
+      },
+      "transform": "llm_edit",
+      "intent": "Pyridine-for-benzene lowers logP/basic surface, improving solubility and hERG while keeping BBB-compatible MW/TPSA.",
+      "round": 4,
+      "origin": "vetoed"
+    },
+    {
+      "smiles": "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1C#N",
+      "raw": {
+        "affinity": 0.8950994371579211,
+        "solubility": -4.560024261474609,
+        "bbb": 0.9273558855056763,
+        "herg": 0.7140118479728699,
+        "sa": 3.283473629218495
+      },
+      "normalised": {
+        "affinity": 0.8950994371579211,
+        "solubility": 0.42999696731567383,
+        "bbb": 0.9273558855056763,
+        "herg": 0.2859881520271301,
+        "sa": 0.7462807078646116
+      },
+      "transform": "llm_edit",
+      "intent": "N-methyl primary amide: modest lipophilicity shift, reduced crystal lattice energy for solubility, retains key H-bond donor.",
+      "round": 4,
+      "origin": "vetoed"
+    },
+    {
+      "smiles": "COc1ccc(C(=O)CC(F)CN2CCC(O)(c3ccc(C#N)c(C(N)=O)c3)CC2)cc1",
+      "raw": {
+        "affinity": 0.13658633186188318,
+        "solubility": -4.687424182891846,
+        "bbb": 0.36052510142326355,
+        "herg": 0.6101884841918945,
+        "sa": 3.2519401806445956
+      },
+      "normalised": {
+        "affinity": 0.13658633186188318,
+        "solubility": 0.4140719771385193,
+        "bbb": 0.36052510142326355,
+        "herg": 0.38981151580810547,
+        "sa": 0.7497844243728227
+      },
+      "transform": "llm_edit",
+      "intent": "p-Methoxy ketone adds an H-bond acceptor to improve solubility and attenuate hERG versus the electron-poor 4-F aryl.",
       "round": 4,
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(N4CCOCC4)cc3)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.676056338028169,
-        "solubility": -2.5211496353149414,
-        "bbb": 0.9867384433746338,
-        "herg": 0.5325301885604858,
-        "sa": 2.280239280495584
+        "affinity": 0.13499374291376498,
+        "solubility": -3.7955775260925293,
+        "bbb": 0.5492851138114929,
+        "herg": 0.5493980050086975,
+        "sa": 3.3827995468984966
       },
       "normalised": {
-        "affinity": 0.676056338028169,
-        "solubility": 0.6848562955856323,
-        "bbb": 0.9867384433746338,
-        "herg": 0.46746981143951416,
-        "sa": 0.8577511910560462
+        "affinity": 0.13499374291376498,
+        "solubility": 0.5255528092384338,
+        "bbb": 0.5492851138114929,
+        "herg": 0.4506019949913025,
+        "sa": 0.735244494789056
       },
-      "transform": "halide_to_fluoride",
-      "intent": "downsize the halogen to cut logP and hERG risk",
+      "transform": "llm_edit",
+      "intent": "Morpholino aryl adds neutral polar solubilising group distal to the binding cyanophenyl head, diluting cationic hERG pharmacophore.",
       "round": 4,
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(N4CCOCC4)c3)CC2)cc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4270833333333333,
-        "solubility": -3.181852102279663,
-        "bbb": 0.8396601676940918,
-        "herg": 0.624721884727478,
-        "sa": 2.6154413355166
+        "affinity": 0.4327967282207316,
+        "solubility": -3.311732530593872,
+        "bbb": 0.9608182311058044,
+        "herg": 0.6765004396438599,
+        "sa": 4.064102674444446
       },
       "normalised": {
-        "affinity": 0.4270833333333333,
-        "solubility": 0.6022684872150421,
-        "bbb": 0.8396601676940918,
-        "herg": 0.375278115272522,
-        "sa": 0.8205065182759333
+        "affinity": 0.4327967282207316,
+        "solubility": 0.586033433675766,
+        "bbb": 0.9608182311058044,
+        "herg": 0.32349956035614014,
+        "sa": 0.6595441472839505
       },
-      "transform": "add_morpholine_tail",
-      "intent": "morpholine: the standard solubilising handle",
-      "round": 4,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1O",
-      "raw": {
-        "affinity": 0.6025641025641025,
-        "solubility": -2.797790765762329,
-        "bbb": 0.3896499276161194,
-        "herg": 0.5504832863807678,
-        "sa": 2.5413398344064024
-      },
-      "normalised": {
-        "affinity": 0.6025641025641025,
-        "solubility": 0.6502761542797089,
-        "bbb": 0.3896499276161194,
-        "herg": 0.4495167136192322,
-        "sa": 0.8287400183992886
-      },
-      "transform": "aryl_hydroxylation",
-      "intent": "add a donor to raise solubility",
-      "round": 4,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(S(N)(=O)=O)c3)CC2)cc1",
-      "raw": {
-        "affinity": 0.5060240963855421,
-        "solubility": -2.490011692047119,
-        "bbb": 0.06952084600925446,
-        "herg": 0.5263389945030212,
-        "sa": 2.570522583859658
-      },
-      "normalised": {
-        "affinity": 0.5060240963855421,
-        "solubility": 0.6887485384941101,
-        "bbb": 0.06952084600925446,
-        "herg": 0.47366100549697876,
-        "sa": 0.8254974906822602
-      },
-      "transform": "aryl_sulfonamide",
-      "intent": "polar acceptor, lowers hERG risk",
-      "round": 4,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
-      "raw": {
-        "affinity": 0.4642857142857143,
-        "solubility": -2.3179237842559814,
-        "bbb": 0.9304724931716919,
-        "herg": 0.5298270583152771,
-        "sa": 2.491096646269238
-      },
-      "normalised": {
-        "affinity": 0.4642857142857143,
-        "solubility": 0.7102595269680023,
-        "bbb": 0.9304724931716919,
-        "herg": 0.4701729416847229,
-        "sa": 0.8343225948589735
-      },
-      "transform": "aryl_hydroxylation",
-      "intent": "add a donor to raise solubility",
+      "transform": "llm_edit",
+      "intent": "3-Fluoro on the piperidine lowers amine pKa by ~1 unit to cut hERG binding while retaining the neutral-lipophilic profile needed for BBB and the intact pharmacophore for affinity.",
       "round": 5,
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)nc3)CC2)cc1",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)(F)C2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4939759036144578,
-        "solubility": -2.3583931922912598,
-        "bbb": 0.7404707074165344,
-        "herg": 0.42276498675346375,
-        "sa": 2.5318307334870394
+        "affinity": 0.3556431919759921,
+        "solubility": -4.435251712799072,
+        "bbb": 0.9644879698753357,
+        "herg": 0.6799002289772034,
+        "sa": 4.03200124424073
       },
       "normalised": {
-        "affinity": 0.4939759036144578,
-        "solubility": 0.7052008509635925,
-        "bbb": 0.7404707074165344,
-        "herg": 0.5772350132465363,
-        "sa": 0.8297965851681067
+        "affinity": 0.3556431919759921,
+        "solubility": 0.44559353590011597,
+        "bbb": 0.9644879698753357,
+        "herg": 0.32009977102279663,
+        "sa": 0.6631109728621412
       },
-      "transform": "phenyl_to_pyridyl",
-      "intent": "swap CH for N: cuts logP and hERG liability",
+      "transform": "llm_edit",
+      "intent": "gem-Difluoropiperidine drops basicity further (strongest hERG mitigation per the safety veto) without adding rotatable bonds or MW that would hurt brain penetration.",
       "round": 5,
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
+      "smiles": "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)ccc1C#N",
       "raw": {
-        "affinity": 0.4883720930232558,
-        "solubility": -2.2451860904693604,
-        "bbb": 0.33353400230407715,
-        "herg": 0.4550964832305908,
-        "sa": 2.505540588549783
+        "affinity": 0.5293847469769546,
+        "solubility": -3.8432207107543945,
+        "bbb": 0.9458469748497009,
+        "herg": 0.7271011471748352,
+        "sa": 4.059093848268114
       },
       "normalised": {
-        "affinity": 0.4883720930232558,
-        "solubility": 0.71935173869133,
-        "bbb": 0.33353400230407715,
-        "herg": 0.5449035167694092,
-        "sa": 0.8327177123833575
+        "affinity": 0.5293847469769546,
+        "solubility": 0.5195974111557007,
+        "bbb": 0.9458469748497009,
+        "herg": 0.2728988528251648,
+        "sa": 0.660100683525765
       },
-      "transform": "aryl_carboxamide",
-      "intent": "primary amide: strong solubility gain, BBB cost",
+      "transform": "llm_edit",
+      "intent": "Combines the affinity-improving N-methyl benzamide (0.90 in round 4) with a 3-fluoropiperidine to offset that analogue's hERG regression - potency plus safety in one double edit.",
       "round": 5,
-      "origin": "candidate"
+      "origin": "vetoed"
     },
     {
-      "smiles": "N#Cc1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
+      "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)N3CCc4ccc(F)cc43)CC2)cc1C(N)=O",
       "raw": {
-        "affinity": 0.4772727272727273,
-        "solubility": -3.1777443885803223,
-        "bbb": 0.8132659196853638,
-        "herg": 0.5101649761199951,
-        "sa": 2.5800731132625057
+        "affinity": 0.8757461898093035,
+        "solubility": -4.37378454208374,
+        "bbb": 0.9791443943977356,
+        "herg": 0.6814693808555603,
+        "sa": 3.4978420580792173
       },
       "normalised": {
-        "affinity": 0.4772727272727273,
-        "solubility": 0.6027819514274597,
-        "bbb": 0.8132659196853638,
-        "herg": 0.4898350238800049,
-        "sa": 0.8244363207486105
+        "affinity": 0.8757461898093035,
+        "solubility": 0.45327693223953247,
+        "bbb": 0.9791443943977356,
+        "herg": 0.3185306191444397,
+        "sa": 0.7224619935467536
       },
-      "transform": "aryl_nitrile",
-      "intent": "polar, small, metabolically robust acceptor",
-      "round": 5,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c(N2CCOCC2)c1",
-      "raw": {
-        "affinity": 0.4270833333333333,
-        "solubility": -2.6143958568573,
-        "bbb": 0.9439711570739746,
-        "herg": 0.6111120581626892,
-        "sa": 2.6529686082438726
-      },
-      "normalised": {
-        "affinity": 0.4270833333333333,
-        "solubility": 0.6732005178928375,
-        "bbb": 0.9439711570739746,
-        "herg": 0.3888879418373108,
-        "sa": 0.8163368213062364
-      },
-      "transform": "add_morpholine_tail",
-      "intent": "morpholine: the standard solubilising handle",
-      "round": 5,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
-      "raw": {
-        "affinity": 0.5194805194805194,
-        "solubility": -2.6006081104278564,
-        "bbb": 0.9381905794143677,
-        "herg": 0.3937501609325409,
-        "sa": 2.2082515563471805
-      },
-      "normalised": {
-        "affinity": 0.5194805194805194,
-        "solubility": 0.6749239861965179,
-        "bbb": 0.9381905794143677,
-        "herg": 0.6062498390674591,
-        "sa": 0.8657498270725354
-      },
-      "transform": "defluorinate",
-      "intent": "strip a fluorine to reduce lipophilicity",
+      "transform": "llm_edit",
+      "intent": "Replacing the aryl ketone with a constrained indoline amide lowers logP and removes the basic-amine/lipophile pairing driving hERG, while the flat bicyclic keeps the hydrophobic contact for affinity.",
       "round": 5,
       "origin": "candidate"
     }
@@ -662,14 +641,14 @@
       "parent": {
         "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
         "raw": {
-          "affinity": 1.0,
+          "affinity": 0.9999993745656254,
           "solubility": -4.477168560028076,
           "bbb": 0.9837419986724854,
           "herg": 0.8652780055999756,
           "sa": 2.1227326079667783
         },
         "normalised": {
-          "affinity": 1.0,
+          "affinity": 0.9999993745656254,
           "solubility": 0.4403539299964905,
           "bbb": 0.9837419986724854,
           "herg": 0.13472199440002441,
@@ -680,14 +659,14 @@
         {
           "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
           "raw": {
-            "affinity": 0.6363636363636364,
+            "affinity": 0.9999916174003249,
             "solubility": -4.866168975830078,
             "bbb": 0.9003748893737793,
             "herg": 0.7540425658226013,
             "sa": 2.4163049156461103
           },
           "normalised": {
-            "affinity": 0.6363636363636364,
+            "affinity": 0.9999916174003249,
             "solubility": 0.39172887802124023,
             "bbb": 0.9003748893737793,
             "herg": 0.24595743417739868,
@@ -699,14 +678,14 @@
         {
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1",
           "raw": {
-            "affinity": 0.5764705882352941,
+            "affinity": 0.988420369822763,
             "solubility": -4.498271465301514,
             "bbb": 0.9955831170082092,
             "herg": 0.8350985050201416,
             "sa": 2.481978799252124
           },
           "normalised": {
-            "affinity": 0.5764705882352941,
+            "affinity": 0.988420369822763,
             "solubility": 0.4377160668373108,
             "bbb": 0.9955831170082092,
             "herg": 0.1649014949798584,
@@ -718,14 +697,14 @@
         {
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
           "raw": {
-            "affinity": 0.6351351351351351,
+            "affinity": 0.9883843203477035,
             "solubility": -3.8109793663024902,
             "bbb": 0.9880384802818298,
             "herg": 0.8886770009994507,
             "sa": 2.4052409239750947
           },
           "normalised": {
-            "affinity": 0.6351351351351351,
+            "affinity": 0.9883843203477035,
             "solubility": 0.5236275792121887,
             "bbb": 0.9880384802818298,
             "herg": 0.11132299900054932,
@@ -737,14 +716,14 @@
         {
           "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
           "raw": {
-            "affinity": 0.5540540540540541,
+            "affinity": 0.9971044420210597,
             "solubility": -3.9869320392608643,
             "bbb": 0.9743865728378296,
             "herg": 0.8557303547859192,
             "sa": 2.666233807784266
           },
           "normalised": {
-            "affinity": 0.5540540540540541,
+            "affinity": 0.9971044420210597,
             "solubility": 0.501633495092392,
             "bbb": 0.9743865728378296,
             "herg": 0.1442696452140808,
@@ -756,14 +735,14 @@
         {
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
           "raw": {
-            "affinity": 0.7384615384615385,
+            "affinity": 0.999995134322574,
             "solubility": -4.2563629150390625,
             "bbb": 0.9238886833190918,
             "herg": 0.8321940302848816,
             "sa": 2.060130082330488
           },
           "normalised": {
-            "affinity": 0.7384615384615385,
+            "affinity": 0.999995134322574,
             "solubility": 0.4679546356201172,
             "bbb": 0.9238886833190918,
             "herg": 0.1678059697151184,
@@ -775,14 +754,14 @@
         {
           "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
           "raw": {
-            "affinity": 0.6363636363636364,
+            "affinity": 0.9954648637120451,
             "solubility": -3.825695037841797,
             "bbb": 0.9830300211906433,
             "herg": 0.760623574256897,
             "sa": 2.3454751779314815
           },
           "normalised": {
-            "affinity": 0.6363636363636364,
+            "affinity": 0.9954648637120451,
             "solubility": 0.5217881202697754,
             "bbb": 0.9830300211906433,
             "herg": 0.23937642574310303,
@@ -792,24 +771,26 @@
           "intent": "primary amide: strong solubility gain, BBB cost"
         }
       ],
-      "leader": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+      "leader": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
       "reviews": [
         {
-          "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.74 against the parent's 1.00. My pick holds 0.74. I am not trading affinity backwards this round.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+          "verdict": "support",
+          "reason": "Candidate 6 holds affinity at the parent's full 1.00 while nearly doubling hERG safety (0.13 to 0.24), so nothing is surrendered on my axis; by contrast candidates 2 and 3 shave affinity to 0.99 and candidate 1 also gives up bbb for the same potency. If the team wants a tidier profile, it must come from the 1.00-affinity set only.",
+          "preferred": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
           "agent": "Affinity"
         },
         {
-          "verdict": "object",
-          "reason": "The leader is acceptable on solubility + bbb (0.70) but it is not the best available: my pick reaches 0.76. I want the stronger option on the table.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
+          "verdict": "support",
+          "reason": "Candidate 6 is the only option that lifts solubility (0.52 vs parent 0.44) without paying any BBB tax (0.98, unchanged), and the primary benzamide does it by adding a single H-bond donor/acceptor pair rather than the bulk of the morpholine in #2 or the nitrile desolvation penalty in #1 (bbb 0.90, solubility down to 0.39). Candidate 3's pyridine reaches the same 0.52 solubility but its hERG stays at 0.11 versus 0.24 for #6, so #6 is the better developability package overall.",
+          "preferred": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
+          "line": 0.13472199440002441,
+          "rule": "relative",
           "verdict": "veto",
-          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.87 blockade. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.25.",
+          "reason": "Candidate 3 scores 0.11 hERG-safety, below even the 0.13 parent, and is struck from the round permanently; every remaining candidate also sits far under any acceptable threshold, with the field leader at just 0.24 and candidate 1 at 0.25, so no molecule in this round clears my limit regardless of its 1.00 affinity. This butyrophenone scaffold's basic amine plus para-chlorophenyl carbinol is the canonical hERG pharmacophore, and I will not advance it on potency grounds. Ruling: 1 of 6 vetoed (relative line at herg-safety 0.13).",
           "preferred": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
           "vetoed": [
             "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1"
@@ -817,736 +798,794 @@
         }
       ],
       "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
-        "rationale": "Chose O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1 at weighted 0.61. Affinity objected: The field leader gives up affinity: 0.74 against the parent's 1.00. My pick holds 0.74. I am not trading affinity backwards this round. ADME objected: The leader is acceptable on solubility + bbb (0.70) but it is not the best available: my pick reaches 0.76. I want the stronger option on the table.",
+        "chosen": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
+        "rationale": "I am taking candidate 5, which holds affinity at 1.00, posts the best solubility in the field (0.52) and strong BBB (0.98), while its hERG-safety of 0.24 is essentially the best available apart from candidate 1's 0.25 \u2014 so I am accepting a marginally worse hERG score than candidate 1 in exchange for clearly better solubility (0.52 vs 0.39) and BBB (0.98 vs 0.90). No stronger binder was lost to the veto: the vetoed pyridine was not more potent, so this is not a fallback pick. I am, however, explicitly accepting safety's unresolved objection that the whole butyrophenone series sits below their threshold; 0.24 is an improvement over the 0.13 parent but not a fix, so the next round must attack the basic-amine/chlorophenyl-carbinol hERG pharmacophore directly rather than keep trading decorations.",
         "held_parent": false,
         "forced_second_best": false,
         "vetoed": [
           "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1"
-        ]
+        ],
+        "audit": {
+          "chosen_herg": 0.23937642574310303,
+          "best_available_herg": 0.24595743417739868,
+          "chosen_affinity": 0.9954648637120451,
+          "best_available_affinity": 0.999995134322574,
+          "is_safest_available": false,
+          "is_most_potent_available": false
+        }
       },
       "pareto_hypervolume": 0.127686520361614
     },
     {
       "round": 2,
       "parent": {
-        "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+        "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
         "raw": {
-          "affinity": 0.7384615384615385,
-          "solubility": -4.2563629150390625,
-          "bbb": 0.9238886833190918,
-          "herg": 0.8321940302848816,
-          "sa": 2.060130082330488
+          "affinity": 0.9954648637120451,
+          "solubility": -3.825695037841797,
+          "bbb": 0.9830300211906433,
+          "herg": 0.760623574256897,
+          "sa": 2.3454751779314815
         },
         "normalised": {
-          "affinity": 0.7384615384615385,
-          "solubility": 0.4679546356201172,
-          "bbb": 0.9238886833190918,
-          "herg": 0.1678059697151184,
-          "sa": 0.8822077686299458
+          "affinity": 0.9954648637120451,
+          "solubility": 0.5217881202697754,
+          "bbb": 0.9830300211906433,
+          "herg": 0.23937642574310303,
+          "sa": 0.8505027580076132
         },
-        "transform": "defluorinate",
-        "intent": "strip a fluorine to reduce lipophilicity"
+        "transform": "aryl_carboxamide",
+        "intent": "primary amide: strong solubility gain, BBB cost"
       },
       "candidates": [
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(C(=O)O)c2)CC1)c1ccccc1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
           "raw": {
-            "affinity": 0.49382716049382713,
-            "solubility": -3.7005274295806885,
-            "bbb": 0.787887692451477,
-            "herg": 0.6528183817863464,
-            "sa": 2.2598486352176774
+            "affinity": 0.9657888454300944,
+            "solubility": -3.6471190452575684,
+            "bbb": 0.9759558439254761,
+            "herg": 0.7257193326950073,
+            "sa": 3.1029613483285416
           },
           "normalised": {
-            "affinity": 0.49382716049382713,
-            "solubility": 0.5374340713024139,
-            "bbb": 0.787887692451477,
-            "herg": 0.34718161821365356,
-            "sa": 0.860016818309147
+            "affinity": 0.9657888454300944,
+            "solubility": 0.544110119342804,
+            "bbb": 0.9759558439254761,
+            "herg": 0.2742806673049927,
+            "sa": 0.7663376279634954
           },
-          "transform": "aryl_carboxylic_acid",
-          "intent": "acid: large solubility gain, usually kills BBB"
+          "transform": "llm_edit",
+          "intent": "Beta-fluorine on the linker lowers piperidine pKa by ~1 unit, attenuating the cationic hERG pharmacophore while keeping the butyrophenone geometry and affinity contacts."
         },
         {
-          "smiles": "NC(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CCC(=O)Nc3ccc(F)cc3)CC2)ccc1Cl",
           "raw": {
-            "affinity": 0.5657894736842105,
-            "solubility": -3.4298338890075684,
-            "bbb": 0.8889974355697632,
-            "herg": 0.6959893107414246,
-            "sa": 2.2962026761134915
+            "affinity": 0.14916205212848724,
+            "solubility": -3.4444541931152344,
+            "bbb": 0.9899827837944031,
+            "herg": 0.7589502334594727,
+            "sa": 2.278581160837465
           },
           "normalised": {
-            "affinity": 0.5657894736842105,
-            "solubility": 0.571270763874054,
-            "bbb": 0.8889974355697632,
-            "herg": 0.30401068925857544,
-            "sa": 0.8559774804318343
+            "affinity": 0.14916205212848724,
+            "solubility": 0.5694432258605957,
+            "bbb": 0.9899827837944031,
+            "herg": 0.24104976654052734,
+            "sa": 0.857935426573615
           },
-          "transform": "aryl_carboxamide",
-          "intent": "primary amide: strong solubility gain, BBB cost"
+          "transform": "llm_edit",
+          "intent": "Ketone-to-anilide swap removes a lipophilic carbonyl-aryl hydrophobe, adding an H-bond donor to boost solubility and cut hERG binding."
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(O)c3ccc(F)cc3)CC2)ccc1Cl",
           "raw": {
-            "affinity": 0.6865671641791045,
-            "solubility": -3.761070966720581,
-            "bbb": 0.9866661429405212,
-            "herg": 0.8751372694969177,
-            "sa": 2.0650954669458734
+            "affinity": 0.9829683048576399,
+            "solubility": -2.9806580543518066,
+            "bbb": 0.895846962928772,
+            "herg": 0.7687705159187317,
+            "sa": 2.878027821500414
           },
           "normalised": {
-            "affinity": 0.6865671641791045,
-            "solubility": 0.5298661291599274,
-            "bbb": 0.9866661429405212,
-            "herg": 0.12486273050308228,
-            "sa": 0.8816560592282363
+            "affinity": 0.9829683048576399,
+            "solubility": 0.6274177432060242,
+            "bbb": 0.895846962928772,
+            "herg": 0.2312294840812683,
+            "sa": 0.7913302420555096
           },
-          "transform": "halide_to_fluoride",
-          "intent": "downsize the halogen to cut logP and hERG risk"
+          "transform": "llm_edit",
+          "intent": "Ketone reduction to the secondary carbinol lowers logP and adds a donor; reduced planar aryl-ketone stacking should de-risk hERG with minimal affinity loss."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc(F)c1Cl",
           "raw": {
-            "affinity": 0.5443037974683544,
-            "solubility": -3.2599260807037354,
-            "bbb": 0.9124245047569275,
-            "herg": 0.6473764181137085,
-            "sa": 2.4019093659656683
+            "affinity": 0.9948361155128532,
+            "solubility": -4.171926975250244,
+            "bbb": 0.9796313643455505,
+            "herg": 0.7491320371627808,
+            "sa": 2.5950128649902755
           },
           "normalised": {
-            "affinity": 0.5443037974683544,
-            "solubility": 0.5925092399120331,
-            "bbb": 0.9124245047569275,
-            "herg": 0.3526235818862915,
-            "sa": 0.8442322926704813
+            "affinity": 0.9948361155128532,
+            "solubility": 0.4785091280937195,
+            "bbb": 0.9796313643455505,
+            "herg": 0.25086796283721924,
+            "sa": 0.8227763483344138
           },
-          "transform": "aryl_sulfonamide",
-          "intent": "polar acceptor, lowers hERG risk"
+          "transform": "llm_edit",
+          "intent": "Ring fluorine ortho to the carbinol aryl tunes electronics and blocks a metabolic soft spot without adding bulk; modest polarity gain."
         },
         {
-          "smiles": "N#Cc1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4367816091954023,
-            "solubility": -4.743358135223389,
-            "bbb": 0.9567022323608398,
-            "herg": 0.7466257810592651,
-            "sa": 2.397698789010848
+            "affinity": 0.9794120046573792,
+            "solubility": -3.9718737602233887,
+            "bbb": 0.9783805012702942,
+            "herg": 0.6762256026268005,
+            "sa": 2.534910845925003
           },
           "normalised": {
-            "affinity": 0.4367816091954023,
-            "solubility": 0.4070802330970764,
-            "bbb": 0.9567022323608398,
-            "herg": 0.25337421894073486,
-            "sa": 0.8447001345543502
+            "affinity": 0.9794120046573792,
+            "solubility": 0.5035157799720764,
+            "bbb": 0.9783805012702942,
+            "herg": 0.32377439737319946,
+            "sa": 0.8294543504527775
           },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
+          "transform": "llm_edit",
+          "intent": "Chloride-to-nitrile isostere lowers lipophilicity at the key para position, targeting the chlorophenyl-carbinol hERG hotspot while retaining electron-withdrawing character."
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccccc1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CC(=O)N3CCC(c4ccc(F)cc4)CC3)CC2)ccc1Cl",
           "raw": {
-            "affinity": 0.4691358024691358,
-            "solubility": -3.9795172214508057,
-            "bbb": 0.9748319387435913,
-            "herg": 0.813647985458374,
-            "sa": 2.293560851561258
+            "affinity": 0.8814209719843756,
+            "solubility": -3.630671739578247,
+            "bbb": 0.9734776616096497,
+            "herg": 0.8589264154434204,
+            "sa": 2.484120449864621
           },
           "normalised": {
-            "affinity": 0.4691358024691358,
-            "solubility": 0.5025603473186493,
-            "bbb": 0.9748319387435913,
-            "herg": 0.18635201454162598,
-            "sa": 0.8562710164931935
+            "affinity": 0.8814209719843756,
+            "solubility": 0.5461660325527191,
+            "bbb": 0.9734776616096497,
+            "herg": 0.1410735845565796,
+            "sa": 0.8350977277928199
           },
-          "transform": "phenyl_to_pyridyl",
-          "intent": "swap CH for N: cuts logP and hERG liability"
+          "transform": "llm_edit",
+          "intent": "Double edit: glycinamide linker shortens the flexible basic chain and inserts an amide, strongly reducing amine basicity/logP for hERG relief plus solubility gain."
         }
       ],
-      "leader": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+      "leader": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
       "reviews": [
         {
-          "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.69 against the parent's 0.74. My pick holds 0.69. I am not trading affinity backwards this round.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+          "verdict": "support",
+          "reason": "The leader is also my pick on affinity at 0.99, up from the parent's 1.00. No objection.",
+          "preferred": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc(F)c1Cl",
           "agent": "Affinity"
         },
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.76, up from the parent's 0.70. No objection.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+          "verdict": "object",
+          "reason": "The field leader (#5) buys hERG relief (0.24->0.32) but leaves solubility flat at 0.50 and the butyrophenone ketone intact, so dosing stays the bottleneck; candidate 3's ketone-to-carbinol reduction lifts solubility 0.52->0.63, the largest gain in the set, at a BBB cost of only 0.98->0.90 which is still comfortably CNS-penetrant. I can live with -0.08 BBB for +0.11 solubility; I cannot live with a compound that formulates poorly, and none of these options meaningfully fixes hERG anyway (all 0.14-0.32), so solubility is the axis to bank this round.",
+          "preferred": "NC(=O)c1cc(C2(O)CCN(CCCC(O)c3ccc(F)cc3)CC2)ccc1Cl",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
+          "line": 0.23937642574310303,
+          "rule": "relative",
           "verdict": "veto",
-          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.83 blockade. That includes the molecule this round was converging on. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.35.",
-          "preferred": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "reason": "Candidates 3 (0.23) and 6 (0.14) sit at or below the parent's already-failing 0.24 hERG-safety and are vetoed outright \u2014 6 in particular is a ~40% regression into classic basic-amine/aryl-piperidine blocker space, and no affinity number buys that back. Of what remains, only candidate 5 moves the axis at all (0.32 vs 0.24) while holding affinity at 0.98, so it is the sole acceptable carry-forward, and it still must clear a real patch-clamp assay before this series advances. Ruling: 2 of 6 vetoed (relative line at herg-safety 0.24).",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "vetoed": [
-            "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+            "NC(=O)c1cc(C2(O)CCN(CCCC(O)c3ccc(F)cc3)CC2)ccc1Cl",
+            "NC(=O)c1cc(C2(O)CCN(CC(=O)N3CCC(c4ccc(F)cc4)CC3)CC2)ccc1Cl"
           ]
         }
       ],
       "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
-        "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
-        "held_parent": true,
-        "affinity_floor_breached": true,
+        "chosen": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+        "rationale": "I take the nitrile-for-chloride swap: it holds affinity essentially at the top of the field (0.98 vs 0.99 for the fluorinated analogue) while giving the best hERG-safety among survivors (0.32 vs 0.25-0.27), which is the axis the series is failing on. The trade I am accepting is that solubility stays mediocre at 0.50 and the butyrophenone ketone is untouched, so ADME's formulation objection is genuinely unresolved this round - his preferred carbinol was vetoed on hERG, so that fix is not available to me. Synthetic accessibility is also slightly worse (0.83), and 0.32 is still a weak hERG number that must be confirmed by patch-clamp before the series advances.",
+        "held_parent": false,
+        "forced_second_best": false,
         "vetoed": [
-          "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
-        ]
+          "NC(=O)c1cc(C2(O)CCN(CC(=O)N3CCC(c4ccc(F)cc4)CC3)CC2)ccc1Cl",
+          "NC(=O)c1cc(C2(O)CCN(CCCC(O)c3ccc(F)cc3)CC2)ccc1Cl"
+        ],
+        "audit": {
+          "chosen_herg": 0.32377439737319946,
+          "best_available_herg": 0.32377439737319946,
+          "chosen_affinity": 0.9794120046573792,
+          "best_available_affinity": 0.9948361155128532,
+          "is_safest_available": true,
+          "is_most_potent_available": false
+        }
       },
-      "pareto_hypervolume": 0.20893273047850514
+      "pareto_hypervolume": 0.193671717867268
     },
     {
       "round": 3,
       "parent": {
-        "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+        "smiles": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
         "raw": {
-          "affinity": 0.7384615384615385,
-          "solubility": -4.2563629150390625,
-          "bbb": 0.9238886833190918,
-          "herg": 0.8321940302848816,
-          "sa": 2.060130082330488
+          "affinity": 0.9794120046573792,
+          "solubility": -3.9718737602233887,
+          "bbb": 0.9783805012702942,
+          "herg": 0.6762256026268005,
+          "sa": 2.534910845925003
         },
         "normalised": {
-          "affinity": 0.7384615384615385,
-          "solubility": 0.4679546356201172,
-          "bbb": 0.9238886833190918,
-          "herg": 0.1678059697151184,
-          "sa": 0.8822077686299458
+          "affinity": 0.9794120046573792,
+          "solubility": 0.5035157799720764,
+          "bbb": 0.9783805012702942,
+          "herg": 0.32377439737319946,
+          "sa": 0.8294543504527775
         },
-        "transform": "defluorinate",
-        "intent": "strip a fluorine to reduce lipophilicity"
+        "transform": "llm_edit",
+        "intent": "Chloride-to-nitrile isostere lowers lipophilicity at the key para position, targeting the chlorophenyl-carbinol hERG hotspot while retaining electron-withdrawing character."
       },
       "candidates": [
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.7246376811594203,
-            "solubility": -3.0693607330322266,
-            "bbb": 0.9414632320404053,
-            "herg": 0.48072120547294617,
-            "sa": 2.2758256052819092
+            "affinity": 0.8731610261108544,
+            "solubility": -4.11127233505249,
+            "bbb": 0.9404330253601074,
+            "herg": 0.6510546803474426,
+            "sa": 3.278126631409056
           },
           "normalised": {
-            "affinity": 0.7246376811594203,
-            "solubility": 0.6163299083709717,
-            "bbb": 0.9414632320404053,
-            "herg": 0.5192787945270538,
-            "sa": 0.8582415994131212
+            "affinity": 0.8731610261108544,
+            "solubility": 0.4860909581184387,
+            "bbb": 0.9404330253601074,
+            "herg": 0.3489453196525574,
+            "sa": 0.7468748187323271
           },
-          "transform": "aryl_sulfonamide",
-          "intent": "polar acceptor, lowers hERG risk"
+          "transform": "llm_edit",
+          "intent": "beta-fluorine on the linker drops piperidine pKa by ~1 unit, reducing cationic hERG binding while keeping the butyrophenone pharmacophore and affinity."
         },
         {
-          "smiles": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "smiles": "N#Cc1ccc(C2(O)CN(CCCC(=O)c3ccc(F)cc3)CC(F)(F)C2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4418604651162791,
-            "solubility": -3.44244647026062,
-            "bbb": 0.9935460686683655,
-            "herg": 0.6805481314659119,
-            "sa": 2.3554852467074525
+            "affinity": 0.8317535677284045,
+            "solubility": -3.8850109577178955,
+            "bbb": 0.9766859412193298,
+            "herg": 0.7089691162109375,
+            "sa": 3.4104487293992127
           },
           "normalised": {
-            "affinity": 0.4418604651162791,
-            "solubility": 0.5696941912174225,
-            "bbb": 0.9935460686683655,
-            "herg": 0.31945186853408813,
-            "sa": 0.8493905281436164
+            "affinity": 0.8317535677284045,
+            "solubility": 0.5143736302852631,
+            "bbb": 0.9766859412193298,
+            "herg": 0.2910308837890625,
+            "sa": 0.7321723634000874
           },
-          "transform": "aryl_carboxamide",
-          "intent": "primary amide: strong solubility gain, BBB cost"
+          "transform": "llm_edit",
+          "intent": "3,3-difluoropiperidine lowers amine basicity for hERG relief with minimal steric perturbation of the tertiary-carbinol pharmacophore."
         },
         {
-          "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)c1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CCCS(=O)(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.5822784810126582,
-            "solubility": -4.694645404815674,
-            "bbb": 0.9292627573013306,
-            "herg": 0.751421332359314,
-            "sa": 2.304933154645214
+            "affinity": 0.7021431468390722,
+            "solubility": -3.0196549892425537,
+            "bbb": 0.8580302000045776,
+            "herg": 0.5795623660087585,
+            "sa": 2.638484562278604
           },
           "normalised": {
-            "affinity": 0.5822784810126582,
-            "solubility": 0.41316932439804077,
-            "bbb": 0.9292627573013306,
-            "herg": 0.24857866764068604,
-            "sa": 0.8550074272616429
+            "affinity": 0.7021431468390722,
+            "solubility": 0.6225431263446808,
+            "bbb": 0.8580302000045776,
+            "herg": 0.42043763399124146,
+            "sa": 0.8179461597468217
           },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
+          "transform": "llm_edit",
+          "intent": "Ketone-to-sulfone isostere: removes the metabolically labile/lipophilic butyrophenone, adds strong polarity for solubility without a reducible carbonyl."
         },
         {
-          "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CCC(=O)Nc3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.44871794871794873,
-            "solubility": -3.950503349304199,
-            "bbb": 0.8783082365989685,
-            "herg": 0.7659508585929871,
-            "sa": 2.5927158455575405
+            "affinity": 0.08113589650410645,
+            "solubility": -4.26273775100708,
+            "bbb": 0.9239547252655029,
+            "herg": 0.6428610682487488,
+            "sa": 2.470405900870059
           },
           "normalised": {
-            "affinity": 0.44871794871794873,
-            "solubility": 0.5061870813369751,
-            "bbb": 0.8783082365989685,
-            "herg": 0.23404914140701294,
-            "sa": 0.8230315727158288
+            "affinity": 0.08113589650410645,
+            "solubility": 0.467157781124115,
+            "bbb": 0.9239547252655029,
+            "herg": 0.3571389317512512,
+            "sa": 0.8366215665699934
           },
-          "transform": "ketone_to_alcohol",
-          "intent": "reduce the carbonyl: more polar, more flexible"
+          "transform": "llm_edit",
+          "intent": "Anilide replaces the ketone, shortening/polarising the linker; lower logP and reduced planar lipophilic hERG contact while retaining the aryl-F cap."
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccncc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC3(CO)COC3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.7058823529411765,
-            "solubility": -4.0146589279174805,
-            "bbb": 0.9451987743377686,
-            "herg": 0.7784594297409058,
-            "sa": 2.254216620792027
+            "affinity": 0.03575818557305207,
+            "solubility": -2.5604543685913086,
+            "bbb": 0.1549416333436966,
+            "herg": 0.26139670610427856,
+            "sa": 3.0232512361766437
           },
           "normalised": {
-            "affinity": 0.7058823529411765,
-            "solubility": 0.49816763401031494,
-            "bbb": 0.9451987743377686,
-            "herg": 0.22154057025909424,
-            "sa": 0.8606425976897748
+            "affinity": 0.03575818557305207,
+            "solubility": 0.6799432039260864,
+            "bbb": 0.1549416333436966,
+            "herg": 0.7386032938957214,
+            "sa": 0.7751943070914841
           },
-          "transform": "phenyl_to_pyridyl",
-          "intent": "swap CH for N: cuts logP and hERG liability"
+          "transform": "llm_edit",
+          "intent": "Oxetane-methanol cap removes the aryl ketone entirely, sharply cutting lipophilicity (solubility) and the hydrophobic aryl motif driving hERG block."
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.6865671641791045,
-            "solubility": -3.761070966720581,
-            "bbb": 0.9866661429405212,
-            "herg": 0.8751372694969177,
-            "sa": 2.0650954669458734
+            "affinity": 0.8441828439668133,
+            "solubility": -4.001100063323975,
+            "bbb": 0.7541766166687012,
+            "herg": 0.6537858843803406,
+            "sa": 3.6118969972571717
           },
           "normalised": {
-            "affinity": 0.6865671641791045,
-            "solubility": 0.5298661291599274,
-            "bbb": 0.9866661429405212,
-            "herg": 0.12486273050308228,
-            "sa": 0.8816560592282363
+            "affinity": 0.8441828439668133,
+            "solubility": 0.4998624920845032,
+            "bbb": 0.7541766166687012,
+            "herg": 0.3462141156196594,
+            "sa": 0.7097892225269808
           },
-          "transform": "halide_to_fluoride",
-          "intent": "downsize the halogen to cut logP and hERG risk"
+          "transform": "llm_edit",
+          "intent": "Double edit: ketone reduced to carbinol for the solubility gain seen previously, combined with a beta-F to offset the hERG penalty by lowering amine basicity."
         }
       ],
-      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+      "leader": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
       "reviews": [
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on affinity at 0.72, up from the parent's 0.74. No objection.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "verdict": "object",
+          "reason": "Candidate 1 gives up 0.11 affinity (0.98 to 0.87) for a trivial 0.03 hERG gain \u2014 that's a bad trade on the only axis that defines this series, and every other option is worse still (0.83, 0.70, 0.08). If we must move off the parent, the fluorinated ketone 1 is the least-bad, but on potency grounds I hold the parent as the compound to beat.",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "agent": "Affinity"
         },
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.78, up from the parent's 0.70. No objection.",
-          "preferred": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "verdict": "object",
+          "reason": "Candidate 1 buys nothing on my axis \u2014 solubility 0.49 vs parent 0.50 and BBB 0.94 vs 0.98 \u2014 so it is an ADME-neutral analog that only trades away affinity; the sulfone (candidate 3) is the only option that actually moves solubility (0.62, +0.12) while keeping BBB at a workable 0.86 and improving hERG to 0.42, which is the real liability here (parent 0.32). Candidates 5 (BBB 0.15) and 4/6 are undevelopable or pointless: 5 will never reach the brain regardless of its 0.68 solubility, and 6's benzylic alcohol drops BBB to 0.75 for no solubility gain.",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CCCS(=O)(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
+          "line": 0.3,
+          "rule": "absolute",
           "verdict": "veto",
-          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.83 blockade. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.52.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "reason": "Candidate 2 at herg-safety 0.29 is worse than the already-unacceptable parent (0.32) and is removed outright; the field leader at 0.35 is a rounding-error change from the parent and does not clear the liability either. Only candidate 3 (0.42) and candidate 5 (0.74) move the hERG axis at all, and 5 is the sole candidate in a defensible range. Ruling: 1 of 6 vetoed (absolute line at herg-safety 0.30).",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC3(CO)COC3)CC2)cc1C(N)=O",
           "vetoed": [
-            "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+            "N#Cc1ccc(C2(O)CN(CCCC(=O)c3ccc(F)cc3)CC(F)(F)C2)cc1C(N)=O"
           ]
         }
       ],
       "decision": {
-        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
-        "rationale": "Chose NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1 at weighted 0.71.",
+        "chosen": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+        "rationale": "I am taking the fluorinated ketone, the strongest surviving binder (affinity 0.87) with the best BBB of the three (0.94), accepting that it is the weakest option on hERG (0.35, tied with candidate 3 and below the sulfone's 0.42) and flat on solubility (0.49 vs parent 0.50). This is explicitly a potency-and-brain-exposure choice: safety objected to this whole series but only vetoed the difluoro-piperidine analog, so this molecule remains legitimately available, and I am not claiming any hERG improvement for it beyond a marginal 0.03 over the parent. The trade I accept is a real, unresolved hERG liability that must be addressed in the next design cycle, in exchange for keeping affinity within 0.11 of the parent rather than dropping to 0.70 with the sulfone.",
         "held_parent": false,
         "forced_second_best": false,
         "vetoed": [
-          "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
-        ]
+          "N#Cc1ccc(C2(O)CN(CCCC(=O)c3ccc(F)cc3)CC(F)(F)C2)cc1C(N)=O"
+        ],
+        "audit": {
+          "chosen_herg": 0.3489453196525574,
+          "best_available_herg": 0.42043763399124146,
+          "chosen_affinity": 0.8731610261108544,
+          "best_available_affinity": 0.8731610261108544,
+          "is_safest_available": false,
+          "is_most_potent_available": true
+        }
       },
-      "pareto_hypervolume": 0.3200470518498477
+      "pareto_hypervolume": 0.5022082900818177
     },
     {
       "round": 4,
       "parent": {
-        "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+        "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
         "raw": {
-          "affinity": 0.7246376811594203,
-          "solubility": -3.0693607330322266,
-          "bbb": 0.9414632320404053,
-          "herg": 0.48072120547294617,
-          "sa": 2.2758256052819092
+          "affinity": 0.8731610261108544,
+          "solubility": -4.11127233505249,
+          "bbb": 0.9404330253601074,
+          "herg": 0.6510546803474426,
+          "sa": 3.278126631409056
         },
         "normalised": {
-          "affinity": 0.7246376811594203,
-          "solubility": 0.6163299083709717,
-          "bbb": 0.9414632320404053,
-          "herg": 0.5192787945270538,
-          "sa": 0.8582415994131212
+          "affinity": 0.8731610261108544,
+          "solubility": 0.4860909581184387,
+          "bbb": 0.9404330253601074,
+          "herg": 0.3489453196525574,
+          "sa": 0.7468748187323271
         },
-        "transform": "aryl_sulfonamide",
-        "intent": "polar acceptor, lowers hERG risk"
+        "transform": "llm_edit",
+        "intent": "beta-fluorine on the linker drops piperidine pKa by ~1 unit, reducing cationic hERG binding while keeping the butyrophenone pharmacophore and affinity."
       },
       "candidates": [
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "smiles": "CS(=O)(=O)c1ccc(C(=O)CC(F)CN2CCC(O)(c3ccc(C#N)c(C(N)=O)c3)CC2)cc1",
           "raw": {
-            "affinity": 0.42857142857142855,
-            "solubility": -2.8740789890289307,
-            "bbb": 0.748741626739502,
-            "herg": 0.49513283371925354,
-            "sa": 2.8083782488508398
+            "affinity": 0.06592320480840727,
+            "solubility": -2.9725801944732666,
+            "bbb": 0.23953627049922943,
+            "herg": 0.5218517184257507,
+            "sa": 3.365922376741878
           },
           "normalised": {
-            "affinity": 0.42857142857142855,
-            "solubility": 0.6407401263713837,
-            "bbb": 0.748741626739502,
-            "herg": 0.5048671662807465,
-            "sa": 0.7990690834610178
+            "affinity": 0.06592320480840727,
+            "solubility": 0.6284274756908417,
+            "bbb": 0.23953627049922943,
+            "herg": 0.47814828157424927,
+            "sa": 0.7371197359175692
           },
-          "transform": "ketone_to_alcohol",
-          "intent": "reduce the carbonyl: more polar, more flexible"
+          "transform": "llm_edit",
+          "intent": "Methylsulfone replaces aryl-F: adds polarity/solubility and lowers lipophilic hERG binding while retaining the ketone pharmacophore."
         },
         {
-          "smiles": "N#Cc1cc(S(N)(=O)=O)ccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3F)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4942528735632184,
-            "solubility": -3.589149236679077,
-            "bbb": 0.7029848098754883,
-            "herg": 0.6034449934959412,
-            "sa": 2.5976110381283366
+            "affinity": 0.8452431208139433,
+            "solubility": -3.932647705078125,
+            "bbb": 0.9612594842910767,
+            "herg": 0.7206125259399414,
+            "sa": 3.406708694434178
           },
           "normalised": {
-            "affinity": 0.4942528735632184,
-            "solubility": 0.5513563454151154,
-            "bbb": 0.7029848098754883,
-            "herg": 0.39655500650405884,
-            "sa": 0.8224876624301848
+            "affinity": 0.8452431208139433,
+            "solubility": 0.5084190368652344,
+            "bbb": 0.9612594842910767,
+            "herg": 0.2793874740600586,
+            "sa": 0.7325879228406469
           },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
+          "transform": "llm_edit",
+          "intent": "Extra ortho-fluorine twists the aryl ketone, reducing hERG-prone flat lipophilic surface with minimal affinity cost."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.676056338028169,
-            "solubility": -2.5211496353149414,
-            "bbb": 0.9867384433746338,
-            "herg": 0.5325301885604858,
-            "sa": 2.280239280495584
+            "affinity": 0.4150463824145249,
+            "solubility": -3.839684009552002,
+            "bbb": 0.8066242337226868,
+            "herg": 0.7792068123817444,
+            "sa": 3.523084413162186
           },
           "normalised": {
-            "affinity": 0.676056338028169,
-            "solubility": 0.6848562955856323,
-            "bbb": 0.9867384433746338,
-            "herg": 0.46746981143951416,
-            "sa": 0.8577511910560462
+            "affinity": 0.4150463824145249,
+            "solubility": 0.5200394988059998,
+            "bbb": 0.8066242337226868,
+            "herg": 0.22079318761825562,
+            "sa": 0.7196572874264238
           },
-          "transform": "halide_to_fluoride",
-          "intent": "downsize the halogen to cut logP and hERG risk"
+          "transform": "llm_edit",
+          "intent": "Pyridine-for-benzene lowers logP/basic surface, improving solubility and hERG while keeping BBB-compatible MW/TPSA."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(N4CCOCC4)c3)CC2)cc1",
+          "smiles": "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1C#N",
           "raw": {
-            "affinity": 0.4270833333333333,
-            "solubility": -3.181852102279663,
-            "bbb": 0.8396601676940918,
-            "herg": 0.624721884727478,
-            "sa": 2.6154413355166
+            "affinity": 0.8950994371579211,
+            "solubility": -4.560024261474609,
+            "bbb": 0.9273558855056763,
+            "herg": 0.7140118479728699,
+            "sa": 3.283473629218495
           },
           "normalised": {
-            "affinity": 0.4270833333333333,
-            "solubility": 0.6022684872150421,
-            "bbb": 0.8396601676940918,
-            "herg": 0.375278115272522,
-            "sa": 0.8205065182759333
+            "affinity": 0.8950994371579211,
+            "solubility": 0.42999696731567383,
+            "bbb": 0.9273558855056763,
+            "herg": 0.2859881520271301,
+            "sa": 0.7462807078646116
           },
-          "transform": "add_morpholine_tail",
-          "intent": "morpholine: the standard solubilising handle"
+          "transform": "llm_edit",
+          "intent": "N-methyl primary amide: modest lipophilicity shift, reduced crystal lattice energy for solubility, retains key H-bond donor."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1O",
+          "smiles": "COc1ccc(C(=O)CC(F)CN2CCC(O)(c3ccc(C#N)c(C(N)=O)c3)CC2)cc1",
           "raw": {
-            "affinity": 0.6025641025641025,
-            "solubility": -2.797790765762329,
-            "bbb": 0.3896499276161194,
-            "herg": 0.5504832863807678,
-            "sa": 2.5413398344064024
+            "affinity": 0.13658633186188318,
+            "solubility": -4.687424182891846,
+            "bbb": 0.36052510142326355,
+            "herg": 0.6101884841918945,
+            "sa": 3.2519401806445956
           },
           "normalised": {
-            "affinity": 0.6025641025641025,
-            "solubility": 0.6502761542797089,
-            "bbb": 0.3896499276161194,
-            "herg": 0.4495167136192322,
-            "sa": 0.8287400183992886
+            "affinity": 0.13658633186188318,
+            "solubility": 0.4140719771385193,
+            "bbb": 0.36052510142326355,
+            "herg": 0.38981151580810547,
+            "sa": 0.7497844243728227
           },
-          "transform": "aryl_hydroxylation",
-          "intent": "add a donor to raise solubility"
+          "transform": "llm_edit",
+          "intent": "p-Methoxy ketone adds an H-bond acceptor to improve solubility and attenuate hERG versus the electron-poor 4-F aryl."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(S(N)(=O)=O)c3)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(N4CCOCC4)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.5060240963855421,
-            "solubility": -2.490011692047119,
-            "bbb": 0.06952084600925446,
-            "herg": 0.5263389945030212,
-            "sa": 2.570522583859658
+            "affinity": 0.13499374291376498,
+            "solubility": -3.7955775260925293,
+            "bbb": 0.5492851138114929,
+            "herg": 0.5493980050086975,
+            "sa": 3.3827995468984966
           },
           "normalised": {
-            "affinity": 0.5060240963855421,
-            "solubility": 0.6887485384941101,
-            "bbb": 0.06952084600925446,
-            "herg": 0.47366100549697876,
-            "sa": 0.8254974906822602
+            "affinity": 0.13499374291376498,
+            "solubility": 0.5255528092384338,
+            "bbb": 0.5492851138114929,
+            "herg": 0.4506019949913025,
+            "sa": 0.735244494789056
           },
-          "transform": "aryl_sulfonamide",
-          "intent": "polar acceptor, lowers hERG risk"
+          "transform": "llm_edit",
+          "intent": "Morpholino aryl adds neutral polar solubilising group distal to the binding cyanophenyl head, diluting cationic hERG pharmacophore."
         }
       ],
-      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+      "leader": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3F)CC2)cc1C(N)=O",
       "reviews": [
         {
           "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.68 against the parent's 0.72. My pick holds 0.68. I am not trading affinity backwards this round.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "reason": "Candidate 2 at 0.85 affinity is actually below the parent (0.87), so the field leader is a potency regression for a mere 0.01 solubility gain and worse hERG (0.28 vs 0.35); candidate 4's N-methyl benzamide is the only molecule in the set that improves binding, reaching 0.90 with BBB held at 0.93. The remaining candidates collapse to 0.07-0.42 affinity and are not worth discussing on my axis.",
+          "preferred": "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1C#N",
           "agent": "Affinity"
         },
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.84, up from the parent's 0.78. No objection.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "verdict": "object",
+          "reason": "Candidate 2 buys a trivial ADME gain (solubility 0.51 vs 0.49, bbb 0.96 vs 0.94) while dropping hERG safety to 0.28 from an already unacceptable 0.35 \u2014 a basic amine with sub-0.3 hERG and only ~0.5 solubility is not a developable CNS lead. Of the options that keep affinity, none fix the real liability; the only proposals that move hERG (1 at 0.48, 6 at 0.45) also collapse brain exposure (bbb 0.24/0.55) and affinity, so I would advance the modest solubility-neutral amide variant only as a placeholder and demand an analogue that lowers amine basicity or adds polarity without killing bbb.",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(N4CCOCC4)cc3)CC2)cc1C(N)=O",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
-          "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.50 against the parent's 0.52.",
-          "preferred": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
-          "vetoed": []
+          "line": 0.3,
+          "rule": "absolute",
+          "verdict": "veto",
+          "reason": "Candidates 2 (0.28), 3 (0.22) and 4 (0.29) all sit below the parent's already-unacceptable 0.35 hERG-safety, so the field leader is a regression on a kill criterion and is removed along with the other two. Only candidate 1 (0.48) and candidate 6 (0.45) move hERG in the right direction, and candidate 1 is the sole option approaching a defensible margin. Ruling: 3 of 6 vetoed (absolute line at herg-safety 0.30).",
+          "preferred": "CS(=O)(=O)c1ccc(C(=O)CC(F)CN2CCC(O)(c3ccc(C#N)c(C(N)=O)c3)CC2)cc1",
+          "vetoed": [
+            "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3F)CC2)cc1C(N)=O",
+            "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O",
+            "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1C#N"
+          ]
         }
       ],
       "decision": {
-        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
-        "rationale": "Chose NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1 at weighted 0.70. Affinity objected: The field leader gives up affinity: 0.68 against the parent's 0.72. My pick holds 0.68. I am not trading affinity backwards this round.",
-        "held_parent": false,
-        "forced_second_best": false,
-        "vetoed": []
+        "chosen": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+        "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
+        "held_parent": true,
+        "affinity_floor_breached": true,
+        "vetoed": [
+          "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)ccc1C#N",
+          "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3F)CC2)cc1C(N)=O",
+          "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O"
+        ]
       },
-      "pareto_hypervolume": 0.35511068219837494
+      "pareto_hypervolume": 0.5022082900818177
     },
     {
       "round": 5,
       "parent": {
-        "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+        "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
         "raw": {
-          "affinity": 0.676056338028169,
-          "solubility": -2.5211496353149414,
-          "bbb": 0.9867384433746338,
-          "herg": 0.5325301885604858,
-          "sa": 2.280239280495584
+          "affinity": 0.8731610261108544,
+          "solubility": -4.11127233505249,
+          "bbb": 0.9404330253601074,
+          "herg": 0.6510546803474426,
+          "sa": 3.278126631409056
         },
         "normalised": {
-          "affinity": 0.676056338028169,
-          "solubility": 0.6848562955856323,
-          "bbb": 0.9867384433746338,
-          "herg": 0.46746981143951416,
-          "sa": 0.8577511910560462
+          "affinity": 0.8731610261108544,
+          "solubility": 0.4860909581184387,
+          "bbb": 0.9404330253601074,
+          "herg": 0.3489453196525574,
+          "sa": 0.7468748187323271
         },
-        "transform": "halide_to_fluoride",
-        "intent": "downsize the halogen to cut logP and hERG risk"
+        "transform": "llm_edit",
+        "intent": "beta-fluorine on the linker drops piperidine pKa by ~1 unit, reducing cationic hERG binding while keeping the butyrophenone pharmacophore and affinity."
       },
       "candidates": [
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4642857142857143,
-            "solubility": -2.3179237842559814,
-            "bbb": 0.9304724931716919,
-            "herg": 0.5298270583152771,
-            "sa": 2.491096646269238
+            "affinity": 0.4327967282207316,
+            "solubility": -3.311732530593872,
+            "bbb": 0.9608182311058044,
+            "herg": 0.6765004396438599,
+            "sa": 4.064102674444446
           },
           "normalised": {
-            "affinity": 0.4642857142857143,
-            "solubility": 0.7102595269680023,
-            "bbb": 0.9304724931716919,
-            "herg": 0.4701729416847229,
-            "sa": 0.8343225948589735
+            "affinity": 0.4327967282207316,
+            "solubility": 0.586033433675766,
+            "bbb": 0.9608182311058044,
+            "herg": 0.32349956035614014,
+            "sa": 0.6595441472839505
           },
-          "transform": "aryl_hydroxylation",
-          "intent": "add a donor to raise solubility"
+          "transform": "llm_edit",
+          "intent": "3-Fluoro on the piperidine lowers amine pKa by ~1 unit to cut hERG binding while retaining the neutral-lipophilic profile needed for BBB and the intact pharmacophore for affinity."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)nc3)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)(F)C2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4939759036144578,
-            "solubility": -2.3583931922912598,
-            "bbb": 0.7404707074165344,
-            "herg": 0.42276498675346375,
-            "sa": 2.5318307334870394
+            "affinity": 0.3556431919759921,
+            "solubility": -4.435251712799072,
+            "bbb": 0.9644879698753357,
+            "herg": 0.6799002289772034,
+            "sa": 4.03200124424073
           },
           "normalised": {
-            "affinity": 0.4939759036144578,
-            "solubility": 0.7052008509635925,
-            "bbb": 0.7404707074165344,
-            "herg": 0.5772350132465363,
-            "sa": 0.8297965851681067
+            "affinity": 0.3556431919759921,
+            "solubility": 0.44559353590011597,
+            "bbb": 0.9644879698753357,
+            "herg": 0.32009977102279663,
+            "sa": 0.6631109728621412
           },
-          "transform": "phenyl_to_pyridyl",
-          "intent": "swap CH for N: cuts logP and hERG liability"
+          "transform": "llm_edit",
+          "intent": "gem-Difluoropiperidine drops basicity further (strongest hERG mitigation per the safety veto) without adding rotatable bonds or MW that would hurt brain penetration."
         },
         {
-          "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4883720930232558,
-            "solubility": -2.2451860904693604,
-            "bbb": 0.33353400230407715,
-            "herg": 0.4550964832305908,
-            "sa": 2.505540588549783
+            "affinity": 0.8441828439668133,
+            "solubility": -4.001100063323975,
+            "bbb": 0.7541766166687012,
+            "herg": 0.6537858843803406,
+            "sa": 3.6118969972571717
           },
           "normalised": {
-            "affinity": 0.4883720930232558,
-            "solubility": 0.71935173869133,
-            "bbb": 0.33353400230407715,
-            "herg": 0.5449035167694092,
-            "sa": 0.8327177123833575
+            "affinity": 0.8441828439668133,
+            "solubility": 0.4998624920845032,
+            "bbb": 0.7541766166687012,
+            "herg": 0.3462141156196594,
+            "sa": 0.7097892225269808
           },
-          "transform": "aryl_carboxamide",
-          "intent": "primary amide: strong solubility gain, BBB cost"
+          "transform": "llm_edit",
+          "intent": "Ketone-to-secondary-alcohol reduction removes a lipophilic Michael-type carbonyl, raising solubility and lowering logP-driven hERG affinity while keeping the full scaffold."
         },
         {
-          "smiles": "N#Cc1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.4772727272727273,
-            "solubility": -3.1777443885803223,
-            "bbb": 0.8132659196853638,
-            "herg": 0.5101649761199951,
-            "sa": 2.5800731132625057
+            "affinity": 0.4150463824145249,
+            "solubility": -3.839684009552002,
+            "bbb": 0.8066242337226868,
+            "herg": 0.7792068123817444,
+            "sa": 3.523084413162186
           },
           "normalised": {
-            "affinity": 0.4772727272727273,
-            "solubility": 0.6027819514274597,
-            "bbb": 0.8132659196853638,
-            "herg": 0.4898350238800049,
-            "sa": 0.8244363207486105
+            "affinity": 0.4150463824145249,
+            "solubility": 0.5200394988059998,
+            "bbb": 0.8066242337226868,
+            "herg": 0.22079318761825562,
+            "sa": 0.7196572874264238
           },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
+          "transform": "llm_edit",
+          "intent": "Aryl-to-pyridyl swap adds polarity/solubility and reduces lipophilic hERG engagement; the small 2-aza change usually preserves potency and CNS exposure."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c(N2CCOCC2)c1",
+          "smiles": "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)ccc1C#N",
           "raw": {
-            "affinity": 0.4270833333333333,
-            "solubility": -2.6143958568573,
-            "bbb": 0.9439711570739746,
-            "herg": 0.6111120581626892,
-            "sa": 2.6529686082438726
+            "affinity": 0.5293847469769546,
+            "solubility": -3.8432207107543945,
+            "bbb": 0.9458469748497009,
+            "herg": 0.7271011471748352,
+            "sa": 4.059093848268114
           },
           "normalised": {
-            "affinity": 0.4270833333333333,
-            "solubility": 0.6732005178928375,
-            "bbb": 0.9439711570739746,
-            "herg": 0.3888879418373108,
-            "sa": 0.8163368213062364
+            "affinity": 0.5293847469769546,
+            "solubility": 0.5195974111557007,
+            "bbb": 0.9458469748497009,
+            "herg": 0.2728988528251648,
+            "sa": 0.660100683525765
           },
-          "transform": "add_morpholine_tail",
-          "intent": "morpholine: the standard solubilising handle"
+          "transform": "llm_edit",
+          "intent": "Combines the affinity-improving N-methyl benzamide (0.90 in round 4) with a 3-fluoropiperidine to offset that analogue's hERG regression - potency plus safety in one double edit."
         },
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
+          "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)N3CCc4ccc(F)cc43)CC2)cc1C(N)=O",
           "raw": {
-            "affinity": 0.5194805194805194,
-            "solubility": -2.6006081104278564,
-            "bbb": 0.9381905794143677,
-            "herg": 0.3937501609325409,
-            "sa": 2.2082515563471805
+            "affinity": 0.8757461898093035,
+            "solubility": -4.37378454208374,
+            "bbb": 0.9791443943977356,
+            "herg": 0.6814693808555603,
+            "sa": 3.4978420580792173
           },
           "normalised": {
-            "affinity": 0.5194805194805194,
-            "solubility": 0.6749239861965179,
-            "bbb": 0.9381905794143677,
-            "herg": 0.6062498390674591,
-            "sa": 0.8657498270725354
+            "affinity": 0.8757461898093035,
+            "solubility": 0.45327693223953247,
+            "bbb": 0.9791443943977356,
+            "herg": 0.3185306191444397,
+            "sa": 0.7224619935467536
           },
-          "transform": "defluorinate",
-          "intent": "strip a fluorine to reduce lipophilicity"
+          "transform": "llm_edit",
+          "intent": "Replacing the aryl ketone with a constrained indoline amide lowers logP and removes the basic-amine/lipophile pairing driving hERG, while the flat bicyclic keeps the hydrophobic contact for affinity."
         }
       ],
-      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
+      "leader": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)N3CCc4ccc(F)cc43)CC2)cc1C(N)=O",
       "reviews": [
         {
-          "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.52 against the parent's 0.68. My pick holds 0.52. I am not trading affinity backwards this round.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
+          "verdict": "support",
+          "reason": "Candidate 6 is the only molecule that beats the parent on affinity (0.88 vs 0.87), while every fluorinated-piperidine or pyridyl variant craters to 0.36-0.53 \u2014 a loss of 0.3-0.5 that no solubility or BBB gain can justify. The indoline amide keeps the potency axis intact; I will not trade it for candidate 3's 0.84 or any of the sub-0.6 options.",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)N3CCc4ccc(F)cc43)CC2)cc1C(N)=O",
           "agent": "Affinity"
         },
         {
           "verdict": "object",
-          "reason": "The field leader gives up solubility + bbb: 0.81 against the parent's 0.84. My pick holds 0.82. I am not trading solubility + bbb backwards this round.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
+          "reason": "Candidate 6 buys its 0.98 BBB by dropping solubility to 0.45 \u2014 below the parent's already marginal 0.49 \u2014 and an indoline amide adds flat lipophilic surface that will crush crystalline dissolution rate and make formulation at dose painful; we are not solubility-rich enough to spend here. Candidate 3 is the only proposal that holds affinity (0.84 vs 0.87) while nudging solubility up to 0.50, and its BBB of 0.75 from the ketone-to-alcohol reduction is still comfortably CNS-penetrant \u2014 that is the right side of the polarity trade, though flag the new stereocentre and possible in vivo re-oxidation to the ketone.",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
-          "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.61 against the parent's 0.47.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
-          "vetoed": []
+          "line": 0.3,
+          "rule": "absolute",
+          "verdict": "veto",
+          "reason": "Candidates 4 (0.22) and 5 (0.27) fall far below the parent's already-marginal 0.35 hERG-safety and are struck permanently; the field leader at 0.32 is also a regression on the one axis that kills programmes, so no candidate this round clears my limit. The only molecules that hold the line at 0.35 are candidate 3 and the parent itself, and I will not trade an 0.88 affinity for further hERG erosion. Ruling: 2 of 6 vetoed (absolute line at herg-safety 0.30).",
+          "preferred": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+          "vetoed": [
+            "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O",
+            "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)ccc1C#N"
+          ]
         }
       ],
       "decision": {
-        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
-        "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
-        "held_parent": true,
-        "affinity_floor_breached": true,
-        "vetoed": []
+        "chosen": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
+        "rationale": "I am taking the ketone-to-alcohol candidate at affinity 0.84 rather than the indoline amide at 0.88, accepting a real 0.04 potency loss that no veto forced on me \u2014 the indoline was fully available and I chose against it. In exchange I get the only survivor that holds hERG-safety at the parent's 0.35 rather than eroding to 0.32, plus a small solubility gain (0.50 vs 0.45) on an axis where the series is already thin. The cost is BBB dropping from 0.98 to 0.75 (still CNS-adequate) and a new stereocentre with possible in vivo re-oxidation back to the ketone, which must be checked before committing further.",
+        "held_parent": false,
+        "forced_second_best": false,
+        "vetoed": [
+          "CNC(=O)c1cc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cc3)C(F)C2)ccc1C#N",
+          "N#Cc1ccc(C2(O)CCN(CC(F)CC(=O)c3ccc(F)cn3)CC2)cc1C(N)=O"
+        ],
+        "audit": {
+          "chosen_herg": 0.3462141156196594,
+          "best_available_herg": 0.3462141156196594,
+          "chosen_affinity": 0.8441828439668133,
+          "best_available_affinity": 0.8757461898093035,
+          "is_safest_available": true,
+          "is_most_potent_available": false
+        }
       },
-      "pareto_hypervolume": 0.4343602929375461
+      "pareto_hypervolume": 0.5022082900818177
     }
   ],
   "final": {
-    "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+    "smiles": "N#Cc1ccc(C2(O)CCN(CC(F)CC(O)c3ccc(F)cc3)CC2)cc1C(N)=O",
     "raw": {
-      "affinity": 0.676056338028169,
-      "solubility": -2.5211496353149414,
-      "bbb": 0.9867384433746338,
-      "herg": 0.5325301885604858,
-      "sa": 2.280239280495584
+      "affinity": 0.8441828439668133,
+      "solubility": -4.001100063323975,
+      "bbb": 0.7541766166687012,
+      "herg": 0.6537858843803406,
+      "sa": 3.6118969972571717
     },
     "normalised": {
-      "affinity": 0.676056338028169,
-      "solubility": 0.6848562955856323,
-      "bbb": 0.9867384433746338,
-      "herg": 0.46746981143951416,
-      "sa": 0.8577511910560462
+      "affinity": 0.8441828439668133,
+      "solubility": 0.4998624920845032,
+      "bbb": 0.7541766166687012,
+      "herg": 0.3462141156196594,
+      "sa": 0.7097892225269808
     },
-    "transform": "halide_to_fluoride",
-    "intent": "downsize the halogen to cut logP and hERG risk"
+    "transform": "llm_edit",
+    "intent": "Ketone-to-secondary-alcohol reduction removes a lipophilic Michael-type carbonyl, raising solubility and lowering logP-driven hERG affinity while keeping the full scaffold."
   },
   "best": {
-    "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+    "smiles": "N#Cc1ccc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)cc1C(N)=O",
     "raw": {
-      "affinity": 1.0,
-      "solubility": -4.477168560028076,
-      "bbb": 0.9837419986724854,
-      "herg": 0.8652780055999756,
-      "sa": 2.1227326079667783
+      "affinity": 0.9794120046573792,
+      "solubility": -3.9718737602233887,
+      "bbb": 0.9783805012702942,
+      "herg": 0.6762256026268005,
+      "sa": 2.534910845925003
     },
     "normalised": {
-      "affinity": 1.0,
-      "solubility": 0.4403539299964905,
-      "bbb": 0.9837419986724854,
-      "herg": 0.13472199440002441,
-      "sa": 0.8752519324481357
+      "affinity": 0.9794120046573792,
+      "solubility": 0.5035157799720764,
+      "bbb": 0.9783805012702942,
+      "herg": 0.32377439737319946,
+      "sa": 0.8294543504527775
     },
-    "round": 0,
-    "origin": "seed"
+    "transform": "llm_edit",
+    "intent": "Chloride-to-nitrile isostere lowers lipophilicity at the key para position, targeting the chlorophenyl-carbinol hERG hotspot while retaining electron-withdrawing character.",
+    "round": 2,
+    "origin": "candidate"
   },
   "hypervolume_initial": 0.05932535969101593,
-  "hypervolume_final": 0.4343602929375461,
-  "wall_seconds": 15.49
+  "hypervolume_final": 0.5022082900818177,
+  "wall_seconds": 174.07
 }
