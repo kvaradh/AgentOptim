@@ -393,10 +393,42 @@ survivors-per-round before and after.
 
 ---
 
+### W3b — Add a real selectivity axis *(parallel, high demo value)*
+
+The app now frames DRD2 as the on-target and hERG as the anti-target, which is
+honest but incomplete: **we do not measure subtype selectivity at all.** Nothing
+in the run shows we are hitting D2 rather than D3, D4 or 5-HT2A, and for an
+antipsychotic that distinction is most of the clinical story.
+
+Add at least one true anti-target. Options, cheapest first:
+
+1. **D3 (DRD3)** — the closest relative and the sharpest test. Haloperidol's
+   selectivity handle is documented: it binds deeper than in D3/D4, in an
+   extended pocket formed by TM3/TM5/TM6 that accommodates the butyrophenone.
+   Edits that fill or vacate that pocket should move D2/D3 ratio.
+2. **5-HT2A** — the atypical-antipsychotic axis.
+3. A ligand-based classifier trained from ChEMBL actives per receptor if no
+   pretrained oracle exists.
+
+Then report **selectivity as a ratio** (D2 engagement / D3 engagement), not two
+separate bars — a ratio is what a pharmacologist reads and what makes
+"specificity" a real claim rather than a label.
+
+**Done when:** the run record carries a selectivity number, the UI shows it, and
+the affinity agent argues about it. Remove the caveat box in `target_panel()`
+once this lands — it exists to stop the current build overclaiming.
+
+**Files:** `core/oracles.py`, `core/contract.py` (new axis — announce it),
+`frontend/app.py`
+
+---
+
 ### W4 — Frontend against real data *(parallel)*
 
 The UI was only smoke-tested on surrogate data (HTTP 200, renders).
 
+0. The target panel and the on-target/anti-target/developability grouping are
+   already in (`target_panel()` in `frontend/app.py`). Verify, do not rebuild.
 1. Re-run with real ADMET and check every panel.
 2. Surface the veto **mode** — a relative veto needs explaining on screen or it
    looks like an arbitrary threshold. Show the line and which rule set it.
