@@ -18,7 +18,11 @@ returns "vetoed". The orchestrator returns {"chosen", "rationale"}.
 
 from __future__ import annotations
 
-from core.contract import HERG_VETO_THRESHOLD
+from core.contract import (
+    HERG_RELATIVE_MARGIN,
+    HERG_VETO_MODE,
+    HERG_VETO_THRESHOLD,
+)
 from core.llm import complete_json
 
 # The orchestrator's weighting over normalised axes. Affinity carries the most
@@ -185,17 +189,38 @@ class SafetyAgent:
         "sentences."
     )
 
-    def __init__(self, threshold: float = HERG_VETO_THRESHOLD):
+    def __init__(self, threshold: float = HERG_VETO_THRESHOLD,
+                 mode: str = HERG_VETO_MODE,
+                 relative_margin: float = HERG_RELATIVE_MARGIN):
         self.threshold = threshold
+        self.mode = mode
+        self.relative_margin = relative_margin
+
+    def effective_line(self, parent) -> tuple[float, str]:
+        """The safety floor for this round, and which rule produced it.
+
+        See HERG_VETO_MODE in core.contract for why this is not simply a
+        constant: an absolute line vetoes the entire haloperidol series,
+        seed included, and leaves the loop with nothing to choose.
+        """
+        parent_safety = parent["normalised"]["herg"]
+        if self.mode == "absolute":
+            return self.threshold, "absolute"
+        if self.mode == "relative":
+            return parent_safety - self.relative_margin, "relative"
+        if parent_safety >= self.threshold:
+            return self.threshold, "absolute"
+        return parent_safety - self.relative_margin, "relative"
 
     def review(self, parent, candidates, leader) -> dict:
         # The hard rule fires first and always. The LLM only supplies wording.
-        vetoed = [c["smiles"] for c in candidates if c["normalised"]["herg"] < self.threshold]
+        line, rule = self.effective_line(parent)
+        vetoed = [c["smiles"] for c in candidates if c["normalised"]["herg"] < line]
         survivors = [c for c in candidates if c["smiles"] not in vetoed]
         pool = survivors or candidates
         best = max(pool, key=lambda c: c["normalised"]["herg"])
 
-        blocked_prob = 1.0 - self.threshold
+        blocked_prob = 1.0 - line
         if vetoed:
             verdict = "veto"
             leader_note = (
@@ -203,11 +228,19 @@ class SafetyAgent:
                 if leader["smiles"] in vetoed
                 else ""
             )
+            basis = (
+                f"above {_fmt(blocked_prob)}"
+                if rule == "absolute"
+                else (
+                    f"worse than the lead we already have, which is itself at "
+                    f"{_fmt(1.0 - parent['normalised']['herg'])} blockade"
+                )
+            )
             reason = (
-                f"Vetoing {len(vetoed)} candidate(s) on predicted hERG blockade above "
-                f"{_fmt(blocked_prob)}.{leader_note} This is not a trade I will make "
-                f"against potency. The safest remaining option is herg-safety "
-                f"{_fmt(best['normalised']['herg'])}."
+                f"Vetoing {len(vetoed)} candidate(s) on predicted hERG blockade "
+                f"{basis}.{leader_note} This series already carries a QT liability; "
+                f"I will not deepen it for potency. The safest remaining option is "
+                f"herg-safety {_fmt(best['normalised']['herg'])}."
             )
         elif best["normalised"]["herg"] < parent["normalised"]["herg"] - OBJECTION_TOLERANCE:
             verdict = "object"

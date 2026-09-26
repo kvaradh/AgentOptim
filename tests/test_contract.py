@@ -248,3 +248,46 @@ def test_fixtures_match_the_contract_format():
             assert recomputed[axis] == pytest.approx(
                 molecule["normalised"][axis], abs=1e-3
             ), f"{molecule['name']} {axis} normalisation disagrees with the contract"
+
+
+# --- the relative veto -----------------------------------------------------
+
+def test_absolute_line_is_used_when_the_lead_is_clean(monkeypatch):
+    monkeypatch.setenv("AGENT_LLM", "off")
+    clean_parent = _candidate("CCO", herg=0.80)
+    line, rule = agents.SAFETY_AGENT.effective_line(clean_parent)
+    assert rule == "absolute"
+    assert line == HERG_VETO_THRESHOLD
+
+
+def test_relative_line_is_used_when_the_lead_is_already_liable(monkeypatch):
+    """The haloperidol case: the real hERG model scores the seed at 0.865
+    blockade, so an absolute line vetoes the seed and every analogue of it."""
+    monkeypatch.setenv("AGENT_LLM", "off")
+    liable_parent = _candidate("CCO", herg=0.135)
+    line, rule = agents.SAFETY_AGENT.effective_line(liable_parent)
+    assert rule == "relative"
+    assert line == pytest.approx(0.135)
+
+
+def test_a_liable_lead_does_not_veto_its_own_analogues_wholesale(monkeypatch):
+    """Regression test for a demo that killed itself in round 1."""
+    monkeypatch.setenv("AGENT_LLM", "off")
+    parent = _candidate("CCO", herg=0.135)
+    candidates = [
+        _candidate("CCC", herg=0.25),    # safer than the lead
+        _candidate("CCCC", herg=0.14),   # marginally safer
+        _candidate("CCCCC", herg=0.11),  # worse than the lead
+    ]
+    review = agents.SAFETY_AGENT.review(parent, candidates, candidates[0])
+    assert review["vetoed"] == ["CCCCC"], "the veto should discriminate, not blanket"
+    assert len(review["vetoed"]) < len(candidates)
+
+
+def test_relative_veto_still_blocks_deepening_a_known_liability(monkeypatch):
+    monkeypatch.setenv("AGENT_LLM", "off")
+    parent = _candidate("CCO", herg=0.135)
+    candidates = [_candidate("CCC", herg=0.05), _candidate("CCCC", herg=0.02)]
+    review = agents.SAFETY_AGENT.review(parent, candidates, candidates[0])
+    assert review["verdict"] == "veto"
+    assert set(review["vetoed"]) == {"CCC", "CCCC"}

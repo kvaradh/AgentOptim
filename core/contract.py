@@ -31,6 +31,32 @@ SA_WINDOW = (1.0, 10.0)
 # agent so the number is reviewable in one place.
 HERG_VETO_THRESHOLD = 0.30
 
+# How that line is applied. This is not a tuning knob -- it is the difference
+# between a working demo and one that kills itself in round 1.
+#
+# The real hERG model scores haloperidol at P(blockade) = 0.865, i.e. 0.135
+# normalised safety, far below the absolute line. So do risperidone (0.923),
+# chlorpromazine (0.912) and aripiprazole (0.909). The model is not wrong:
+# these drugs *are* hERG blockers, and haloperidol carries a QT prolongation
+# warning. But an absolute line applied to this series vetoes the seed itself,
+# then every analogue of it -- 0 of 14 first-round children clear 0.70 -- and
+# the optimisation has nothing left to choose from, forever.
+#
+# "auto" resolves per-round against the incumbent:
+#   * the lead is clean (safety >= threshold)  -> absolute line, defend it
+#   * the lead is already liable               -> relative line, do not let it
+#                                                 get worse than it already is
+# The second is what a real programme does with a lead like haloperidol:
+# you carry a known liability and refuse to deepen it. It also has teeth --
+# 7 of those 14 analogues are safer than the parent and 7 are worse, so the
+# veto discriminates within the series instead of blanketing it.
+HERG_VETO_MODE = "auto"  # "auto" | "absolute" | "relative"
+
+# In relative mode, how much worse than the incumbent a candidate may be
+# before it is vetoed. 0.0 means "no analogue may be more cardiotoxic than
+# the molecule we already have".
+HERG_RELATIVE_MARGIN = 0.0
+
 
 def _clip01(x: float) -> float:
     return 0.0 if x < 0.0 else (1.0 if x > 1.0 else float(x))

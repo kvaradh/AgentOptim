@@ -5,15 +5,15 @@
   "rounds": 5,
   "provenance": {
     "affinity": "surrogate-similarity",
-    "solubility": "surrogate",
-    "bbb": "surrogate",
-    "herg": "surrogate",
+    "solubility": "xgboost",
+    "bbb": "xgboost",
+    "herg": "xgboost",
     "sa": "rdkit-sascorer",
     "any_surrogate": true
   },
   "affinity_floor": 0.6,
   "affinity_seed": 1.0,
-  "affinity_final": 0.6571428571428571,
+  "affinity_final": 0.676056338028169,
   "affinity_held": true,
   "weights": {
     "affinity": 0.38,
@@ -31,16 +31,16 @@
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
       "raw": {
         "affinity": 1.0,
-        "solubility": -6.042528200000003,
-        "bbb": 0.8770924547147813,
-        "herg": 0.6033344011516708,
+        "solubility": -4.477168560028076,
+        "bbb": 0.9837419986724854,
+        "herg": 0.8652780055999756,
         "sa": 2.1227326079667783
       },
       "normalised": {
         "affinity": 1.0,
-        "solubility": 0.2446839749999996,
-        "bbb": 0.8770924547147813,
-        "herg": 0.3966655988483292,
+        "solubility": 0.4403539299964905,
+        "bbb": 0.9837419986724854,
+        "herg": 0.13472199440002441,
         "sa": 0.8752519324481357
       },
       "round": 0,
@@ -50,79 +50,79 @@
       "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
       "raw": {
         "affinity": 0.6363636363636364,
-        "solubility": -6.116748600000003,
-        "bbb": 0.7423904019626987,
-        "herg": 0.7133396481604802,
+        "solubility": -4.866168975830078,
+        "bbb": 0.9003748893737793,
+        "herg": 0.7540425658226013,
         "sa": 2.4163049156461103
       },
       "normalised": {
         "affinity": 0.6363636363636364,
-        "solubility": 0.23540642499999964,
-        "bbb": 0.7423904019626987,
-        "herg": 0.28666035183951977,
+        "solubility": 0.39172887802124023,
+        "bbb": 0.9003748893737793,
+        "herg": 0.24595743417739868,
         "sa": 0.8426327871504322
       },
       "transform": "aryl_nitrile",
       "intent": "polar, small, metabolically robust acceptor",
       "round": 1,
-      "origin": "vetoed"
+      "origin": "candidate"
     },
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1",
       "raw": {
         "affinity": 0.5764705882352941,
-        "solubility": -6.401243400000004,
-        "bbb": 0.7676255553566322,
-        "herg": 0.8106510375351781,
+        "solubility": -4.498271465301514,
+        "bbb": 0.9955831170082092,
+        "herg": 0.8350985050201416,
         "sa": 2.481978799252124
       },
       "normalised": {
         "affinity": 0.5764705882352941,
-        "solubility": 0.19984457499999952,
-        "bbb": 0.7676255553566322,
-        "herg": 0.1893489624648219,
+        "solubility": 0.4377160668373108,
+        "bbb": 0.9955831170082092,
+        "herg": 0.1649014949798584,
         "sa": 0.8353356889719863
       },
       "transform": "add_morpholine_tail",
       "intent": "morpholine: the standard solubilising handle",
       "round": 1,
-      "origin": "vetoed"
+      "origin": "candidate"
     },
     {
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
       "raw": {
         "affinity": 0.6351351351351351,
-        "solubility": -5.667503800000002,
-        "bbb": 0.7651778731146396,
-        "herg": 0.4546712979734843,
+        "solubility": -3.8109793663024902,
+        "bbb": 0.9880384802818298,
+        "herg": 0.8886770009994507,
         "sa": 2.4052409239750947
       },
       "normalised": {
         "affinity": 0.6351351351351351,
-        "solubility": 0.2915620249999997,
-        "bbb": 0.7651778731146396,
-        "herg": 0.5453287020265156,
+        "solubility": 0.5236275792121887,
+        "bbb": 0.9880384802818298,
+        "herg": 0.11132299900054932,
         "sa": 0.8438621195583228
       },
       "transform": "phenyl_to_pyridyl",
       "intent": "swap CH for N: cuts logP and hERG liability",
       "round": 1,
-      "origin": "candidate"
+      "origin": "vetoed"
     },
     {
       "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
       "raw": {
         "affinity": 0.5540540540540541,
-        "solubility": -5.960968400000002,
-        "bbb": 0.7895915259455802,
-        "herg": 0.5700433448735504,
+        "solubility": -3.9869320392608643,
+        "bbb": 0.9743865728378296,
+        "herg": 0.8557303547859192,
         "sa": 2.666233807784266
       },
       "normalised": {
         "affinity": 0.5540540540540541,
-        "solubility": 0.2548789499999997,
-        "bbb": 0.7895915259455802,
-        "herg": 0.42995665512644965,
+        "solubility": 0.501633495092392,
+        "bbb": 0.9743865728378296,
+        "herg": 0.1442696452140808,
         "sa": 0.8148629102461926
       },
       "transform": "ketone_to_alcohol",
@@ -134,16 +134,16 @@
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
       "raw": {
         "affinity": 0.7384615384615385,
-        "solubility": -5.843357200000003,
-        "bbb": 0.8686043810815401,
-        "herg": 0.5560622750523028,
+        "solubility": -4.2563629150390625,
+        "bbb": 0.9238886833190918,
+        "herg": 0.8321940302848816,
         "sa": 2.060130082330488
       },
       "normalised": {
         "affinity": 0.7384615384615385,
-        "solubility": 0.2695803499999996,
-        "bbb": 0.8686043810815401,
-        "herg": 0.44393772494769723,
+        "solubility": 0.4679546356201172,
+        "bbb": 0.9238886833190918,
+        "herg": 0.1678059697151184,
         "sa": 0.8822077686299458
       },
       "transform": "defluorinate",
@@ -155,16 +155,16 @@
       "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
       "raw": {
         "affinity": 0.6363636363636364,
-        "solubility": -5.675590200000002,
-        "bbb": 0.36258569456338846,
-        "herg": 0.5481567602684186,
+        "solubility": -3.825695037841797,
+        "bbb": 0.9830300211906433,
+        "herg": 0.760623574256897,
         "sa": 2.3454751779314815
       },
       "normalised": {
         "affinity": 0.6363636363636364,
-        "solubility": 0.29055122499999975,
-        "bbb": 0.36258569456338846,
-        "herg": 0.45184323973158136,
+        "solubility": 0.5217881202697754,
+        "bbb": 0.9830300211906433,
+        "herg": 0.23937642574310303,
         "sa": 0.8505027580076132
       },
       "transform": "aryl_carboxamide",
@@ -176,16 +176,16 @@
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(C(=O)O)c2)CC1)c1ccccc1",
       "raw": {
         "affinity": 0.49382716049382713,
-        "solubility": -5.8600790000000025,
-        "bbb": 0.4899076209625088,
-        "herg": 0.4087183937437733,
+        "solubility": -3.7005274295806885,
+        "bbb": 0.787887692451477,
+        "herg": 0.6528183817863464,
         "sa": 2.2598486352176774
       },
       "normalised": {
         "affinity": 0.49382716049382713,
-        "solubility": 0.2674901249999997,
-        "bbb": 0.4899076209625088,
-        "herg": 0.5912816062562267,
+        "solubility": 0.5374340713024139,
+        "bbb": 0.787887692451477,
+        "herg": 0.34718161821365356,
         "sa": 0.860016818309147
       },
       "transform": "aryl_carboxylic_acid",
@@ -197,16 +197,16 @@
       "smiles": "NC(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
       "raw": {
         "affinity": 0.5657894736842105,
-        "solubility": -5.476419200000001,
-        "bbb": 0.3615359238348448,
-        "herg": 0.4997610000182029,
+        "solubility": -3.4298338890075684,
+        "bbb": 0.8889974355697632,
+        "herg": 0.6959893107414246,
         "sa": 2.2962026761134915
       },
       "normalised": {
         "affinity": 0.5657894736842105,
-        "solubility": 0.31544759999999983,
-        "bbb": 0.3615359238348448,
-        "herg": 0.5002389999817971,
+        "solubility": 0.571270763874054,
+        "bbb": 0.8889974355697632,
+        "herg": 0.30401068925857544,
         "sa": 0.8559774804318343
       },
       "transform": "aryl_carboxamide",
@@ -218,37 +218,37 @@
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
       "raw": {
         "affinity": 0.6865671641791045,
-        "solubility": -5.417327200000003,
-        "bbb": 0.8328288470823876,
-        "herg": 0.4520478323033677,
+        "solubility": -3.761070966720581,
+        "bbb": 0.9866661429405212,
+        "herg": 0.8751372694969177,
         "sa": 2.0650954669458734
       },
       "normalised": {
         "affinity": 0.6865671641791045,
-        "solubility": 0.3228340999999997,
-        "bbb": 0.8328288470823876,
-        "herg": 0.5479521676966324,
+        "solubility": 0.5298661291599274,
+        "bbb": 0.9866661429405212,
+        "herg": 0.12486273050308228,
         "sa": 0.8816560592282363
       },
       "transform": "halide_to_fluoride",
       "intent": "downsize the halogen to cut logP and hERG risk",
       "round": 2,
-      "origin": "candidate"
+      "origin": "vetoed"
     },
     {
       "smiles": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
       "raw": {
         "affinity": 0.5443037974683544,
-        "solubility": -5.4155152000000015,
-        "bbb": 0.17383341131930183,
-        "herg": 0.4081022849337852,
+        "solubility": -3.2599260807037354,
+        "bbb": 0.9124245047569275,
+        "herg": 0.6473764181137085,
         "sa": 2.4019093659656683
       },
       "normalised": {
         "affinity": 0.5443037974683544,
-        "solubility": 0.3230605999999998,
-        "bbb": 0.17383341131930183,
-        "herg": 0.5918977150662148,
+        "solubility": 0.5925092399120331,
+        "bbb": 0.9124245047569275,
+        "herg": 0.3526235818862915,
         "sa": 0.8442322926704813
       },
       "transform": "aryl_sulfonamide",
@@ -260,16 +260,16 @@
       "smiles": "N#Cc1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
       "raw": {
         "affinity": 0.4367816091954023,
-        "solubility": -5.917577600000001,
-        "bbb": 0.7281880780313303,
-        "herg": 0.6720513257464534,
+        "solubility": -4.743358135223389,
+        "bbb": 0.9567022323608398,
+        "herg": 0.7466257810592651,
         "sa": 2.397698789010848
       },
       "normalised": {
         "affinity": 0.4367816091954023,
-        "solubility": 0.26030279999999983,
-        "bbb": 0.7281880780313303,
-        "herg": 0.32794867425354657,
+        "solubility": 0.4070802330970764,
+        "bbb": 0.9567022323608398,
+        "herg": 0.25337421894073486,
         "sa": 0.8447001345543502
       },
       "transform": "aryl_nitrile",
@@ -281,16 +281,16 @@
       "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccccc1",
       "raw": {
         "affinity": 0.4691358024691358,
-        "solubility": -5.468332800000002,
-        "bbb": 0.7511537272013561,
-        "herg": 0.4070929750064118,
+        "solubility": -3.9795172214508057,
+        "bbb": 0.9748319387435913,
+        "herg": 0.813647985458374,
         "sa": 2.293560851561258
       },
       "normalised": {
         "affinity": 0.4691358024691358,
-        "solubility": 0.3164583999999997,
-        "bbb": 0.7511537272013561,
-        "herg": 0.5929070249935882,
+        "solubility": 0.5025603473186493,
+        "bbb": 0.9748319387435913,
+        "herg": 0.18635201454162598,
         "sa": 0.8562710164931935
       },
       "transform": "phenyl_to_pyridyl",
@@ -299,20 +299,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
       "raw": {
-        "affinity": 0.676056338028169,
-        "solubility": -4.9894852,
-        "bbb": 0.14482945984377554,
-        "herg": 0.31229493836132854,
-        "sa": 2.280239280495584
+        "affinity": 0.7246376811594203,
+        "solubility": -3.0693607330322266,
+        "bbb": 0.9414632320404053,
+        "herg": 0.48072120547294617,
+        "sa": 2.2758256052819092
       },
       "normalised": {
-        "affinity": 0.676056338028169,
-        "solubility": 0.37631435,
-        "bbb": 0.14482945984377554,
-        "herg": 0.6877050616386715,
-        "sa": 0.8577511910560462
+        "affinity": 0.7246376811594203,
+        "solubility": 0.6163299083709717,
+        "bbb": 0.9414632320404053,
+        "herg": 0.5192787945270538,
+        "sa": 0.8582415994131212
       },
       "transform": "aryl_sulfonamide",
       "intent": "polar acceptor, lowers hERG risk",
@@ -320,20 +320,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+      "smiles": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
       "raw": {
         "affinity": 0.4418604651162791,
-        "solubility": -5.0503892000000015,
-        "bbb": 0.2998641182729449,
-        "herg": 0.3968632956846194,
-        "sa": 2.3699553538155342
+        "solubility": -3.44244647026062,
+        "bbb": 0.9935460686683655,
+        "herg": 0.6805481314659119,
+        "sa": 2.3554852467074525
       },
       "normalised": {
         "affinity": 0.4418604651162791,
-        "solubility": 0.3687013499999998,
-        "bbb": 0.2998641182729449,
-        "herg": 0.6031367043153806,
-        "sa": 0.8477827384649407
+        "solubility": 0.5696941912174225,
+        "bbb": 0.9935460686683655,
+        "herg": 0.31945186853408813,
+        "sa": 0.8493905281436164
       },
       "transform": "aryl_carboxamide",
       "intent": "primary amide: strong solubility gain, BBB cost",
@@ -341,20 +341,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c1",
+      "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)c1",
       "raw": {
-        "affinity": 0.5432098765432098,
-        "solubility": -5.491547600000002,
-        "bbb": 0.668760429039043,
-        "herg": 0.5744135726924758,
-        "sa": 2.3095761116881715
+        "affinity": 0.5822784810126582,
+        "solubility": -4.694645404815674,
+        "bbb": 0.9292627573013306,
+        "herg": 0.751421332359314,
+        "sa": 2.304933154645214
       },
       "normalised": {
-        "affinity": 0.5432098765432098,
-        "solubility": 0.3135565499999997,
-        "bbb": 0.668760429039043,
-        "herg": 0.42558642730752416,
-        "sa": 0.8544915431457587
+        "affinity": 0.5822784810126582,
+        "solubility": 0.41316932439804077,
+        "bbb": 0.9292627573013306,
+        "herg": 0.24857866764068604,
+        "sa": 0.8550074272616429
       },
       "transform": "aryl_nitrile",
       "intent": "polar, small, metabolically robust acceptor",
@@ -362,41 +362,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccccc2)CC1)c1ccccc1",
+      "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
       "raw": {
-        "affinity": 0.5652173913043478,
-        "solubility": -5.218156200000001,
-        "bbb": 0.8219046046619642,
-        "herg": 0.404540384689839,
-        "sa": 1.9861198369570516
+        "affinity": 0.44871794871794873,
+        "solubility": -3.950503349304199,
+        "bbb": 0.8783082365989685,
+        "herg": 0.7659508585929871,
+        "sa": 2.5927158455575405
       },
       "normalised": {
-        "affinity": 0.5652173913043478,
-        "solubility": 0.3477304749999999,
-        "bbb": 0.8219046046619642,
-        "herg": 0.595459615310161,
-        "sa": 0.8904311292269943
-      },
-      "transform": "defluorinate",
-      "intent": "strip a fluorine to reduce lipophilicity",
-      "round": 3,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "OC(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
-      "raw": {
-        "affinity": 0.4125,
-        "solubility": -5.335767400000002,
-        "bbb": 0.7237410475677282,
-        "herg": 0.4183014532522798,
-        "sa": 2.597681230172924
-      },
-      "normalised": {
-        "affinity": 0.4125,
-        "solubility": 0.3330290749999998,
-        "bbb": 0.7237410475677282,
-        "herg": 0.5816985467477203,
-        "sa": 0.8224798633141196
+        "affinity": 0.44871794871794873,
+        "solubility": 0.5061870813369751,
+        "bbb": 0.8783082365989685,
+        "herg": 0.23404914140701294,
+        "sa": 0.8230315727158288
       },
       "transform": "ketone_to_alcohol",
       "intent": "reduce the carbonyl: more polar, more flexible",
@@ -404,20 +383,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
+      "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccncc1",
       "raw": {
-        "affinity": 0.6571428571428571,
-        "solubility": -5.042302800000002,
-        "bbb": 0.6946416296122813,
-        "herg": 0.3113979182107393,
-        "sa": 2.2591820054074123
+        "affinity": 0.7058823529411765,
+        "solubility": -4.0146589279174805,
+        "bbb": 0.9451987743377686,
+        "herg": 0.7784594297409058,
+        "sa": 2.254216620792027
       },
       "normalised": {
-        "affinity": 0.6571428571428571,
-        "solubility": 0.3697121499999998,
-        "bbb": 0.6946416296122813,
-        "herg": 0.6886020817892606,
-        "sa": 0.8600908882880653
+        "affinity": 0.7058823529411765,
+        "solubility": 0.49816763401031494,
+        "bbb": 0.9451987743377686,
+        "herg": 0.22154057025909424,
+        "sa": 0.8606425976897748
       },
       "transform": "phenyl_to_pyridyl",
       "intent": "swap CH for N: cuts logP and hERG liability",
@@ -425,20 +404,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "OC(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
+      "smiles": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
       "raw": {
-        "affinity": 0.4024390243902439,
-        "solubility": -4.960743000000003,
-        "bbb": 0.544679256534575,
-        "herg": 0.28273364221471586,
-        "sa": 2.8040754609421548
+        "affinity": 0.42857142857142855,
+        "solubility": -2.8740789890289307,
+        "bbb": 0.748741626739502,
+        "herg": 0.49513283371925354,
+        "sa": 2.8083782488508398
       },
       "normalised": {
-        "affinity": 0.4024390243902439,
-        "solubility": 0.3799071249999997,
-        "bbb": 0.544679256534575,
-        "herg": 0.7172663577852841,
-        "sa": 0.7995471710064272
+        "affinity": 0.42857142857142855,
+        "solubility": 0.6407401263713837,
+        "bbb": 0.748741626739502,
+        "herg": 0.5048671662807465,
+        "sa": 0.7990690834610178
       },
       "transform": "ketone_to_alcohol",
       "intent": "reduce the carbonyl: more polar, more flexible",
@@ -446,20 +425,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
+      "smiles": "N#Cc1cc(S(N)(=O)=O)ccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
       "raw": {
-        "affinity": 0.5301204819277109,
-        "solubility": -5.116523200000001,
-        "bbb": 0.47968219437144166,
-        "herg": 0.4252371763083041,
-        "sa": 2.520266021778081
+        "affinity": 0.4942528735632184,
+        "solubility": -3.589149236679077,
+        "bbb": 0.7029848098754883,
+        "herg": 0.6034449934959412,
+        "sa": 2.5976110381283366
       },
       "normalised": {
-        "affinity": 0.5301204819277109,
-        "solubility": 0.3604345999999998,
-        "bbb": 0.47968219437144166,
-        "herg": 0.574762823691696,
-        "sa": 0.8310815531357688
+        "affinity": 0.4942528735632184,
+        "solubility": 0.5513563454151154,
+        "bbb": 0.7029848098754883,
+        "herg": 0.39655500650405884,
+        "sa": 0.8224876624301848
       },
       "transform": "aryl_nitrile",
       "intent": "polar, small, metabolically robust acceptor",
@@ -467,20 +446,41 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2N2CCOCC2)CC1)c1ccncc1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
       "raw": {
-        "affinity": 0.38144329896907214,
-        "solubility": -5.401018000000003,
-        "bbb": 0.5462449533406524,
-        "herg": 0.5600280754083491,
-        "sa": 2.61767139591009
+        "affinity": 0.676056338028169,
+        "solubility": -2.5211496353149414,
+        "bbb": 0.9867384433746338,
+        "herg": 0.5325301885604858,
+        "sa": 2.280239280495584
       },
       "normalised": {
-        "affinity": 0.38144329896907214,
-        "solubility": 0.3248727499999996,
-        "bbb": 0.5462449533406524,
-        "herg": 0.4399719245916509,
-        "sa": 0.8202587337877678
+        "affinity": 0.676056338028169,
+        "solubility": 0.6848562955856323,
+        "bbb": 0.9867384433746338,
+        "herg": 0.46746981143951416,
+        "sa": 0.8577511910560462
+      },
+      "transform": "halide_to_fluoride",
+      "intent": "downsize the halogen to cut logP and hERG risk",
+      "round": 4,
+      "origin": "candidate"
+    },
+    {
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(N4CCOCC4)c3)CC2)cc1",
+      "raw": {
+        "affinity": 0.4270833333333333,
+        "solubility": -3.181852102279663,
+        "bbb": 0.8396601676940918,
+        "herg": 0.624721884727478,
+        "sa": 2.6154413355166
+      },
+      "normalised": {
+        "affinity": 0.4270833333333333,
+        "solubility": 0.6022684872150421,
+        "bbb": 0.8396601676940918,
+        "herg": 0.375278115272522,
+        "sa": 0.8205065182759333
       },
       "transform": "add_morpholine_tail",
       "intent": "morpholine: the standard solubilising handle",
@@ -488,20 +488,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2O)CC1)c1ccncc1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1O",
       "raw": {
-        "affinity": 0.44047619047619047,
-        "solubility": -4.956024600000001,
-        "bbb": 0.3779966841928751,
-        "herg": 0.223694299703009,
-        "sa": 2.4882448740790455
+        "affinity": 0.6025641025641025,
+        "solubility": -2.797790765762329,
+        "bbb": 0.3896499276161194,
+        "herg": 0.5504832863807678,
+        "sa": 2.5413398344064024
       },
       "normalised": {
-        "affinity": 0.44047619047619047,
-        "solubility": 0.3804969249999999,
-        "bbb": 0.3779966841928751,
-        "herg": 0.776305700296991,
-        "sa": 0.8346394584356616
+        "affinity": 0.6025641025641025,
+        "solubility": 0.6502761542797089,
+        "bbb": 0.3896499276161194,
+        "herg": 0.4495167136192322,
+        "sa": 0.8287400183992886
       },
       "transform": "aryl_hydroxylation",
       "intent": "add a donor to raise solubility",
@@ -509,20 +509,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "NS(=O)(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(S(N)(=O)=O)c3)CC2)cc1",
       "raw": {
-        "affinity": 0.4065934065934066,
-        "solubility": -4.614460800000002,
-        "bbb": 0.07151838701393293,
-        "herg": 0.19931134919592508,
-        "sa": 2.6233811608374644
+        "affinity": 0.5060240963855421,
+        "solubility": -2.490011692047119,
+        "bbb": 0.06952084600925446,
+        "herg": 0.5263389945030212,
+        "sa": 2.570522583859658
       },
       "normalised": {
-        "affinity": 0.4065934065934066,
-        "solubility": 0.4231923999999998,
-        "bbb": 0.07151838701393293,
-        "herg": 0.8006886508040749,
-        "sa": 0.8196243154625039
+        "affinity": 0.5060240963855421,
+        "solubility": 0.6887485384941101,
+        "bbb": 0.06952084600925446,
+        "herg": 0.47366100549697876,
+        "sa": 0.8254974906822602
       },
       "transform": "aryl_sulfonamide",
       "intent": "polar acceptor, lowers hERG risk",
@@ -530,41 +530,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
       "raw": {
-        "affinity": 0.4157303370786517,
-        "solubility": -4.6753648000000005,
-        "bbb": 0.16357777145754987,
-        "herg": 0.2650772692296,
-        "sa": 2.546844350894407
+        "affinity": 0.4642857142857143,
+        "solubility": -2.3179237842559814,
+        "bbb": 0.9304724931716919,
+        "herg": 0.5298270583152771,
+        "sa": 2.491096646269238
       },
       "normalised": {
-        "affinity": 0.4157303370786517,
-        "solubility": 0.41557939999999993,
-        "bbb": 0.16357777145754987,
-        "herg": 0.7349227307704,
-        "sa": 0.828128405456177
-      },
-      "transform": "aryl_carboxamide",
-      "intent": "primary amide: strong solubility gain, BBB cost",
-      "round": 4,
-      "origin": "candidate"
-    },
-    {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)c(O)c2)CC1)c1ccncc1",
-      "raw": {
-        "affinity": 0.4878048780487805,
-        "solubility": -4.956024600000001,
-        "bbb": 0.3779966841928751,
-        "herg": 0.223694299703009,
-        "sa": 2.498659427093598
-      },
-      "normalised": {
-        "affinity": 0.4878048780487805,
-        "solubility": 0.3804969249999999,
-        "bbb": 0.3779966841928751,
-        "herg": 0.776305700296991,
-        "sa": 0.8334822858784892
+        "affinity": 0.4642857142857143,
+        "solubility": 0.7102595269680023,
+        "bbb": 0.9304724931716919,
+        "herg": 0.4701729416847229,
+        "sa": 0.8343225948589735
       },
       "transform": "aryl_hydroxylation",
       "intent": "add a donor to raise solubility",
@@ -572,20 +551,41 @@
       "origin": "candidate"
     },
     {
-      "smiles": "NC(=O)c1cnccc1C(=O)CCCN1CCC(O)(c2ccc(F)cc2)CC1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)nc3)CC2)cc1",
       "raw": {
-        "affinity": 0.5060240963855421,
-        "solubility": -4.6753648,
-        "bbb": 0.16357777145754968,
-        "herg": 0.26507726922959984,
-        "sa": 2.5042560354124195
+        "affinity": 0.4939759036144578,
+        "solubility": -2.3583931922912598,
+        "bbb": 0.7404707074165344,
+        "herg": 0.42276498675346375,
+        "sa": 2.5318307334870394
       },
       "normalised": {
-        "affinity": 0.5060240963855421,
-        "solubility": 0.41557940000000004,
-        "bbb": 0.16357777145754968,
-        "herg": 0.7349227307704002,
-        "sa": 0.8328604405097312
+        "affinity": 0.4939759036144578,
+        "solubility": 0.7052008509635925,
+        "bbb": 0.7404707074165344,
+        "herg": 0.5772350132465363,
+        "sa": 0.8297965851681067
+      },
+      "transform": "phenyl_to_pyridyl",
+      "intent": "swap CH for N: cuts logP and hERG liability",
+      "round": 5,
+      "origin": "candidate"
+    },
+    {
+      "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
+      "raw": {
+        "affinity": 0.4883720930232558,
+        "solubility": -2.2451860904693604,
+        "bbb": 0.33353400230407715,
+        "herg": 0.4550964832305908,
+        "sa": 2.505540588549783
+      },
+      "normalised": {
+        "affinity": 0.4883720930232558,
+        "solubility": 0.71935173869133,
+        "bbb": 0.33353400230407715,
+        "herg": 0.5449035167694092,
+        "sa": 0.8327177123833575
       },
       "transform": "aryl_carboxamide",
       "intent": "primary amide: strong solubility gain, BBB cost",
@@ -593,20 +593,20 @@
       "origin": "candidate"
     },
     {
-      "smiles": "N#Cc1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
+      "smiles": "N#Cc1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
       "raw": {
-        "affinity": 0.4111111111111111,
-        "solubility": -5.116523200000001,
-        "bbb": 0.47968219437144166,
-        "herg": 0.4252371763083041,
-        "sa": 2.580788099700161
+        "affinity": 0.4772727272727273,
+        "solubility": -3.1777443885803223,
+        "bbb": 0.8132659196853638,
+        "herg": 0.5101649761199951,
+        "sa": 2.5800731132625057
       },
       "normalised": {
-        "affinity": 0.4111111111111111,
-        "solubility": 0.3604345999999998,
-        "bbb": 0.47968219437144166,
-        "herg": 0.574762823691696,
-        "sa": 0.8243568778110932
+        "affinity": 0.4772727272727273,
+        "solubility": 0.6027819514274597,
+        "bbb": 0.8132659196853638,
+        "herg": 0.4898350238800049,
+        "sa": 0.8244363207486105
       },
       "transform": "aryl_nitrile",
       "intent": "polar, small, metabolically robust acceptor",
@@ -614,44 +614,44 @@
       "origin": "candidate"
     },
     {
-      "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2Cl)CC1)c1ccncc1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c(N2CCOCC2)c1",
       "raw": {
-        "affinity": 0.4642857142857143,
-        "solubility": -5.667503800000002,
-        "bbb": 0.7651778731146396,
-        "herg": 0.4546712979734843,
-        "sa": 2.4095032940374654
+        "affinity": 0.4270833333333333,
+        "solubility": -2.6143958568573,
+        "bbb": 0.9439711570739746,
+        "herg": 0.6111120581626892,
+        "sa": 2.6529686082438726
       },
       "normalised": {
-        "affinity": 0.4642857142857143,
-        "solubility": 0.2915620249999997,
-        "bbb": 0.7651778731146396,
-        "herg": 0.5453287020265156,
-        "sa": 0.8433885228847261
+        "affinity": 0.4270833333333333,
+        "solubility": 0.6732005178928375,
+        "bbb": 0.9439711570739746,
+        "herg": 0.3888879418373108,
+        "sa": 0.8163368213062364
       },
-      "transform": "aryl_chlorination",
-      "intent": "add lipophilic bulk into a hydrophobic pocket",
+      "transform": "add_morpholine_tail",
+      "intent": "morpholine: the standard solubilising handle",
       "round": 5,
       "origin": "candidate"
     },
     {
-      "smiles": "Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
+      "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
       "raw": {
-        "affinity": 0.5569620253164557,
-        "solubility": -5.323574800000003,
-        "bbb": 0.7293921912281573,
-        "herg": 0.3732709843024419,
-        "sa": 2.3631617139958845
+        "affinity": 0.5194805194805194,
+        "solubility": -2.6006081104278564,
+        "bbb": 0.9381905794143677,
+        "herg": 0.3937501609325409,
+        "sa": 2.2082515563471805
       },
       "normalised": {
-        "affinity": 0.5569620253164557,
-        "solubility": 0.33455314999999963,
-        "bbb": 0.7293921912281573,
-        "herg": 0.6267290156975581,
-        "sa": 0.8485375873337906
+        "affinity": 0.5194805194805194,
+        "solubility": 0.6749239861965179,
+        "bbb": 0.9381905794143677,
+        "herg": 0.6062498390674591,
+        "sa": 0.8657498270725354
       },
-      "transform": "aryl_methylation",
-      "intent": "fill a small pocket, raise lipophilicity",
+      "transform": "defluorinate",
+      "intent": "strip a fluorine to reduce lipophilicity",
       "round": 5,
       "origin": "candidate"
     }
@@ -663,16 +663,16 @@
         "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
         "raw": {
           "affinity": 1.0,
-          "solubility": -6.042528200000003,
-          "bbb": 0.8770924547147813,
-          "herg": 0.6033344011516708,
+          "solubility": -4.477168560028076,
+          "bbb": 0.9837419986724854,
+          "herg": 0.8652780055999756,
           "sa": 2.1227326079667783
         },
         "normalised": {
           "affinity": 1.0,
-          "solubility": 0.2446839749999996,
-          "bbb": 0.8770924547147813,
-          "herg": 0.3966655988483292,
+          "solubility": 0.4403539299964905,
+          "bbb": 0.9837419986724854,
+          "herg": 0.13472199440002441,
           "sa": 0.8752519324481357
         }
       },
@@ -681,16 +681,16 @@
           "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
           "raw": {
             "affinity": 0.6363636363636364,
-            "solubility": -6.116748600000003,
-            "bbb": 0.7423904019626987,
-            "herg": 0.7133396481604802,
+            "solubility": -4.866168975830078,
+            "bbb": 0.9003748893737793,
+            "herg": 0.7540425658226013,
             "sa": 2.4163049156461103
           },
           "normalised": {
             "affinity": 0.6363636363636364,
-            "solubility": 0.23540642499999964,
-            "bbb": 0.7423904019626987,
-            "herg": 0.28666035183951977,
+            "solubility": 0.39172887802124023,
+            "bbb": 0.9003748893737793,
+            "herg": 0.24595743417739868,
             "sa": 0.8426327871504322
           },
           "transform": "aryl_nitrile",
@@ -700,16 +700,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1",
           "raw": {
             "affinity": 0.5764705882352941,
-            "solubility": -6.401243400000004,
-            "bbb": 0.7676255553566322,
-            "herg": 0.8106510375351781,
+            "solubility": -4.498271465301514,
+            "bbb": 0.9955831170082092,
+            "herg": 0.8350985050201416,
             "sa": 2.481978799252124
           },
           "normalised": {
             "affinity": 0.5764705882352941,
-            "solubility": 0.19984457499999952,
-            "bbb": 0.7676255553566322,
-            "herg": 0.1893489624648219,
+            "solubility": 0.4377160668373108,
+            "bbb": 0.9955831170082092,
+            "herg": 0.1649014949798584,
             "sa": 0.8353356889719863
           },
           "transform": "add_morpholine_tail",
@@ -719,16 +719,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
           "raw": {
             "affinity": 0.6351351351351351,
-            "solubility": -5.667503800000002,
-            "bbb": 0.7651778731146396,
-            "herg": 0.4546712979734843,
+            "solubility": -3.8109793663024902,
+            "bbb": 0.9880384802818298,
+            "herg": 0.8886770009994507,
             "sa": 2.4052409239750947
           },
           "normalised": {
             "affinity": 0.6351351351351351,
-            "solubility": 0.2915620249999997,
-            "bbb": 0.7651778731146396,
-            "herg": 0.5453287020265156,
+            "solubility": 0.5236275792121887,
+            "bbb": 0.9880384802818298,
+            "herg": 0.11132299900054932,
             "sa": 0.8438621195583228
           },
           "transform": "phenyl_to_pyridyl",
@@ -738,16 +738,16 @@
           "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
           "raw": {
             "affinity": 0.5540540540540541,
-            "solubility": -5.960968400000002,
-            "bbb": 0.7895915259455802,
-            "herg": 0.5700433448735504,
+            "solubility": -3.9869320392608643,
+            "bbb": 0.9743865728378296,
+            "herg": 0.8557303547859192,
             "sa": 2.666233807784266
           },
           "normalised": {
             "affinity": 0.5540540540540541,
-            "solubility": 0.2548789499999997,
-            "bbb": 0.7895915259455802,
-            "herg": 0.42995665512644965,
+            "solubility": 0.501633495092392,
+            "bbb": 0.9743865728378296,
+            "herg": 0.1442696452140808,
             "sa": 0.8148629102461926
           },
           "transform": "ketone_to_alcohol",
@@ -757,16 +757,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
           "raw": {
             "affinity": 0.7384615384615385,
-            "solubility": -5.843357200000003,
-            "bbb": 0.8686043810815401,
-            "herg": 0.5560622750523028,
+            "solubility": -4.2563629150390625,
+            "bbb": 0.9238886833190918,
+            "herg": 0.8321940302848816,
             "sa": 2.060130082330488
           },
           "normalised": {
             "affinity": 0.7384615384615385,
-            "solubility": 0.2695803499999996,
-            "bbb": 0.8686043810815401,
-            "herg": 0.44393772494769723,
+            "solubility": 0.4679546356201172,
+            "bbb": 0.9238886833190918,
+            "herg": 0.1678059697151184,
             "sa": 0.8822077686299458
           },
           "transform": "defluorinate",
@@ -776,16 +776,16 @@
           "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(F)cc3)CC2)ccc1Cl",
           "raw": {
             "affinity": 0.6363636363636364,
-            "solubility": -5.675590200000002,
-            "bbb": 0.36258569456338846,
-            "herg": 0.5481567602684186,
+            "solubility": -3.825695037841797,
+            "bbb": 0.9830300211906433,
+            "herg": 0.760623574256897,
             "sa": 2.3454751779314815
           },
           "normalised": {
             "affinity": 0.6363636363636364,
-            "solubility": 0.29055122499999975,
-            "bbb": 0.36258569456338846,
-            "herg": 0.45184323973158136,
+            "solubility": 0.5217881202697754,
+            "bbb": 0.9830300211906433,
+            "herg": 0.23937642574310303,
             "sa": 0.8505027580076132
           },
           "transform": "aryl_carboxamide",
@@ -801,33 +801,31 @@
           "agent": "Affinity"
         },
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.57, up from the parent's 0.56. No objection.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+          "verdict": "object",
+          "reason": "The leader is acceptable on solubility + bbb (0.70) but it is not the best available: my pick reaches 0.76. I want the stronger option on the table.",
+          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
           "verdict": "veto",
-          "reason": "Vetoing 2 candidate(s) on predicted hERG blockade above 0.70. This is not a trade I will make against potency. The safest remaining option is herg-safety 0.55.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1",
+          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.87 blockade. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.25.",
+          "preferred": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
           "vetoed": [
-            "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
-            "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1"
+            "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1"
           ]
         }
       ],
       "decision": {
         "chosen": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
-        "rationale": "Chose O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1 at weighted 0.62. Affinity objected: The field leader gives up affinity: 0.74 against the parent's 1.00. My pick holds 0.74. I am not trading affinity backwards this round.",
+        "rationale": "Chose O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1 at weighted 0.61. Affinity objected: The field leader gives up affinity: 0.74 against the parent's 1.00. My pick holds 0.74. I am not trading affinity backwards this round. ADME objected: The leader is acceptable on solubility + bbb (0.70) but it is not the best available: my pick reaches 0.76. I want the stronger option on the table.",
         "held_parent": false,
         "forced_second_best": false,
         "vetoed": [
-          "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)ccc1F",
-          "O=C(CCCN1CCC(O)(c2ccc(Cl)c(N3CCOCC3)c2)CC1)c1ccc(F)cc1"
+          "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cn1"
         ]
       },
-      "pareto_hypervolume": 0.15899714065347234
+      "pareto_hypervolume": 0.127686520361614
     },
     {
       "round": 2,
@@ -835,16 +833,16 @@
         "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
         "raw": {
           "affinity": 0.7384615384615385,
-          "solubility": -5.843357200000003,
-          "bbb": 0.8686043810815401,
-          "herg": 0.5560622750523028,
+          "solubility": -4.2563629150390625,
+          "bbb": 0.9238886833190918,
+          "herg": 0.8321940302848816,
           "sa": 2.060130082330488
         },
         "normalised": {
           "affinity": 0.7384615384615385,
-          "solubility": 0.2695803499999996,
-          "bbb": 0.8686043810815401,
-          "herg": 0.44393772494769723,
+          "solubility": 0.4679546356201172,
+          "bbb": 0.9238886833190918,
+          "herg": 0.1678059697151184,
           "sa": 0.8822077686299458
         },
         "transform": "defluorinate",
@@ -855,16 +853,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)c(C(=O)O)c2)CC1)c1ccccc1",
           "raw": {
             "affinity": 0.49382716049382713,
-            "solubility": -5.8600790000000025,
-            "bbb": 0.4899076209625088,
-            "herg": 0.4087183937437733,
+            "solubility": -3.7005274295806885,
+            "bbb": 0.787887692451477,
+            "herg": 0.6528183817863464,
             "sa": 2.2598486352176774
           },
           "normalised": {
             "affinity": 0.49382716049382713,
-            "solubility": 0.2674901249999997,
-            "bbb": 0.4899076209625088,
-            "herg": 0.5912816062562267,
+            "solubility": 0.5374340713024139,
+            "bbb": 0.787887692451477,
+            "herg": 0.34718161821365356,
             "sa": 0.860016818309147
           },
           "transform": "aryl_carboxylic_acid",
@@ -874,16 +872,16 @@
           "smiles": "NC(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
           "raw": {
             "affinity": 0.5657894736842105,
-            "solubility": -5.476419200000001,
-            "bbb": 0.3615359238348448,
-            "herg": 0.4997610000182029,
+            "solubility": -3.4298338890075684,
+            "bbb": 0.8889974355697632,
+            "herg": 0.6959893107414246,
             "sa": 2.2962026761134915
           },
           "normalised": {
             "affinity": 0.5657894736842105,
-            "solubility": 0.31544759999999983,
-            "bbb": 0.3615359238348448,
-            "herg": 0.5002389999817971,
+            "solubility": 0.571270763874054,
+            "bbb": 0.8889974355697632,
+            "herg": 0.30401068925857544,
             "sa": 0.8559774804318343
           },
           "transform": "aryl_carboxamide",
@@ -893,16 +891,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
           "raw": {
             "affinity": 0.6865671641791045,
-            "solubility": -5.417327200000003,
-            "bbb": 0.8328288470823876,
-            "herg": 0.4520478323033677,
+            "solubility": -3.761070966720581,
+            "bbb": 0.9866661429405212,
+            "herg": 0.8751372694969177,
             "sa": 2.0650954669458734
           },
           "normalised": {
             "affinity": 0.6865671641791045,
-            "solubility": 0.3228340999999997,
-            "bbb": 0.8328288470823876,
-            "herg": 0.5479521676966324,
+            "solubility": 0.5298661291599274,
+            "bbb": 0.9866661429405212,
+            "herg": 0.12486273050308228,
             "sa": 0.8816560592282363
           },
           "transform": "halide_to_fluoride",
@@ -912,16 +910,16 @@
           "smiles": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
           "raw": {
             "affinity": 0.5443037974683544,
-            "solubility": -5.4155152000000015,
-            "bbb": 0.17383341131930183,
-            "herg": 0.4081022849337852,
+            "solubility": -3.2599260807037354,
+            "bbb": 0.9124245047569275,
+            "herg": 0.6473764181137085,
             "sa": 2.4019093659656683
           },
           "normalised": {
             "affinity": 0.5443037974683544,
-            "solubility": 0.3230605999999998,
-            "bbb": 0.17383341131930183,
-            "herg": 0.5918977150662148,
+            "solubility": 0.5925092399120331,
+            "bbb": 0.9124245047569275,
+            "herg": 0.3526235818862915,
             "sa": 0.8442322926704813
           },
           "transform": "aryl_sulfonamide",
@@ -931,16 +929,16 @@
           "smiles": "N#Cc1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
           "raw": {
             "affinity": 0.4367816091954023,
-            "solubility": -5.917577600000001,
-            "bbb": 0.7281880780313303,
-            "herg": 0.6720513257464534,
+            "solubility": -4.743358135223389,
+            "bbb": 0.9567022323608398,
+            "herg": 0.7466257810592651,
             "sa": 2.397698789010848
           },
           "normalised": {
             "affinity": 0.4367816091954023,
-            "solubility": 0.26030279999999983,
-            "bbb": 0.7281880780313303,
-            "herg": 0.32794867425354657,
+            "solubility": 0.4070802330970764,
+            "bbb": 0.9567022323608398,
+            "herg": 0.25337421894073486,
             "sa": 0.8447001345543502
           },
           "transform": "aryl_nitrile",
@@ -950,16 +948,16 @@
           "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccccc1",
           "raw": {
             "affinity": 0.4691358024691358,
-            "solubility": -5.468332800000002,
-            "bbb": 0.7511537272013561,
-            "herg": 0.4070929750064118,
+            "solubility": -3.9795172214508057,
+            "bbb": 0.9748319387435913,
+            "herg": 0.813647985458374,
             "sa": 2.293560851561258
           },
           "normalised": {
             "affinity": 0.4691358024691358,
-            "solubility": 0.3164583999999997,
-            "bbb": 0.7511537272013561,
-            "herg": 0.5929070249935882,
+            "solubility": 0.5025603473186493,
+            "bbb": 0.9748319387435913,
+            "herg": 0.18635201454162598,
             "sa": 0.8562710164931935
           },
           "transform": "phenyl_to_pyridyl",
@@ -976,571 +974,579 @@
         },
         {
           "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.58, up from the parent's 0.57. No objection.",
+          "reason": "The leader is also my pick on solubility + bbb at 0.76, up from the parent's 0.70. No objection.",
           "preferred": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
-          "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.59 against the parent's 0.44.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(Cl)cn2)CC1)c1ccccc1",
-          "vetoed": []
+          "verdict": "veto",
+          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.83 blockade. That includes the molecule this round was converging on. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.35.",
+          "preferred": "NS(=O)(=O)c1ccccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "vetoed": [
+            "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+          ]
         }
       ],
       "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
-        "rationale": "Chose O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1 at weighted 0.62. Affinity objected: The field leader gives up affinity: 0.69 against the parent's 0.74. My pick holds 0.69. I am not trading affinity backwards this round.",
-        "held_parent": false,
-        "forced_second_best": false,
-        "vetoed": []
+        "chosen": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+        "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
+        "held_parent": true,
+        "affinity_floor_breached": true,
+        "vetoed": [
+          "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+        ]
       },
-      "pareto_hypervolume": 0.19153823557264096
+      "pareto_hypervolume": 0.20893273047850514
     },
     {
       "round": 3,
       "parent": {
-        "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+        "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
         "raw": {
-          "affinity": 0.6865671641791045,
-          "solubility": -5.417327200000003,
-          "bbb": 0.8328288470823876,
-          "herg": 0.4520478323033677,
-          "sa": 2.0650954669458734
+          "affinity": 0.7384615384615385,
+          "solubility": -4.2563629150390625,
+          "bbb": 0.9238886833190918,
+          "herg": 0.8321940302848816,
+          "sa": 2.060130082330488
         },
         "normalised": {
-          "affinity": 0.6865671641791045,
-          "solubility": 0.3228340999999997,
-          "bbb": 0.8328288470823876,
-          "herg": 0.5479521676966324,
-          "sa": 0.8816560592282363
+          "affinity": 0.7384615384615385,
+          "solubility": 0.4679546356201172,
+          "bbb": 0.9238886833190918,
+          "herg": 0.1678059697151184,
+          "sa": 0.8822077686299458
+        },
+        "transform": "defluorinate",
+        "intent": "strip a fluorine to reduce lipophilicity"
+      },
+      "candidates": [
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "raw": {
+            "affinity": 0.7246376811594203,
+            "solubility": -3.0693607330322266,
+            "bbb": 0.9414632320404053,
+            "herg": 0.48072120547294617,
+            "sa": 2.2758256052819092
+          },
+          "normalised": {
+            "affinity": 0.7246376811594203,
+            "solubility": 0.6163299083709717,
+            "bbb": 0.9414632320404053,
+            "herg": 0.5192787945270538,
+            "sa": 0.8582415994131212
+          },
+          "transform": "aryl_sulfonamide",
+          "intent": "polar acceptor, lowers hERG risk"
+        },
+        {
+          "smiles": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "raw": {
+            "affinity": 0.4418604651162791,
+            "solubility": -3.44244647026062,
+            "bbb": 0.9935460686683655,
+            "herg": 0.6805481314659119,
+            "sa": 2.3554852467074525
+          },
+          "normalised": {
+            "affinity": 0.4418604651162791,
+            "solubility": 0.5696941912174225,
+            "bbb": 0.9935460686683655,
+            "herg": 0.31945186853408813,
+            "sa": 0.8493905281436164
+          },
+          "transform": "aryl_carboxamide",
+          "intent": "primary amide: strong solubility gain, BBB cost"
+        },
+        {
+          "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)c1",
+          "raw": {
+            "affinity": 0.5822784810126582,
+            "solubility": -4.694645404815674,
+            "bbb": 0.9292627573013306,
+            "herg": 0.751421332359314,
+            "sa": 2.304933154645214
+          },
+          "normalised": {
+            "affinity": 0.5822784810126582,
+            "solubility": 0.41316932439804077,
+            "bbb": 0.9292627573013306,
+            "herg": 0.24857866764068604,
+            "sa": 0.8550074272616429
+          },
+          "transform": "aryl_nitrile",
+          "intent": "polar, small, metabolically robust acceptor"
+        },
+        {
+          "smiles": "OC(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccccc1",
+          "raw": {
+            "affinity": 0.44871794871794873,
+            "solubility": -3.950503349304199,
+            "bbb": 0.8783082365989685,
+            "herg": 0.7659508585929871,
+            "sa": 2.5927158455575405
+          },
+          "normalised": {
+            "affinity": 0.44871794871794873,
+            "solubility": 0.5061870813369751,
+            "bbb": 0.8783082365989685,
+            "herg": 0.23404914140701294,
+            "sa": 0.8230315727158288
+          },
+          "transform": "ketone_to_alcohol",
+          "intent": "reduce the carbonyl: more polar, more flexible"
+        },
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccncc1",
+          "raw": {
+            "affinity": 0.7058823529411765,
+            "solubility": -4.0146589279174805,
+            "bbb": 0.9451987743377686,
+            "herg": 0.7784594297409058,
+            "sa": 2.254216620792027
+          },
+          "normalised": {
+            "affinity": 0.7058823529411765,
+            "solubility": 0.49816763401031494,
+            "bbb": 0.9451987743377686,
+            "herg": 0.22154057025909424,
+            "sa": 0.8606425976897748
+          },
+          "transform": "phenyl_to_pyridyl",
+          "intent": "swap CH for N: cuts logP and hERG liability"
+        },
+        {
+          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
+          "raw": {
+            "affinity": 0.6865671641791045,
+            "solubility": -3.761070966720581,
+            "bbb": 0.9866661429405212,
+            "herg": 0.8751372694969177,
+            "sa": 2.0650954669458734
+          },
+          "normalised": {
+            "affinity": 0.6865671641791045,
+            "solubility": 0.5298661291599274,
+            "bbb": 0.9866661429405212,
+            "herg": 0.12486273050308228,
+            "sa": 0.8816560592282363
+          },
+          "transform": "halide_to_fluoride",
+          "intent": "downsize the halogen to cut logP and hERG risk"
+        }
+      ],
+      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+      "reviews": [
+        {
+          "verdict": "support",
+          "reason": "The leader is also my pick on affinity at 0.72, up from the parent's 0.74. No objection.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "agent": "Affinity"
+        },
+        {
+          "verdict": "support",
+          "reason": "The leader is also my pick on solubility + bbb at 0.78, up from the parent's 0.70. No objection.",
+          "preferred": "NC(=O)c1cc(Cl)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "agent": "ADME"
+        },
+        {
+          "agent": "Safety",
+          "verdict": "veto",
+          "reason": "Vetoing 1 candidate(s) on predicted hERG blockade worse than the lead we already have, which is itself at 0.83 blockade. This series already carries a QT liability; I will not deepen it for potency. The safest remaining option is herg-safety 0.52.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "vetoed": [
+            "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+          ]
+        }
+      ],
+      "decision": {
+        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+        "rationale": "Chose NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1 at weighted 0.71.",
+        "held_parent": false,
+        "forced_second_best": false,
+        "vetoed": [
+          "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1"
+        ]
+      },
+      "pareto_hypervolume": 0.3200470518498477
+    },
+    {
+      "round": 4,
+      "parent": {
+        "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+        "raw": {
+          "affinity": 0.7246376811594203,
+          "solubility": -3.0693607330322266,
+          "bbb": 0.9414632320404053,
+          "herg": 0.48072120547294617,
+          "sa": 2.2758256052819092
+        },
+        "normalised": {
+          "affinity": 0.7246376811594203,
+          "solubility": 0.6163299083709717,
+          "bbb": 0.9414632320404053,
+          "herg": 0.5192787945270538,
+          "sa": 0.8582415994131212
+        },
+        "transform": "aryl_sulfonamide",
+        "intent": "polar acceptor, lowers hERG risk"
+      },
+      "candidates": [
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "raw": {
+            "affinity": 0.42857142857142855,
+            "solubility": -2.8740789890289307,
+            "bbb": 0.748741626739502,
+            "herg": 0.49513283371925354,
+            "sa": 2.8083782488508398
+          },
+          "normalised": {
+            "affinity": 0.42857142857142855,
+            "solubility": 0.6407401263713837,
+            "bbb": 0.748741626739502,
+            "herg": 0.5048671662807465,
+            "sa": 0.7990690834610178
+          },
+          "transform": "ketone_to_alcohol",
+          "intent": "reduce the carbonyl: more polar, more flexible"
+        },
+        {
+          "smiles": "N#Cc1cc(S(N)(=O)=O)ccc1C(=O)CCCN1CCC(O)(c2ccc(Cl)cc2)CC1",
+          "raw": {
+            "affinity": 0.4942528735632184,
+            "solubility": -3.589149236679077,
+            "bbb": 0.7029848098754883,
+            "herg": 0.6034449934959412,
+            "sa": 2.5976110381283366
+          },
+          "normalised": {
+            "affinity": 0.4942528735632184,
+            "solubility": 0.5513563454151154,
+            "bbb": 0.7029848098754883,
+            "herg": 0.39655500650405884,
+            "sa": 0.8224876624301848
+          },
+          "transform": "aryl_nitrile",
+          "intent": "polar, small, metabolically robust acceptor"
+        },
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "raw": {
+            "affinity": 0.676056338028169,
+            "solubility": -2.5211496353149414,
+            "bbb": 0.9867384433746338,
+            "herg": 0.5325301885604858,
+            "sa": 2.280239280495584
+          },
+          "normalised": {
+            "affinity": 0.676056338028169,
+            "solubility": 0.6848562955856323,
+            "bbb": 0.9867384433746338,
+            "herg": 0.46746981143951416,
+            "sa": 0.8577511910560462
+          },
+          "transform": "halide_to_fluoride",
+          "intent": "downsize the halogen to cut logP and hERG risk"
+        },
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(N4CCOCC4)c3)CC2)cc1",
+          "raw": {
+            "affinity": 0.4270833333333333,
+            "solubility": -3.181852102279663,
+            "bbb": 0.8396601676940918,
+            "herg": 0.624721884727478,
+            "sa": 2.6154413355166
+          },
+          "normalised": {
+            "affinity": 0.4270833333333333,
+            "solubility": 0.6022684872150421,
+            "bbb": 0.8396601676940918,
+            "herg": 0.375278115272522,
+            "sa": 0.8205065182759333
+          },
+          "transform": "add_morpholine_tail",
+          "intent": "morpholine: the standard solubilising handle"
+        },
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1O",
+          "raw": {
+            "affinity": 0.6025641025641025,
+            "solubility": -2.797790765762329,
+            "bbb": 0.3896499276161194,
+            "herg": 0.5504832863807678,
+            "sa": 2.5413398344064024
+          },
+          "normalised": {
+            "affinity": 0.6025641025641025,
+            "solubility": 0.6502761542797089,
+            "bbb": 0.3896499276161194,
+            "herg": 0.4495167136192322,
+            "sa": 0.8287400183992886
+          },
+          "transform": "aryl_hydroxylation",
+          "intent": "add a donor to raise solubility"
+        },
+        {
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(Cl)c(S(N)(=O)=O)c3)CC2)cc1",
+          "raw": {
+            "affinity": 0.5060240963855421,
+            "solubility": -2.490011692047119,
+            "bbb": 0.06952084600925446,
+            "herg": 0.5263389945030212,
+            "sa": 2.570522583859658
+          },
+          "normalised": {
+            "affinity": 0.5060240963855421,
+            "solubility": 0.6887485384941101,
+            "bbb": 0.06952084600925446,
+            "herg": 0.47366100549697876,
+            "sa": 0.8254974906822602
+          },
+          "transform": "aryl_sulfonamide",
+          "intent": "polar acceptor, lowers hERG risk"
+        }
+      ],
+      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+      "reviews": [
+        {
+          "verdict": "object",
+          "reason": "The field leader gives up affinity: 0.68 against the parent's 0.72. My pick holds 0.68. I am not trading affinity backwards this round.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "agent": "Affinity"
+        },
+        {
+          "verdict": "support",
+          "reason": "The leader is also my pick on solubility + bbb at 0.84, up from the parent's 0.78. No objection.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "agent": "ADME"
+        },
+        {
+          "agent": "Safety",
+          "verdict": "support",
+          "reason": "No candidate crosses the hERG line. Best is 0.50 against the parent's 0.52.",
+          "preferred": "NS(=O)(=O)c1ccc(C(O)CCCN2CCC(O)(c3ccc(Cl)cc3)CC2)cc1",
+          "vetoed": []
+        }
+      ],
+      "decision": {
+        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+        "rationale": "Chose NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1 at weighted 0.70. Affinity objected: The field leader gives up affinity: 0.68 against the parent's 0.72. My pick holds 0.68. I am not trading affinity backwards this round.",
+        "held_parent": false,
+        "forced_second_best": false,
+        "vetoed": []
+      },
+      "pareto_hypervolume": 0.35511068219837494
+    },
+    {
+      "round": 5,
+      "parent": {
+        "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+        "raw": {
+          "affinity": 0.676056338028169,
+          "solubility": -2.5211496353149414,
+          "bbb": 0.9867384433746338,
+          "herg": 0.5325301885604858,
+          "sa": 2.280239280495584
+        },
+        "normalised": {
+          "affinity": 0.676056338028169,
+          "solubility": 0.6848562955856323,
+          "bbb": 0.9867384433746338,
+          "herg": 0.46746981143951416,
+          "sa": 0.8577511910560462
         },
         "transform": "halide_to_fluoride",
         "intent": "downsize the halogen to cut logP and hERG risk"
       },
       "candidates": [
         {
-          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
           "raw": {
-            "affinity": 0.676056338028169,
-            "solubility": -4.9894852,
-            "bbb": 0.14482945984377554,
-            "herg": 0.31229493836132854,
-            "sa": 2.280239280495584
+            "affinity": 0.4642857142857143,
+            "solubility": -2.3179237842559814,
+            "bbb": 0.9304724931716919,
+            "herg": 0.5298270583152771,
+            "sa": 2.491096646269238
           },
           "normalised": {
-            "affinity": 0.676056338028169,
-            "solubility": 0.37631435,
-            "bbb": 0.14482945984377554,
-            "herg": 0.6877050616386715,
-            "sa": 0.8577511910560462
+            "affinity": 0.4642857142857143,
+            "solubility": 0.7102595269680023,
+            "bbb": 0.9304724931716919,
+            "herg": 0.4701729416847229,
+            "sa": 0.8343225948589735
           },
-          "transform": "aryl_sulfonamide",
-          "intent": "polar acceptor, lowers hERG risk"
+          "transform": "aryl_hydroxylation",
+          "intent": "add a donor to raise solubility"
         },
         {
-          "smiles": "NC(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccccc2)CC1",
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)nc3)CC2)cc1",
           "raw": {
-            "affinity": 0.4418604651162791,
-            "solubility": -5.0503892000000015,
-            "bbb": 0.2998641182729449,
-            "herg": 0.3968632956846194,
-            "sa": 2.3699553538155342
+            "affinity": 0.4939759036144578,
+            "solubility": -2.3583931922912598,
+            "bbb": 0.7404707074165344,
+            "herg": 0.42276498675346375,
+            "sa": 2.5318307334870394
           },
           "normalised": {
-            "affinity": 0.4418604651162791,
-            "solubility": 0.3687013499999998,
-            "bbb": 0.2998641182729449,
-            "herg": 0.6031367043153806,
-            "sa": 0.8477827384649407
-          },
-          "transform": "aryl_carboxamide",
-          "intent": "primary amide: strong solubility gain, BBB cost"
-        },
-        {
-          "smiles": "N#Cc1cccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c1",
-          "raw": {
-            "affinity": 0.5432098765432098,
-            "solubility": -5.491547600000002,
-            "bbb": 0.668760429039043,
-            "herg": 0.5744135726924758,
-            "sa": 2.3095761116881715
-          },
-          "normalised": {
-            "affinity": 0.5432098765432098,
-            "solubility": 0.3135565499999997,
-            "bbb": 0.668760429039043,
-            "herg": 0.42558642730752416,
-            "sa": 0.8544915431457587
-          },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
-        },
-        {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccccc2)CC1)c1ccccc1",
-          "raw": {
-            "affinity": 0.5652173913043478,
-            "solubility": -5.218156200000001,
-            "bbb": 0.8219046046619642,
-            "herg": 0.404540384689839,
-            "sa": 1.9861198369570516
-          },
-          "normalised": {
-            "affinity": 0.5652173913043478,
-            "solubility": 0.3477304749999999,
-            "bbb": 0.8219046046619642,
-            "herg": 0.595459615310161,
-            "sa": 0.8904311292269943
-          },
-          "transform": "defluorinate",
-          "intent": "strip a fluorine to reduce lipophilicity"
-        },
-        {
-          "smiles": "OC(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccccc1",
-          "raw": {
-            "affinity": 0.4125,
-            "solubility": -5.335767400000002,
-            "bbb": 0.7237410475677282,
-            "herg": 0.4183014532522798,
-            "sa": 2.597681230172924
-          },
-          "normalised": {
-            "affinity": 0.4125,
-            "solubility": 0.3330290749999998,
-            "bbb": 0.7237410475677282,
-            "herg": 0.5816985467477203,
-            "sa": 0.8224798633141196
-          },
-          "transform": "ketone_to_alcohol",
-          "intent": "reduce the carbonyl: more polar, more flexible"
-        },
-        {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-          "raw": {
-            "affinity": 0.6571428571428571,
-            "solubility": -5.042302800000002,
-            "bbb": 0.6946416296122813,
-            "herg": 0.3113979182107393,
-            "sa": 2.2591820054074123
-          },
-          "normalised": {
-            "affinity": 0.6571428571428571,
-            "solubility": 0.3697121499999998,
-            "bbb": 0.6946416296122813,
-            "herg": 0.6886020817892606,
-            "sa": 0.8600908882880653
+            "affinity": 0.4939759036144578,
+            "solubility": 0.7052008509635925,
+            "bbb": 0.7404707074165344,
+            "herg": 0.5772350132465363,
+            "sa": 0.8297965851681067
           },
           "transform": "phenyl_to_pyridyl",
           "intent": "swap CH for N: cuts logP and hERG liability"
-        }
-      ],
-      "leader": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-      "reviews": [
-        {
-          "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.66 against the parent's 0.69. My pick holds 0.68. I am not trading affinity backwards this round.",
-          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
-          "agent": "Affinity"
         },
         {
-          "verdict": "object",
-          "reason": "The field leader gives up solubility + bbb: 0.53 against the parent's 0.58. My pick holds 0.58. I am not trading solubility + bbb backwards this round.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccccc2)CC1)c1ccccc1",
-          "agent": "ADME"
-        },
-        {
-          "agent": "Safety",
-          "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.69 against the parent's 0.55.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-          "vetoed": []
-        }
-      ],
-      "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-        "rationale": "Chose O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1 at weighted 0.62. Affinity objected: The field leader gives up affinity: 0.66 against the parent's 0.69. My pick holds 0.68. I am not trading affinity backwards this round. ADME objected: The field leader gives up solubility + bbb: 0.53 against the parent's 0.58. My pick holds 0.58. I am not trading solubility + bbb backwards this round.",
-        "held_parent": false,
-        "forced_second_best": false,
-        "vetoed": []
-      },
-      "pareto_hypervolume": 0.25912492251073427
-    },
-    {
-      "round": 4,
-      "parent": {
-        "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-        "raw": {
-          "affinity": 0.6571428571428571,
-          "solubility": -5.042302800000002,
-          "bbb": 0.6946416296122813,
-          "herg": 0.3113979182107393,
-          "sa": 2.2591820054074123
-        },
-        "normalised": {
-          "affinity": 0.6571428571428571,
-          "solubility": 0.3697121499999998,
-          "bbb": 0.6946416296122813,
-          "herg": 0.6886020817892606,
-          "sa": 0.8600908882880653
-        },
-        "transform": "phenyl_to_pyridyl",
-        "intent": "swap CH for N: cuts logP and hERG liability"
-      },
-      "candidates": [
-        {
-          "smiles": "OC(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
+          "smiles": "NC(=O)c1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
           "raw": {
-            "affinity": 0.4024390243902439,
-            "solubility": -4.960743000000003,
-            "bbb": 0.544679256534575,
-            "herg": 0.28273364221471586,
-            "sa": 2.8040754609421548
+            "affinity": 0.4883720930232558,
+            "solubility": -2.2451860904693604,
+            "bbb": 0.33353400230407715,
+            "herg": 0.4550964832305908,
+            "sa": 2.505540588549783
           },
           "normalised": {
-            "affinity": 0.4024390243902439,
-            "solubility": 0.3799071249999997,
-            "bbb": 0.544679256534575,
-            "herg": 0.7172663577852841,
-            "sa": 0.7995471710064272
-          },
-          "transform": "ketone_to_alcohol",
-          "intent": "reduce the carbonyl: more polar, more flexible"
-        },
-        {
-          "smiles": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
-          "raw": {
-            "affinity": 0.5301204819277109,
-            "solubility": -5.116523200000001,
-            "bbb": 0.47968219437144166,
-            "herg": 0.4252371763083041,
-            "sa": 2.520266021778081
-          },
-          "normalised": {
-            "affinity": 0.5301204819277109,
-            "solubility": 0.3604345999999998,
-            "bbb": 0.47968219437144166,
-            "herg": 0.574762823691696,
-            "sa": 0.8310815531357688
-          },
-          "transform": "aryl_nitrile",
-          "intent": "polar, small, metabolically robust acceptor"
-        },
-        {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2N2CCOCC2)CC1)c1ccncc1",
-          "raw": {
-            "affinity": 0.38144329896907214,
-            "solubility": -5.401018000000003,
-            "bbb": 0.5462449533406524,
-            "herg": 0.5600280754083491,
-            "sa": 2.61767139591009
-          },
-          "normalised": {
-            "affinity": 0.38144329896907214,
-            "solubility": 0.3248727499999996,
-            "bbb": 0.5462449533406524,
-            "herg": 0.4399719245916509,
-            "sa": 0.8202587337877678
-          },
-          "transform": "add_morpholine_tail",
-          "intent": "morpholine: the standard solubilising handle"
-        },
-        {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2O)CC1)c1ccncc1",
-          "raw": {
-            "affinity": 0.44047619047619047,
-            "solubility": -4.956024600000001,
-            "bbb": 0.3779966841928751,
-            "herg": 0.223694299703009,
-            "sa": 2.4882448740790455
-          },
-          "normalised": {
-            "affinity": 0.44047619047619047,
-            "solubility": 0.3804969249999999,
-            "bbb": 0.3779966841928751,
-            "herg": 0.776305700296991,
-            "sa": 0.8346394584356616
-          },
-          "transform": "aryl_hydroxylation",
-          "intent": "add a donor to raise solubility"
-        },
-        {
-          "smiles": "NS(=O)(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
-          "raw": {
-            "affinity": 0.4065934065934066,
-            "solubility": -4.614460800000002,
-            "bbb": 0.07151838701393293,
-            "herg": 0.19931134919592508,
-            "sa": 2.6233811608374644
-          },
-          "normalised": {
-            "affinity": 0.4065934065934066,
-            "solubility": 0.4231923999999998,
-            "bbb": 0.07151838701393293,
-            "herg": 0.8006886508040749,
-            "sa": 0.8196243154625039
-          },
-          "transform": "aryl_sulfonamide",
-          "intent": "polar acceptor, lowers hERG risk"
-        },
-        {
-          "smiles": "NC(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
-          "raw": {
-            "affinity": 0.4157303370786517,
-            "solubility": -4.6753648000000005,
-            "bbb": 0.16357777145754987,
-            "herg": 0.2650772692296,
-            "sa": 2.546844350894407
-          },
-          "normalised": {
-            "affinity": 0.4157303370786517,
-            "solubility": 0.41557939999999993,
-            "bbb": 0.16357777145754987,
-            "herg": 0.7349227307704,
-            "sa": 0.828128405456177
-          },
-          "transform": "aryl_carboxamide",
-          "intent": "primary amide: strong solubility gain, BBB cost"
-        }
-      ],
-      "leader": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
-      "reviews": [
-        {
-          "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.53 against the parent's 0.66. My pick holds 0.53. I am not trading affinity backwards this round.",
-          "preferred": "N#Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
-          "agent": "Affinity"
-        },
-        {
-          "verdict": "object",
-          "reason": "The field leader gives up solubility + bbb: 0.42 against the parent's 0.53. My pick holds 0.46. I am not trading solubility + bbb backwards this round.",
-          "preferred": "OC(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-          "agent": "ADME"
-        },
-        {
-          "agent": "Safety",
-          "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.80 against the parent's 0.69.",
-          "preferred": "NS(=O)(=O)c1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
-          "vetoed": []
-        }
-      ],
-      "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-        "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
-        "held_parent": true,
-        "affinity_floor_breached": true,
-        "vetoed": []
-      },
-      "pareto_hypervolume": 0.33884535178653824
-    },
-    {
-      "round": 5,
-      "parent": {
-        "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
-        "raw": {
-          "affinity": 0.6571428571428571,
-          "solubility": -5.042302800000002,
-          "bbb": 0.6946416296122813,
-          "herg": 0.3113979182107393,
-          "sa": 2.2591820054074123
-        },
-        "normalised": {
-          "affinity": 0.6571428571428571,
-          "solubility": 0.3697121499999998,
-          "bbb": 0.6946416296122813,
-          "herg": 0.6886020817892606,
-          "sa": 0.8600908882880653
-        },
-        "transform": "phenyl_to_pyridyl",
-        "intent": "swap CH for N: cuts logP and hERG liability"
-      },
-      "candidates": [
-        {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)c(O)c2)CC1)c1ccncc1",
-          "raw": {
-            "affinity": 0.4878048780487805,
-            "solubility": -4.956024600000001,
-            "bbb": 0.3779966841928751,
-            "herg": 0.223694299703009,
-            "sa": 2.498659427093598
-          },
-          "normalised": {
-            "affinity": 0.4878048780487805,
-            "solubility": 0.3804969249999999,
-            "bbb": 0.3779966841928751,
-            "herg": 0.776305700296991,
-            "sa": 0.8334822858784892
-          },
-          "transform": "aryl_hydroxylation",
-          "intent": "add a donor to raise solubility"
-        },
-        {
-          "smiles": "NC(=O)c1cnccc1C(=O)CCCN1CCC(O)(c2ccc(F)cc2)CC1",
-          "raw": {
-            "affinity": 0.5060240963855421,
-            "solubility": -4.6753648,
-            "bbb": 0.16357777145754968,
-            "herg": 0.26507726922959984,
-            "sa": 2.5042560354124195
-          },
-          "normalised": {
-            "affinity": 0.5060240963855421,
-            "solubility": 0.41557940000000004,
-            "bbb": 0.16357777145754968,
-            "herg": 0.7349227307704002,
-            "sa": 0.8328604405097312
+            "affinity": 0.4883720930232558,
+            "solubility": 0.71935173869133,
+            "bbb": 0.33353400230407715,
+            "herg": 0.5449035167694092,
+            "sa": 0.8327177123833575
           },
           "transform": "aryl_carboxamide",
           "intent": "primary amide: strong solubility gain, BBB cost"
         },
         {
-          "smiles": "N#Cc1cc(F)ccc1C1(O)CCN(CCCC(=O)c2ccncc2)CC1",
+          "smiles": "N#Cc1cc(C2(O)CCN(CCCC(=O)c3ccc(S(N)(=O)=O)cc3)CC2)ccc1F",
           "raw": {
-            "affinity": 0.4111111111111111,
-            "solubility": -5.116523200000001,
-            "bbb": 0.47968219437144166,
-            "herg": 0.4252371763083041,
-            "sa": 2.580788099700161
+            "affinity": 0.4772727272727273,
+            "solubility": -3.1777443885803223,
+            "bbb": 0.8132659196853638,
+            "herg": 0.5101649761199951,
+            "sa": 2.5800731132625057
           },
           "normalised": {
-            "affinity": 0.4111111111111111,
-            "solubility": 0.3604345999999998,
-            "bbb": 0.47968219437144166,
-            "herg": 0.574762823691696,
-            "sa": 0.8243568778110932
+            "affinity": 0.4772727272727273,
+            "solubility": 0.6027819514274597,
+            "bbb": 0.8132659196853638,
+            "herg": 0.4898350238800049,
+            "sa": 0.8244363207486105
           },
           "transform": "aryl_nitrile",
           "intent": "polar, small, metabolically robust acceptor"
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2N2CCOCC2)CC1)c1ccncc1",
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)c(N2CCOCC2)c1",
           "raw": {
-            "affinity": 0.38144329896907214,
-            "solubility": -5.401018000000003,
-            "bbb": 0.5462449533406524,
-            "herg": 0.5600280754083491,
-            "sa": 2.61767139591009
+            "affinity": 0.4270833333333333,
+            "solubility": -2.6143958568573,
+            "bbb": 0.9439711570739746,
+            "herg": 0.6111120581626892,
+            "sa": 2.6529686082438726
           },
           "normalised": {
-            "affinity": 0.38144329896907214,
-            "solubility": 0.3248727499999996,
-            "bbb": 0.5462449533406524,
-            "herg": 0.4399719245916509,
-            "sa": 0.8202587337877678
+            "affinity": 0.4270833333333333,
+            "solubility": 0.6732005178928375,
+            "bbb": 0.9439711570739746,
+            "herg": 0.3888879418373108,
+            "sa": 0.8163368213062364
           },
           "transform": "add_morpholine_tail",
           "intent": "morpholine: the standard solubilising handle"
         },
         {
-          "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2Cl)CC1)c1ccncc1",
+          "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
           "raw": {
-            "affinity": 0.4642857142857143,
-            "solubility": -5.667503800000002,
-            "bbb": 0.7651778731146396,
-            "herg": 0.4546712979734843,
-            "sa": 2.4095032940374654
+            "affinity": 0.5194805194805194,
+            "solubility": -2.6006081104278564,
+            "bbb": 0.9381905794143677,
+            "herg": 0.3937501609325409,
+            "sa": 2.2082515563471805
           },
           "normalised": {
-            "affinity": 0.4642857142857143,
-            "solubility": 0.2915620249999997,
-            "bbb": 0.7651778731146396,
-            "herg": 0.5453287020265156,
-            "sa": 0.8433885228847261
+            "affinity": 0.5194805194805194,
+            "solubility": 0.6749239861965179,
+            "bbb": 0.9381905794143677,
+            "herg": 0.6062498390674591,
+            "sa": 0.8657498270725354
           },
-          "transform": "aryl_chlorination",
-          "intent": "add lipophilic bulk into a hydrophobic pocket"
-        },
-        {
-          "smiles": "Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
-          "raw": {
-            "affinity": 0.5569620253164557,
-            "solubility": -5.323574800000003,
-            "bbb": 0.7293921912281573,
-            "herg": 0.3732709843024419,
-            "sa": 2.3631617139958845
-          },
-          "normalised": {
-            "affinity": 0.5569620253164557,
-            "solubility": 0.33455314999999963,
-            "bbb": 0.7293921912281573,
-            "herg": 0.6267290156975581,
-            "sa": 0.8485375873337906
-          },
-          "transform": "aryl_methylation",
-          "intent": "fill a small pocket, raise lipophilicity"
+          "transform": "defluorinate",
+          "intent": "strip a fluorine to reduce lipophilicity"
         }
       ],
-      "leader": "Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
+      "leader": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
       "reviews": [
         {
           "verdict": "object",
-          "reason": "The field leader gives up affinity: 0.56 against the parent's 0.66. My pick holds 0.56. I am not trading affinity backwards this round.",
-          "preferred": "Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
+          "reason": "The field leader gives up affinity: 0.52 against the parent's 0.68. My pick holds 0.52. I am not trading affinity backwards this round.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
           "agent": "Affinity"
         },
         {
-          "verdict": "support",
-          "reason": "The leader is also my pick on solubility + bbb at 0.53, up from the parent's 0.53. No objection.",
-          "preferred": "Cc1cc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)ccn1",
+          "verdict": "object",
+          "reason": "The field leader gives up solubility + bbb: 0.81 against the parent's 0.84. My pick holds 0.82. I am not trading solubility + bbb backwards this round.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3O)CC2)cc1",
           "agent": "ADME"
         },
         {
           "agent": "Safety",
           "verdict": "support",
-          "reason": "No candidate crosses the hERG line. Best is 0.78 against the parent's 0.69.",
-          "preferred": "O=C(CCCN1CCC(O)(c2ccc(F)c(O)c2)CC1)c1ccncc1",
+          "reason": "No candidate crosses the hERG line. Best is 0.61 against the parent's 0.47.",
+          "preferred": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccccc3)CC2)cc1",
           "vetoed": []
         }
       ],
       "decision": {
-        "chosen": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
+        "chosen": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
         "rationale": "No surviving candidate holds affinity at the programme floor of 0.60. Holding the incumbent: a more soluble, safer molecule that has stopped binding DRD2 is not a lead, and this round produced nothing else.",
         "held_parent": true,
         "affinity_floor_breached": true,
         "vetoed": []
       },
-      "pareto_hypervolume": 0.33884535178653824
+      "pareto_hypervolume": 0.4343602929375461
     }
   ],
   "final": {
-    "smiles": "O=C(CCCN1CCC(O)(c2ccc(F)cc2)CC1)c1ccncc1",
+    "smiles": "NS(=O)(=O)c1ccc(C(=O)CCCN2CCC(O)(c3ccc(F)cc3)CC2)cc1",
     "raw": {
-      "affinity": 0.6571428571428571,
-      "solubility": -5.042302800000002,
-      "bbb": 0.6946416296122813,
-      "herg": 0.3113979182107393,
-      "sa": 2.2591820054074123
+      "affinity": 0.676056338028169,
+      "solubility": -2.5211496353149414,
+      "bbb": 0.9867384433746338,
+      "herg": 0.5325301885604858,
+      "sa": 2.280239280495584
     },
     "normalised": {
-      "affinity": 0.6571428571428571,
-      "solubility": 0.3697121499999998,
-      "bbb": 0.6946416296122813,
-      "herg": 0.6886020817892606,
-      "sa": 0.8600908882880653
+      "affinity": 0.676056338028169,
+      "solubility": 0.6848562955856323,
+      "bbb": 0.9867384433746338,
+      "herg": 0.46746981143951416,
+      "sa": 0.8577511910560462
     },
-    "transform": "phenyl_to_pyridyl",
-    "intent": "swap CH for N: cuts logP and hERG liability"
+    "transform": "halide_to_fluoride",
+    "intent": "downsize the halogen to cut logP and hERG risk"
   },
   "best": {
     "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
     "raw": {
       "affinity": 1.0,
-      "solubility": -6.042528200000003,
-      "bbb": 0.8770924547147813,
-      "herg": 0.6033344011516708,
+      "solubility": -4.477168560028076,
+      "bbb": 0.9837419986724854,
+      "herg": 0.8652780055999756,
       "sa": 2.1227326079667783
     },
     "normalised": {
       "affinity": 1.0,
-      "solubility": 0.2446839749999996,
-      "bbb": 0.8770924547147813,
-      "herg": 0.3966655988483292,
+      "solubility": 0.4403539299964905,
+      "bbb": 0.9837419986724854,
+      "herg": 0.13472199440002441,
       "sa": 0.8752519324481357
     },
     "round": 0,
     "origin": "seed"
   },
-  "hypervolume_initial": 0.09705771547196446,
-  "hypervolume_final": 0.33884535178653824,
-  "wall_seconds": 0.65
+  "hypervolume_initial": 0.05932535969101593,
+  "hypervolume_final": 0.4343602929375461,
+  "wall_seconds": 15.49
 }

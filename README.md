@@ -24,11 +24,38 @@ deterministic verdicts and the edit engine to SMARTS mutations. Set
 Three findings from building this. Two of them contradict the plan it was
 built from.
 
-### 1. The oracles are surrogates until you drop the real models in
+### 0. The real ADMET models are wired in; affinity is still a surrogate
 
-`models/` is empty in this repo, so `core.admet` serves a **labelled physchem
-surrogate**, and affinity falls back to Tanimoto similarity against a panel of
-known DRD2 ligands. Both are directionally sane and neither is calibrated.
+`core/admet.py` now mirrors `app.py:featurize_one` from
+[tuhinc5203/admet-property-prediction](https://github.com/tuhinc5203/admet-property-prediction)
+exactly — largest-fragment salt stripping, 2048-bit Morgan r=2, and six
+descriptors in the order **MolWt, MolLogP, TPSA, NumHDonors, NumHAcceptors,
+NumRotatableBonds**. Note TPSA is third, not last; a reasonable guess at that
+order gets the position wrong and the models return confident nonsense without
+raising. `scripts/verify_models.py` diffs this function against the source
+repo's own to prove equivalence rather than assuming it.
+
+The models are not committed here (see `models/README.md`) — copy them from
+that repo's `models/`. Affinity still falls back to Tanimoto similarity against
+a panel of known DRD2 ligands, because PyTDC's DRD2 oracle downloads from
+`dataverse.harvard.edu`, which this environment blocks.
+
+### 1. An absolute hERG veto kills the demo in round 1
+
+The real hERG model scores the seed at **P(blockade) = 0.865**. So does the
+rest of the class: risperidone 0.923, chlorpromazine 0.912, aripiprazole 0.909.
+The model is right — haloperidol carries a QT prolongation warning. But an
+absolute 0.70 line vetoes the seed itself and then **0 of 14** first-round
+analogues clear it. The loop has nothing to choose from, forever.
+
+`HERG_VETO_MODE = "auto"` resolves the line per round against the incumbent:
+absolute while the lead is clean, **relative** once it is already liable — no
+analogue may be more cardiotoxic than the molecule you already have. That is
+what a real programme does with a lead like this, and it has teeth: 7 of those
+14 analogues are safer than the parent and 7 are worse, so the veto
+discriminates within the series instead of blanketing it.
+
+### 1b. The remaining surrogate
 
 Every score record carries `provenance`, the CLI prints a warning, and the UI
 shows a red banner. Do not attach "0.920 ROC-AUC, beats published SOTA" to

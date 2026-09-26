@@ -6,18 +6,29 @@ Two backends implement the same three-method interface
   XGBoostBackend    the inherited models in `models/`. Real predictions.
   SurrogateBackend  transparent physchem heuristics. NOT a trained model.
 
-The surrogate exists so that the agent loop, the edit engine and the
-frontend can be built and demoed before (or without) the inherited models.
 Every score record says which backend produced it, and the frontend prints
-that label. This matters: a surrogate number wearing an "0.92 ROC-AUC" claim
-in front of judges is the one failure mode of this build that is dishonest
-rather than merely broken.
+that label. A surrogate number wearing an "0.92 ROC-AUC" claim in front of
+judges is the one failure mode of this build that is dishonest rather than
+merely broken.
 
-Featurization for the XGBoost path, per the inherited repo:
-    2048-bit Morgan fingerprint (radius 2) ++ six descriptors in order
-    [MW, LogP, HBD, HBA, RotatableBonds, TPSA]
-If the saved models disagree with this, do not reimplement it here -- point
-ADMET_FEATURIZER at the inherited repo's own function (see `featurize`).
+FEATURIZATION -- mirrored from the source repo's `app.py:featurize_one`
+(tuhinc5203/admet-property-prediction), which is itself lifted from
+`Model_Improvement.ipynb`:
+
+  1. strip salts by keeping the largest fragment
+  2. 2048-bit Morgan fingerprint, radius 2, as bits (not counts)
+  3. six RDKit descriptors in THIS ORDER:
+         MolWt, MolLogP, TPSA, NumHDonors, NumHAcceptors, NumRotatableBonds
+  4. assembled into a pandas DataFrame with columns fp_0..fp_2047 then the
+     six descriptor names
+
+Step 3's order is not the obvious one -- TPSA sits third, not last -- and step 4
+is what makes a mistake survivable. The saved estimators carry
+`feature_names_in_`, so a DataFrame with wrong column names raises. A bare
+numpy array of the right width does not: it would be silently scored against
+mismatched columns and every number downstream would be void. That is why this
+builds a named DataFrame and why `scripts/verify_models.py` diffs this function
+against the source repo's own.
 """
 
 from __future__ import annotations
@@ -31,32 +42,49 @@ MODELS_DIR = Path(os.environ.get("ADMET_MODELS_DIR", "models"))
 
 MORGAN_RADIUS = 2
 MORGAN_BITS = 2048
-DESCRIPTOR_ORDER = ("MolWt", "MolLogP", "NumHDonors", "NumHAcceptors",
-                    "NumRotatableBonds", "TPSA")
 
-# Filenames tried per task, in order. Extend rather than rename the models.
+# Order is load-bearing. See the module docstring.
+DESCRIPTOR_ORDER = ("MolWt", "MolLogP", "TPSA", "NumHDonors", "NumHAcceptors",
+                    "NumRotatableBonds")
+
+FEATURE_NAMES = [f"fp_{i}" for i in range(MORGAN_BITS)] + list(DESCRIPTOR_ORDER)
+
+# Filenames as the source repo saves them, plus a couple of tolerated aliases.
 _MODEL_FILES = {
-    "solubility": ("solubility.json", "solubility_xgb.json", "solubility.pkl",
-                   "esol.json", "aqsol.json"),
-    "bbb": ("bbb.json", "bbb_xgb.json", "bbb.pkl", "bbb_martins.json"),
-    "herg": ("herg.json", "herg_xgb.json", "herg.pkl"),
+    "solubility": ("solubility_xgb.pkl", "solubility.pkl", "solubility.json"),
+    "bbb": ("bbb_xgb.pkl", "bbb.pkl", "bbb.json"),
+    "herg": ("herg_xgb.pkl", "herg.pkl", "herg.json"),
 }
 
+# Reported by the source repo's README, on TDC scaffold splits.
+SOURCE_METRICS = {
+    "solubility": {"task": "regression", "metric": "MAE", "value": 0.899,
+                   "tdc_sota": 0.741},
+    "bbb": {"task": "classification", "metric": "ROC-AUC", "value": 0.920,
+            "tdc_sota": 0.916},
+    "herg": {"task": "classification", "metric": "ROC-AUC", "value": 0.856,
+             "tdc_sota": 0.880},
+}
 
-def _descriptors(mol) -> list[float]:
-    from rdkit.Chem import Descriptors
+_REGRESSION_TASKS = {"solubility"}
 
-    return [float(getattr(Descriptors, name)(mol)) for name in DESCRIPTOR_ORDER]
+
+def largest_fragment(mol):
+    """Keep the biggest fragment, dropping salts and counter-ions."""
+    from rdkit import Chem
+
+    frags = Chem.GetMolFrags(mol, asMols=True)
+    if len(frags) == 1:
+        return mol
+    return max(frags, key=lambda m: m.GetNumHeavyAtoms())
 
 
 def featurize(smiles: str):
-    """2048-bit Morgan(r=2) fingerprint concatenated with six descriptors.
+    """Named 1x2054 DataFrame, matching the source repo's pipeline exactly.
 
-    Set ADMET_FEATURIZER="package.module:function" to delegate to the
-    inherited repo's own featurization instead. That override is the
-    documented fix when verification against the source notebook fails:
-    a feature vector that is merely *plausible* returns numbers that mean
-    nothing, and nothing crashes to tell you.
+    Set ADMET_FEATURIZER="package.module:function" to delegate to the source
+    repo's own function instead -- the documented fix if `verify_models.py`
+    ever reports a divergence.
     """
     override = os.environ.get("ADMET_FEATURIZER")
     if override:
@@ -65,19 +93,26 @@ def featurize(smiles: str):
         return func(smiles)
 
     import numpy as np
+    import pandas as pd
     from rdkit import Chem
-    from rdkit.Chem import rdFingerprintGenerator
+    from rdkit.Chem import AllChem, Descriptors
+    from rdkit.DataStructs import ConvertToNumpyArray
 
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         raise ValueError(f"invalid SMILES: {smiles!r}")
+    mol = largest_fragment(mol)
 
-    gen = rdFingerprintGenerator.GetMorganGenerator(
-        radius=MORGAN_RADIUS, fpSize=MORGAN_BITS
+    fp = AllChem.GetMorganFingerprintAsBitVect(
+        mol, radius=MORGAN_RADIUS, nBits=MORGAN_BITS
     )
-    fp = np.asarray(gen.GetFingerprintAsNumPy(mol), dtype=np.float32)
-    desc = np.asarray(_descriptors(mol), dtype=np.float32)
-    return np.concatenate([fp, desc]).reshape(1, -1)
+    bits = np.zeros((MORGAN_BITS,), dtype=int)
+    ConvertToNumpyArray(fp, bits)
+
+    row = {f"fp_{i}": int(bit) for i, bit in enumerate(bits)}
+    for name in DESCRIPTOR_ORDER:
+        row[name] = float(getattr(Descriptors, name)(mol))
+    return pd.DataFrame([row], columns=FEATURE_NAMES)
 
 
 class SurrogateBackend:
@@ -91,6 +126,7 @@ class SurrogateBackend:
 
     name = "surrogate"
     is_surrogate = True
+    metrics: dict = {}
 
     def _props(self, smiles: str) -> dict:
         from rdkit import Chem
@@ -150,9 +186,8 @@ class SurrogateBackend:
 class XGBoostBackend:
     """The inherited XGBoost models, loaded from `models/`.
 
-    Constructing this raises if the three models are not all loadable, so a
-    half-wired backend can never silently serve surrogate numbers alongside
-    real ones.
+    Constructing this raises unless all three load, so a half-wired backend can
+    never serve surrogate numbers alongside real ones.
     """
 
     name = "xgboost"
@@ -161,47 +196,40 @@ class XGBoostBackend:
     def __init__(self, models_dir: Path = MODELS_DIR):
         self.models_dir = Path(models_dir)
         self._models = {task: self._load(task) for task in _MODEL_FILES}
-        meta_path = self.models_dir / "metrics.json"
-        self.metrics = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+        self.metrics = dict(SOURCE_METRICS)
+        override = self.models_dir / "metrics.json"
+        if override.exists():
+            self.metrics.update(json.loads(override.read_text()))
 
     def _load(self, task: str):
+        import joblib
+
         for filename in _MODEL_FILES[task]:
             path = self.models_dir / filename
-            if not path.exists():
-                continue
-            if path.suffix == ".json":
-                import xgboost as xgb
-
-                booster = xgb.Booster()
-                booster.load_model(str(path))
-                return ("booster", booster)
-            import pickle
-
-            with path.open("rb") as handle:
-                return ("sklearn", pickle.load(handle))
+            if path.exists():
+                return joblib.load(path)
         raise FileNotFoundError(
             f"no model for {task!r} in {self.models_dir} "
             f"(looked for {', '.join(_MODEL_FILES[task])})"
         )
 
     def _predict(self, task: str, smiles: str) -> float:
-        kind, model = self._models[task]
+        model = self._models[task]
         features = featurize(smiles)
-        if kind == "booster":
-            import xgboost as xgb
-
-            return float(model.predict(xgb.DMatrix(features))[0])
-        if task == "solubility":  # regression
+        if task in _REGRESSION_TASKS:
             return float(model.predict(features)[0])
         return float(model.predict_proba(features)[0][1])
 
     def solubility(self, smiles: str) -> float:
+        """Predicted logS (log mol/L). Source MAE 0.899 on a TDC scaffold split."""
         return self._predict("solubility", smiles)
 
     def bbb(self, smiles: str) -> float:
+        """P(BBB penetrant). Source ROC-AUC 0.920."""
         return self._predict("bbb", smiles)
 
     def herg(self, smiles: str) -> float:
+        """P(hERG blockade). Source ROC-AUC 0.856."""
         return self._predict("herg", smiles)
 
 
