@@ -1,0 +1,16 @@
+# Core. Everything below the blank line is optional.
+rdkit>=2023.9
+numpy>=1.24
+matplotlib>=3.7
+streamlit>=1.30
+pytest>=7.4
+
+# Optional. Absent -> the loop degrades to documented fallbacks:
+#   PyTDC     -> affinity falls back to similarity against a DRD2 ligand panel.
+#                Note the DRD2 oracle downloads a pickle from dataverse.harvard.edu
+#                on first use; that host must be reachable. Warm it before demoing.
+#   xgboost   -> ADMET falls back to the labelled physchem surrogate.
+#   anthropic -> agents fall back to deterministic verdicts, edits to mutations.
+# PyTDC>=0.4.1
+# xgboost>=2.0
+# anthropic>=0.40

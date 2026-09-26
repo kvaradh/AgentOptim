@@ -1,0 +1,103 @@
+{
+  "_comment": "Five real molecules in the exact format core.contract.score() returns, for building the frontend and the agent prompts before the oracles are wired. Generated with the SURROGATE backend: directionally sane, not calibrated. Regenerate with scripts/make_fixtures.py once the inherited models are in place.",
+  "provenance": {
+    "affinity": "surrogate-similarity",
+    "solubility": "surrogate",
+    "bbb": "surrogate",
+    "herg": "surrogate",
+    "sa": "rdkit-sascorer",
+    "any_surrogate": true
+  },
+  "molecules": [
+    {
+      "name": "haloperidol",
+      "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+      "raw": {
+        "affinity": 1.0,
+        "solubility": -6.0425,
+        "bbb": 0.8771,
+        "herg": 0.6033,
+        "sa": 2.1227
+      },
+      "normalised": {
+        "affinity": 1.0,
+        "solubility": 0.2447,
+        "bbb": 0.8771,
+        "herg": 0.3967,
+        "sa": 0.8753
+      }
+    },
+    {
+      "name": "risperidone",
+      "smiles": "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(F)ccc34)CC1)CCCC2",
+      "raw": {
+        "affinity": 1.0,
+        "solubility": -6.603,
+        "bbb": 0.7478,
+        "herg": 0.4462,
+        "sa": 2.7362
+      },
+      "normalised": {
+        "affinity": 1.0,
+        "solubility": 0.1746,
+        "bbb": 0.7478,
+        "herg": 0.5538,
+        "sa": 0.8071
+      }
+    },
+    {
+      "name": "chlorpromazine",
+      "smiles": "CN(C)CCCN1c2ccccc2Sc2ccc(Cl)cc21",
+      "raw": {
+        "affinity": 0.2889,
+        "solubility": -6.1165,
+        "bbb": 0.9795,
+        "herg": 0.8619,
+        "sa": 2.1402
+      },
+      "normalised": {
+        "affinity": 0.2889,
+        "solubility": 0.2354,
+        "bbb": 0.9795,
+        "herg": 0.1381,
+        "sa": 0.8733
+      }
+    },
+    {
+      "name": "aripiprazole",
+      "smiles": "O=C1CCc2cc(OCCCCN3CCN(c4c(Cl)cccc4Cl)CC3)ccc2N1",
+      "raw": {
+        "affinity": 0.2812,
+        "solubility": -6.6994,
+        "bbb": 0.8654,
+        "herg": 0.8695,
+        "sa": 2.3478
+      },
+      "normalised": {
+        "affinity": 0.2812,
+        "solubility": 0.1626,
+        "bbb": 0.8654,
+        "herg": 0.1305,
+        "sa": 0.8502
+      }
+    },
+    {
+      "name": "caffeine",
+      "smiles": "Cn1c(=O)c2c(ncn2C)n(C)c1=O",
+      "raw": {
+        "affinity": 0.1009,
+        "solubility": -1.8755,
+        "bbb": 0.2092,
+        "herg": 0.007,
+        "sa": 2.298
+      },
+      "normalised": {
+        "affinity": 0.1009,
+        "solubility": 0.7656,
+        "bbb": 0.2092,
+        "herg": 0.993,
+        "sa": 0.8558
+      }
+    }
+  ]
+}
