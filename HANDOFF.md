@@ -128,6 +128,109 @@ liable, so the question is not whether 0.865 is acceptable but whether the
 analogue makes an already-known liability worse.* That reasoning produced
 finding 2.2. No column in the score table could have.
 
+### 3.1 Finding 2.4 is a theorem, not a bug
+
+Given that (i) all agents observe the same score matrix `S`, (ii) each emits an
+argmax over one column of `S`, and (iii) the orchestrator computes `w·S`, the
+decision is measurable with respect to `S` and the agents' text is
+conditionally independent of it. Bit-identical output is forced, not surprising.
+
+The generalisation that should drive every design choice: **an agent earns its
+place only if removing it changes either (a) the set of molecules evaluated, or
+(b) a decision input not derivable from the scores.**
+
+Supporting literature (see the caveat in §3.3):
+- *Debate or Vote* (arXiv 2508.17536) proves debate induces a **martingale** over
+  agents' belief trajectories, so debate alone cannot improve expected
+  correctness; majority voting accounts for most reported gains across 7
+  benchmarks.
+- *Why Do Multi-Agent LLM Systems Fail?* (arXiv 2503.13657), 1,600+ traces:
+  44.2% of failures are system-design, 32.3% inter-agent misalignment. Not
+  fixable by prompt tweaks.
+- Single-agent matches or beats multi-agent once **thinking tokens are
+  normalised** (arXiv 2604.02460). Most published MAS wins are unnormalised
+  test-time compute.
+- *LLMs Cannot Self-Correct Reasoning Yet* (arXiv 2310.01798): intrinsic
+  self-critique *degrades* accuracy. A critic agent is expected-negative unless
+  its critique is a **tool output**, not its own judgement.
+- **Personas do not work.** arXiv 2311.10054 (162 personas × 4 model families ×
+  2,410 questions): no improvement. Wharton GAIL replication found nine
+  statistically significant *negative* effects. "You are a world-class cardiac
+  safety expert" buys register, not judgement. Keep one line for readable
+  output; never report it as specialisation.
+
+The pattern across systems where multi-agent structure *is* demonstrably
+load-bearing: they give agents **different tools or different data**. MT-Mol
+(arXiv 2505.20820) partitions 154 RDKit/PubChem tools across five analyst
+agents and ablates properly — removing analysts drops albuterol_similarity AUC
+0.998→0.750. MultiMol (arXiv 2503.03503) splits a fine-tuned generator from a
+literature-retrieval agent. MOLLEO (arXiv 2406.16976) uses the LLM as a genetic
+operator with **no deliberation at all** — the cleanest evidence that LLM value
+here comes from *proposal*, not *argument*.
+
+### 3.2 The genuine conflict in this target — and it is not in any score column
+
+For haloperidol/DRD2, **the DRD2 pharmacophore and the hERG pharmacophore are
+nearly the same pharmacophore.** This is the substantive argument the agents
+should be having:
+
+- **DRD2** needs a **protonated basic nitrogen** salt-bridging **Asp114 (3.32)**
+  in TM3, plus lipophilic aryls. Haloperidol binds unusually deep, in an
+  extended pocket formed by TM3/TM5/TM6 that accommodates the butyrophenone —
+  that 4-fluorophenyl ketone is the **subtype-selectivity element**, not
+  decoration (DRD2–haloperidol structure, Nat Commun 2020).
+- **hERG** blockade needs a **protonated basic nitrogen** making a cation–π with
+  **Tyr652**, plus three hydrophobic/aromatic centroids contacting **Phe656**.
+  Risk rises jointly with logP and amine pKa.
+- **CNS MPO** (Wager et al. 2010) wants **HBD → 0** and **most-basic pKa ≤ 8**,
+  with clogP ≤ 3, MW ≤ 360, TPSA 40–90 Å². Threshold for desirability is ≥ 4.
+
+So: DRD2 wants the basic amine. hERG wants it gone. hERG mitigation wants added
+polarity and hydroxyls — which CNS MPO penalises as HBDs. Three
+literature-backed positions, genuinely mutually incompatible.
+
+Two facts your agents should state on turn one:
+- **Haloperidol fails CNS MPO on MW (375.9), clogP (~4) and pKa (~8.3)
+  simultaneously.** The seed is a mediocre CNS compound.
+- **Haloperidol is a clinically flagged hERG blocker** (Suessbrich, Br J
+  Pharmacol 1997, IC50 ≈ 1 µM in oocytes — mammalian values lower; QT warnings
+  on label). Your seed molecule *is* the liability. That is the project.
+
+**The resolution, which no score table contains:** the basic nitrogen is not
+strictly required for D2 antagonism. Non-basic D2 antagonists exist and have
+been purpose-built (Molecules 2023, 28, 4211; CoMFA/MD studies of D2 antagonists
+without a protonatable nitrogen). An affinity agent that knows this can say
+something an argmax never will. **That is the demo.**
+
+hERG mitigations in the order a chemist would try them: lower clogP; lower amine
+pKa (β/γ-fluorination, insert ether O, piperidine→morpholine, ring contraction,
+the 5-amino-1,3-dioxanyl motif); add polarity/OH; **zwitterion** (append an acid
+to kill the net cation Tyr652 needs); restrict conformation; replace the amine
+outright (e.g. hydroxylamine isosteres).
+
+### 3.3 Verification caveat on §3.1–3.2
+
+These findings come from a literature search whose agent **could not fetch the
+PDFs** — publisher and preprint domains were blocked by its egress policy. Links
+and claims are from search-index summaries, not first-hand reads. The structural
+biology and CNS MPO parameters are standard and low-risk. **The quantitative
+claims from individual papers are second-hand — verify against the PDF before
+putting any of them in a writeup or on a slide.** Treat MultiMol's 82.3% vs
+27.5% and PharmAgents' 15.7%→37.9% as unverified.
+
+### 3.4 Your real baseline is Graph-GA, not "one LLM"
+
+PMO (arXiv 2206.12411), 25 algorithms × 23 tasks: most "SOTA" molecular
+optimisers fail to beat their predecessors under sample-efficiency constraints,
+and **Graph-GA beats more recent methods**. Expect your agent system to lose to
+Graph-GA plus your oracles. Report it if it does.
+
+Also: the TDC DRD2 oracle is an ECFP6 Gaussian-kernel SVM (Olivecrona 2017,
+ExCAPE-DB). Goal-directed benchmarks on it reward synthetically unrealistic
+structures and its out-of-distribution behaviour is poor. Three agents arguing
+about that SVM's extrapolations are arguing about its artifacts. Naming this in
+the writeup is a strength.
+
 ---
 
 ## 4. Setup
@@ -188,30 +291,47 @@ fraction of LLM calls succeeded vs. fell back.
 
 ---
 
-### W1 — Give each specialist private domain knowledge *(parallel)*
+### W1 — Information asymmetry + private fact-emitting tools *(parallel)*
 
-**Goal:** create the information asymmetry that makes argument possible. Each
-agent gets a tool the others do not have.
+Ordered by value-per-hour. W1a alone kills the original critique.
 
-Build `core/knowledge.py`:
+**W1a — Mask the score table per agent (~20 min, best ratio in the project).**
+Each agent sees SMILES + **only its own columns**. One dict comprehension in
+`core/agents.py`. Immediately the safety agent's veto carries information the
+affinity agent provably lacks, so the orchestrator performs aggregation rather
+than arithmetic. This is the iAgents (NeurIPS 2024) setting: collaboration is
+necessary precisely when each agent accesses only part of the information.
 
-- **hERG agent:** structural alerts for the classic pharmacophore (basic amine +
-  lipophilic aromatic at the characteristic distance), computed basicity/pKa
-  proxy, and mitigation strategies (reduce basicity, add polarity, zwitterion).
-  Implement as RDKit SMARTS matches, not prose.
-- **ADME agent:** CNS MPO score (Wager et al.), P-gp efflux liability proxy,
-  and the solubility/BBB tension made explicit.
-- **Affinity agent:** DRD2 pharmacophore requirements — which features cannot be
-  removed without losing binding.
+**W1b — One private tool per agent, emitting hard facts (~45 min).**
+Build `core/knowledge.py`. Each tool must emit a **fact the agent only has to
+report**, never something it must reason *through* — ChemToolAgent (arXiv
+2411.07228) found tool-augmented agents underperform their own base LLM when
+the agent has to reason through tool output.
 
-Each specialist's prompt then carries findings from **its own tool only**. The
-orchestrator sees the conclusions, not the tools.
+- **Safety:** `rdkit.Chem.rdfiltercatalog.FilterCatalog` with BRENK + PAINS +
+  NIH → alert names; basic-amine detection; crude pKa/logP hERG risk flag.
+- **ADME:** CNS MPO — six desirability functions, five are one-line RDKit
+  descriptors; approximate pKa from amine class. Report the 0–6 score and which
+  parameters fail.
+- **Affinity:** pharmacophore preservation — Murcko scaffold, basic N present?,
+  aromatic ring count, ECFP4 Tanimoto to haloperidol.
+
+Do **not** hard-code an N⁺-to-aromatic-centroid distance: it varies up to ~7.2 Å
+across D2 antagonists.
+
+**W1c — MMP transformation few-shots for the safety agent (~45 min).**
+~20–25 hERG-mitigation transformations from §3.2, written as reaction SMARTS the
+existing engine already accepts (piperidine→morpholine, β-fluorination of the
+amine, append CH₂COOH for zwitterion, insert ether O in the linker, aryl→
+heteroaryl). This is literature expertise **as executable edits** — the only
+form of domain knowledge that can change a molecule. Scale later with `mmpdb`.
 
 **Done when:** each agent's prompt contains at least one fact about the specific
-candidate that is not in the five-number score table, and you can show a case
-where two agents disagree about a molecule *on substance*, not just argmax.
+candidate absent from the five-number table, and you can show two agents
+disagreeing **on substance** — ideally the §3.2 conflict, where ADME wants HBD→0
+and safety wants the hydroxyls and acid that mitigate hERG.
 
-**Files:** new `core/knowledge.py`, prompts in `core/agents.py`
+**Files:** new `core/knowledge.py`, `core/agents.py`, `core/edits.py`
 
 ---
 
@@ -220,17 +340,28 @@ where two agents disagree about a molecule *on substance*, not just argmax.
 **Goal:** fix finding 2.4. The orchestrator must reconcile conflicting
 assessments rather than take an argmax.
 
-Candidate mechanisms, in rough order of value:
+Mechanisms, in measured order of value:
 
-1. **Agents propose chemistry, not just rankings.** A safety agent that knows
-   hERG SAR suggests reducing piperidine basicity or adding an acid to form a
-   zwitterion. The 19 fixed transforms cannot invent those. Route agent
-   proposals into `edits.propose()`.
-2. **Agents report applicability-domain confidence.** "This molecule is outside
+1. **Turn agents from voters into proposers (~45 min). Highest value, full
+   stop.** Give each specialist the mutation engine and its own objective; each
+   proposes *k* edits to the current lead; the union is the batch. This alone
+   makes the ablation come out differently — delete the ADME agent and the
+   candidate set *provably* changes. Precedent: MOLLEO uses the LLM as a genetic
+   operator with no deliberation and still beats EA/RL/BO baselines, which is
+   the evidence that proposal, not argument, is where LLM value lives here.
+2. **Replace the weighted sum with Pareto + hard vetoes (~30 min).**
+   Non-dominated filter, then per-agent veto with a **machine-checkable reason**
+   (BRENK/PAINS hit, CNS MPO < 4, basic nitrogen lost, ECFP4 similarity to
+   haloperidol < 0.4), then tie-break. Once a veto is a boolean derived from a
+   substructure match, **the orchestrator's output is no longer a function of
+   the score matrix and the original critique stops applying on its own terms.**
+   Bonus: a weighted sum can only reach Pareto-optimal points on **convex**
+   regions of the front — non-convex regions are unreachable by *any* fixed
+   weight vector. If you keep it scalar, use the **geometric mean**, which
+   penalises any single bad axis.
+3. **Agents report applicability-domain confidence.** "This molecule is outside
    my model's training distribution" is information the bare probability hides,
    and it makes the team's honesty point mechanical rather than spoken.
-3. **Orchestrator reconciles rather than sums.** Weights set by the strength of
-   argument, or an explicit conflict-resolution step.
 
 **Acceptance test — this is the whole point:** re-run
 `scripts/ablation.py`. The `specialists` arm must now differ measurably from
@@ -288,10 +419,28 @@ python -m scripts.ablation --seeds 12 --rounds 5
 
 Re-measure: the 3-arm comparison, the four `FEEDBACK_RULE` values, how often the
 veto removes the top candidate (was 0/20), and survivors-per-filter-stage
-(was 6 → 5.6 → 1.4).
+(was 6 -> 5.6 -> 1.4).
 
-**Methodological note:** use ≥12 seeds. A single-seed win on a stochastic search
-is not a result. Keep the three ablation arms sharing identical oracles.
+**Add a fourth arm, and it is the important one.** Run:
+
+  (a) weighted sum only, no agents
+  (b) **one agent with ALL the tools**   <- nobody in the literature runs this
+  (c) multi-agent, shared table
+  (d) multi-agent, asymmetric + proposing
+
+Arm (b) is the one a reviewer will ask for and the one the field under-runs. If
+(b) beats (d), say so — that result is more valuable than a demo that hides it.
+
+**Normalise by tokens, or you reproduce the field's central confound.** Anthropic's
+own multi-agent system uses ~15x the tokens and token usage explains ~80% of its
+performance variance; the equal-token study (arXiv 2604.02460) finds single-agent
+matches or beats multi-agent once compute is held equal. An unnormalised
+MAS-vs-single comparison is not a comparison.
+
+**Also baseline against Graph-GA** (see 3.4). It is the honest thing to beat.
+
+**Methodological note:** use >=12 seeds. A single-seed win on a stochastic search
+is not a result. Keep every ablation arm sharing identical oracles.
 
 ---
 
