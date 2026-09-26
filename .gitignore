@@ -5,3 +5,7 @@ __pycache__/
 figures/
 models/*.json
 models/*.pkl
+
+# PyTDC drops its downloaded oracle cache in the working directory (~35MB).
+# It is a build artifact: re-downloaded on demand, never committed.
+oracle/

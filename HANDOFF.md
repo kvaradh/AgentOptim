@@ -33,11 +33,21 @@ Working, tested, offline:
   measurement in this repo and in the README came from `AGENT_LLM=off`, i.e.
   three deterministic functions emitting template strings. **Your first job is
   to run this path and fix what breaks.**
-- **Affinity is a surrogate.** `SimilarityAffinityOracle` — max Tanimoto to a
-  six-ligand panel. PyTDC's DRD2 oracle downloads from `dataverse.harvard.edu`,
-  which the previous environment blocked. You can reach it. Wire it in.
-- **All ablation numbers predate the real ADMET models.** Re-measure everything
-  before quoting any of it.
+- ~~**Affinity is a surrogate.**~~ **RESOLVED 2026-09-26.** The network policy
+  was widened, PyTDC's DRD2 oracle downloaded, and `provenance()` now reports
+  `any_surrogate: False` — every axis is a trained model. See §2.5 for what
+  that changed.
+- **All ablation numbers predate the real oracles.** Re-measure everything
+  before quoting any of it. See §2.5 — the affinity surrogate was not merely
+  imprecise, it was wrong about real actives, so every affinity-dependent
+  measurement is void.
+
+- **PyTDC will not install into the system Python here** (Debian-managed
+  setuptools blocks it). It lives in a venv at `/tmp/tdcenv`, created with
+  `--system-site-packages` so it sees everything else. Real-oracle runs use
+  `/tmp/tdcenv/bin/python -m core.loop`. Note `setuptools<81` is pinned there:
+  newer setuptools drops `pkg_resources`, which `tdc.metadata` imports. On a
+  clean conda env from `environment.yml` none of this applies.
 
 ---
 
@@ -76,6 +86,29 @@ the lead is clean, **relative to the incumbent** once the lead is already
 liable. 7 of those 14 analogues are safer than the parent and 7 are worse, so
 the veto discriminates within the series. Keep this behaviour; there is a
 regression test for it.
+
+### 2.5 The real oracles landed, and they invalidate the old numbers
+
+Measured with TDC's DRD2 oracle on 2026-09-26:
+
+| molecule | DRD2 | similarity surrogate said |
+|---|---|---|
+| haloperidol (seed) | **1.0000** | 1.00 |
+| risperidone | 0.9826 | 1.00 |
+| chlorpromazine | **0.8706** | **0.29** |
+| caffeine | 0.0029 | — |
+
+Two consequences:
+
+1. **Finding 2.3 is confirmed, not inferred.** Haloperidol scores *exactly*
+   1.0000. The affinity axis has no headroom above the seed, as a measurement
+   rather than an argument about what the oracle is.
+2. **The surrogate was wrong where it mattered.** It scored chlorpromazine — a
+   genuine DRD2 antagonist — at 0.29 against the real 0.87. Every
+   affinity-dependent number previously recorded (survivors per filter stage,
+   affinity-floor behaviour, the `FEEDBACK_RULE` ranking, all three ablation
+   arms) was measured against an oracle that misjudged real actives. **Treat
+   all of it as void** and re-run W5 before quoting anything.
 
 ### 2.3 The Pareto front cannot be plotted on affinity
 
