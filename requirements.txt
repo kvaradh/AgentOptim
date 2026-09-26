@@ -13,4 +13,4 @@ pytest>=7.4
 #   anthropic -> agents fall back to deterministic verdicts, edits to mutations.
 # PyTDC>=0.4.1
 # xgboost>=2.0
-# anthropic>=0.40
+anthropic>=1.0        # uncomment-free: needed the moment ANTHROPIC_API_KEY exists
